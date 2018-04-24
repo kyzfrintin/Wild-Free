@@ -8,6 +8,7 @@ _sections_unfolded = [ "Transform" ]
 
 polygon = PoolVector2Array( -2, 0, 0, 2, 2, 0, 0, -2 )
 uv = PoolVector2Array(  )
+splits = PoolIntArray(  )
 color = Color( 1, 1, 1, 1 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
