@@ -85,7 +85,8 @@ func _process(delta):
 		get_node("Timer").start()
 		laser_sound.play()
 		
-	
+	if HP < 0:
+		die()
 	
 	
 	rotation = rot

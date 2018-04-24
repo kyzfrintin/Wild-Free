@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-onready var player = get_parent().player
+var player
 onready var tween = get_node("motion")
 onready var timer = get_node("retarget")
 var home
@@ -9,11 +9,13 @@ var distance = 0.0
 var speed = 20
 var strength = 0
 var HP = 100
+var damage = 0
 
 func _ready():
 	strength = rand_range(0.5,2.8)
 	HP = HP*strength
 	scale = scale*strength
+	damage = 50*strength
 	timer.start()
 	connect("body_entered", home, "drone_hit", [self])
 		
@@ -31,3 +33,4 @@ func damage(amnt):
 
 func die():
 	queue_free()
+

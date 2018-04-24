@@ -8,27 +8,28 @@
 custom_solver_bias = 0.0
 radius = 51.2436
 
-[node name="drone" type="RigidBody2D"]
+[node name="drone" type="RigidBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 1.0
-friction = 1.0
+collision_layer = 3
+collision_mask = 3
+mode = 3
+mass = 0.000102041
+friction = 0.0
 bounce = 0.0
-gravity_scale = 1.0
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 100
+contact_monitor = true
 sleeping = false
-can_sleep = true
+can_sleep = false
 linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -43,15 +44,18 @@ texture = ExtResource( 2 )
 repeat = false
 playback_process_mode = 1
 playback_speed = 1.0
-playback/active = false
+playback/active = true
 playback/repeat = false
 playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
 
 [node name="retarget" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 1.0
-one_shot = false
+wait_time = 0.15
+one_shot = true
 autostart = false
+
+[connection signal="timeout" from="retarget" to="." method="retarget"]
 
 
