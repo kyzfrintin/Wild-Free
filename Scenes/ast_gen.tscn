@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/asteroids.gd" type="Script" id=1]
 
-[node name="ast_generator" type="Node2D"]
+[node name="ast_generator" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 number = 500
