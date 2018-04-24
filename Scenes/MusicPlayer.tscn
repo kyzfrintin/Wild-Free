@@ -1,0 +1,180 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/MusicPlayer.gd" type="Script" id=1]
+
+[sub_resource type="AudioStreamSample" id=1]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=2]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=3]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=4]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=5]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=6]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=7]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=8]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[node name="MusicPlayer" type="Node2D"]
+
+script = ExtResource( 1 )
+layer1 = SubResource( 1 )
+layer2 = SubResource( 2 )
+layer3 = SubResource( 3 )
+layer4 = SubResource( 4 )
+layer5 = SubResource( 5 )
+layer6 = SubResource( 6 )
+layer7 = SubResource( 7 )
+layer8 = SubResource( 8 )
+tempo = 0
+bars = 0
+trans_time = 4
+
+[node name="Tween" type="Tween" parent="." index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween2" type="Tween" parent="." index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween3" type="Tween" parent="." index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween4" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween5" type="Tween" parent="." index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween6" type="Tween" parent="." index="5"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween7" type="Tween" parent="." index="6"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween8" type="Tween" parent="." index="7"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+

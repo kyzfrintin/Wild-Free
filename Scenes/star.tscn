@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="Sprite" type="Node2D"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+polygon = PoolVector2Array( -2, 0, 0, 2, 2, 0, 0, -2 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = true
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+

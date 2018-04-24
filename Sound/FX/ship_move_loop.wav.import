@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ship_move_loop.wav-f4eab62446f01a86218de4f631be864a.sample"
+
+[deps]
+
+source_file="res://Sound/FX/ship_move_loop.wav"
+dest_files=[ "res://.import/ship_move_loop.wav-f4eab62446f01a86218de4f631be864a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
