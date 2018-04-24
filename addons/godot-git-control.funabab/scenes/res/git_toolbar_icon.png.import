@@ -7,7 +7,10 @@ path="res://.import/git_toolbar_icon.png-5b363365a37a52a0dbce2e357353b701.stex"
 [deps]
 
 source_file="res://addons/godot-git-control.funabab/scenes/res/git_toolbar_icon.png"
+source_md5="d413a9189335e6f721e1b57b4dd4538e"
+
 dest_files=[ "res://.import/git_toolbar_icon.png-5b363365a37a52a0dbce2e357353b701.stex" ]
+dest_md5="181d1a31c133285b257167ab312fa89b"
 
 [params]
 

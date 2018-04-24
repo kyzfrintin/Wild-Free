@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Characters/playerShip2_red.png" type="Texture" id=2]
@@ -133,7 +133,22 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
 
-[node name="player" type="KinematicBody2D" index="0"]
+[sub_resource type="AudioStreamRandomPitch" id=5]
+
+audio_stream = ExtResource( 3 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+
+audio_stream = ExtResource( 6 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+
+audio_stream = ExtResource( 7 )
+random_pitch = 1.1
+
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -257,9 +272,8 @@ collision_mask = 1
 
 [node name="thrust_off" type="AudioStreamPlayer" parent="sounds" index="0"]
 
-stream = ExtResource( 3 )
+stream = SubResource( 5 )
 volume_db = -10.0
-pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
@@ -268,7 +282,6 @@ bus = "Master"
 
 stream = ExtResource( 4 )
 volume_db = -12.0
-pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
@@ -277,25 +290,22 @@ bus = "Master"
 
 stream = ExtResource( 5 )
 volume_db = -10.0
-pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
 [node name="boost" type="AudioStreamPlayer" parent="sounds" index="3"]
 
-stream = ExtResource( 6 )
+stream = SubResource( 6 )
 volume_db = -5.0
-pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
 [node name="laser" type="AudioStreamPlayer" parent="sounds" index="4"]
 
-stream = ExtResource( 7 )
+stream = SubResource( 7 )
 volume_db = -10.0
-pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"

@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var nest_res = preload("res://Scenes/drone_fabricary.tscn")
+onready var nest_res = preload("res://Scenes/drone_factory.tscn")
 export var Max_Nests = 0
 var player 
 var drones = 0
