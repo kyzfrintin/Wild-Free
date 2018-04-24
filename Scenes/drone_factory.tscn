@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/drone_creator.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Mechanisms/turretBase_big.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Mechanisms/engine2.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Mechanisms/gun04.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Mechanisms/engine1.png" type="Texture" id=5]
 
-[node name="drone_factory" type="Node2D"]
+[node name="drone_factory" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 spawn_range = 30
@@ -16,11 +19,75 @@ wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="bot_base" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 5, 5 )
+scale = Vector2( 9, 9 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="greeb1" type="Sprite" parent="bot_base" index="0"]
+
+position = Vector2( 15.1667, 6.62957e-07 )
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="greeb3" type="Sprite" parent="bot_base" index="1"]
+
+position = Vector2( -17.1111, 1.26278e-07 )
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="greeb2" type="Sprite" parent="bot_base" index="2"]
+
+position = Vector2( -17.1111, 1.26278e-07 )
+rotation = 1.5708
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="mid" type="Sprite" parent="." index="2"]
+
+scale = Vector2( 7, 7 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_base" type="Node2D" parent="." index="3"]
+
+[node name="greeb4" type="Sprite" parent="top_base" index="0"]
+
+position = Vector2( 0, -60 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="greeb5" type="Sprite" parent="top_base" index="1"]
+
+position = Vector2( 0, 60 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="greeb6" type="Sprite" parent="top_base" index="2"]
+
+position = Vector2( -60, 0 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="greeb7" type="Sprite" parent="top_base" index="3"]
+
+position = Vector2( 60, 0 )
+rotation = 1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [connection signal="timeout" from="spawner" to="." method="on_spawn"]
 

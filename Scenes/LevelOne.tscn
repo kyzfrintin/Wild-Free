@@ -141,6 +141,6 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="drone_nests" type="Node2D" parent="." index="4"]
 
 script = ExtResource( 6 )
-Max_Nests = 50
+Max_Nests = 16
 
 

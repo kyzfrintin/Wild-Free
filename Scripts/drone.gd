@@ -6,7 +6,7 @@ onready var timer = get_node("retarget")
 var home
 
 var distance = 0.0
-var speed = 20
+var speed = 15
 var strength = 0
 var HP = 100
 var damage = 0
@@ -21,7 +21,7 @@ func _ready():
 		
 func retarget():
 	distance = position.distance_to(player.pos)
-	if distance > 5:
+	if distance > 1:
 		tween.interpolate_property(self, 'position', position, player.pos, (distance/100)/speed, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		tween.start()
 	else:

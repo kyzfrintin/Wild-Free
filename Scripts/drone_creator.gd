@@ -5,7 +5,12 @@ onready var drone_res = preload("res://Scenes/enem_drone.tscn")
 export var spawn_range = 0
 export var max_drones = 0
 onready var player = get_parent().player
+var rot1 = rand_range(0.6,1.3)
+var rot2 = rand_range(0.6,1.3)
 
+func _process(delta):
+	get_node("bot_base").rotation += 0.01*rot1
+	get_node("top_base").rotation += 0.001*rot2
 
 func _ready():
 	spawner.start()
@@ -32,4 +37,6 @@ func drone_hit(body, drone):
 		print("pew")
 		body.queue_free()
 		drone.damage(50*rand_range(0.8, 2.5))
+		if drone.HP < 0:
+			drone.die()
 	
