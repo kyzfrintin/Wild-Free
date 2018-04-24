@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/drone_creator.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Mechanisms/turretBase_big.png" type="Texture" id=2]
@@ -6,10 +6,61 @@
 [ext_resource path="res://Textures/Mechanisms/gun04.png" type="Texture" id=4]
 [ext_resource path="res://Textures/Mechanisms/engine1.png" type="Texture" id=5]
 
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 0.132813, 0.116211, 0.116211, 1, 0.234375, 0.224304, 0.224304, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 2
+emission_box_extents = Vector3( 5, 1, 1 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 12.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 40.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Scale" ]
+
 [node name="drone_factory" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-spawn_range = 30
+spawn_range = 100
 max_drones = 10
 
 [node name="spawner" type="Timer" parent="." index="0"]
@@ -25,7 +76,33 @@ scale = Vector2( 9, 9 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="greeb1" type="Sprite" parent="bot_base" index="0"]
+[node name="Particles2D" type="Particles2D" parent="bot_base" index="0"]
+
+modulate = Color( 1, 1, 1, 0.309412 )
+position = Vector2( -45.8444, -5.42483e-07 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.7 )
+emitting = true
+amount = 800
+lifetime = 6.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 0.3
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 3 )
+texture = null
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Transform", "Visibility" ]
+
+[node name="greeb1" type="Sprite" parent="bot_base" index="1"]
 
 position = Vector2( 15.1667, 6.62957e-07 )
 rotation = 1.5708
@@ -33,15 +110,15 @@ scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="greeb3" type="Sprite" parent="bot_base" index="1"]
+[node name="greeb3" type="Sprite" parent="bot_base" index="2"]
 
-position = Vector2( -17.1111, 1.26278e-07 )
+position = Vector2( -30, 0 )
 rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="greeb2" type="Sprite" parent="bot_base" index="2"]
+[node name="greeb2" type="Sprite" parent="bot_base" index="3"]
 
 position = Vector2( -17.1111, 1.26278e-07 )
 rotation = 1.5708
