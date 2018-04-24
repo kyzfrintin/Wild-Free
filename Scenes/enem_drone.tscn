@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 51.2436
 
-[node name="drone" type="RigidBody2D" index="0"]
+[node name="drone" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
