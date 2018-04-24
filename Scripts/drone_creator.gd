@@ -4,9 +4,10 @@ onready var spawner = get_node("spawner")
 onready var drone_res = preload("res://Scenes/enem_drone.tscn")
 export var spawn_range = 0
 export var max_drones = 0
-var player = get_parent()
+var player
 
 func _ready():
+	player = get_parent().get_parent().player
 	spawner.start()
 	
 

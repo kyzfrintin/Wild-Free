@@ -14,4 +14,5 @@ func _ready():
 		nest.position = Vector2(rand_range(-1920*8, 1920*8), rand_range(-1080*8, 1080*8))
 		nest.rotation = rand_range(0,360)
 		add_child(nest)
-	
+	if player != null:
+		print("hey")
