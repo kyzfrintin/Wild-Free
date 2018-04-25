@@ -148,7 +148,7 @@ random_pitch = 1.1
 audio_stream = ExtResource( 7 )
 random_pitch = 1.1
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -276,7 +276,7 @@ stream = SubResource( 5 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Ship_Move"
 
 [node name="move_loop" type="AudioStreamPlayer" parent="sounds" index="1"]
 
@@ -284,7 +284,7 @@ stream = ExtResource( 4 )
 volume_db = -12.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Ship_Move"
 
 [node name="thrust_rumble" type="AudioStreamPlayer" parent="sounds" index="2"]
 
@@ -292,7 +292,7 @@ stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Ship_Move"
 
 [node name="boost" type="AudioStreamPlayer" parent="sounds" index="3"]
 
@@ -300,7 +300,7 @@ stream = SubResource( 6 )
 volume_db = -5.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Ship_Boost"
 
 [node name="laser" type="AudioStreamPlayer" parent="sounds" index="4"]
 
@@ -308,7 +308,7 @@ stream = SubResource( 7 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "PlayerLaser"
 
 [node name="Camera2D" type="Camera2D" parent="." index="9"]
 

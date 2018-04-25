@@ -89,7 +89,7 @@ voice/3/pan = 0.0
 [sub_resource type="AudioEffectChorus" id=6]
 
 resource_name = "Chorus"
-voice_count = 2
+voice_count = 4
 dry = 1.0
 wet = 0.5
 voice/1/delay_ms = 15.0
@@ -104,6 +104,18 @@ voice/2/depth_ms = 3.0
 voice/2/level_db = 0.0
 voice/2/cutoff_hz = 8000.0
 voice/2/pan = 0.5
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 12.0
+voice/4/rate_hz = 1.0
+voice/4/depth_ms = 0.0
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
 
 [sub_resource type="AudioEffectDelay" id=7]
 
@@ -191,7 +203,7 @@ bus/3/name = "PlayerLaser"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -5.7
+bus/3/volume_db = -22.4
 bus/3/send = "Master"
 bus/3/effect/0/effect = SubResource( 6 )
 bus/3/effect/0/enabled = true
@@ -203,7 +215,7 @@ bus/4/name = "Music"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -0.2
+bus/4/volume_db = -15.9
 bus/4/send = "Master"
 bus/4/effect/0/effect = SubResource( 10 )
 bus/4/effect/0/enabled = true
