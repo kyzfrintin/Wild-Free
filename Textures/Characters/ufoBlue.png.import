@@ -7,7 +7,10 @@ path="res://.import/ufoBlue.png-e4af43b89cf7b6d3500246e0b405e4fd.stex"
 [deps]
 
 source_file="res://Textures/Characters/ufoBlue.png"
+source_md5="9649734bb0af0abe54a46c1f51156ad9"
+
 dest_files=[ "res://.import/ufoBlue.png-e4af43b89cf7b6d3500246e0b405e4fd.stex" ]
+dest_md5="83005c55b8c4c70a131fc3b8c18fd0f6"
 
 [params]
 

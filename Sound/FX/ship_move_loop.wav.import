@@ -7,7 +7,10 @@ path="res://.import/ship_move_loop.wav-f4eab62446f01a86218de4f631be864a.sample"
 [deps]
 
 source_file="res://Sound/FX/ship_move_loop.wav"
+source_md5="bdd7ac061403a93817f9a909a07ec3d6"
+
 dest_files=[ "res://.import/ship_move_loop.wav-f4eab62446f01a86218de4f631be864a.sample" ]
+dest_md5="f044dec5b69100f0383e15d59f3df9e4"
 
 [params]
 
