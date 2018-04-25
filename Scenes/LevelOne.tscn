@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Lvl1.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/star_gen.gd" type="Script" id=2]
@@ -6,6 +6,19 @@
 [ext_resource path="res://Scenes/playership.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scripts/drone_nests.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Warm_Pad.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Sparse.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Bassline.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Chords.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Light.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -15,7 +28,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -142,5 +155,23 @@ _sections_unfolded = [ "custom_fonts" ]
 
 script = ExtResource( 6 )
 Max_Nests = 16
+
+[node name="music_loop_a" parent="." index="5" instance=ExtResource( 7 )]
+
+layer1 = ExtResource( 8 )
+layer2 = ExtResource( 9 )
+layer3 = ExtResource( 10 )
+layer4 = ExtResource( 11 )
+layer5 = ExtResource( 12 )
+layer6 = ExtResource( 13 )
+layer7 = ExtResource( 14 )
+layer8 = ExtResource( 15 )
+layer9 = ExtResource( 16 )
+layer10 = ExtResource( 17 )
+layer11 = ExtResource( 18 )
+layer12 = ExtResource( 19 )
+tempo = 90
+bars = 16
+trans_time = 1
 
 

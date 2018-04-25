@@ -17,7 +17,7 @@ func _ready():
 	
 func on_spawn():
 	var number = 0
-	if get_parent().drones < 20:
+	if get_parent().drones < 50:
 		number = floor(rand_range(0, 3))
 	for i in range(number):
 		var num = floor(rand_range(0,7))
@@ -27,7 +27,9 @@ func on_spawn():
 		drone.home = self
 		drone.player = player
 		get_parent().add_child(drone)
+		get_parent().drones += 1
 	spawner.wait_time = rand_range(2,4)
+	spawner.start()
 
 func drone_hit(body, drone):
 	var hitname = body.get_name()
@@ -38,5 +40,6 @@ func drone_hit(body, drone):
 		body.queue_free()
 		drone.damage(50*rand_range(0.8, 2.5))
 		if drone.HP < 0:
+			get_parent().drones -= 1
 			drone.die()
 	

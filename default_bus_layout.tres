@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=9 format=2]
+[gd_resource type="AudioBusLayout" load_steps=11 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 
@@ -127,12 +127,35 @@ _sections_unfolded = [ "tap1", "tap2" ]
 
 resource_name = "Compressor"
 threshold = -1.0
-ratio = 4.0
+ratio = 8.0
 gain = 0.0
 attack_us = 20.0
 release_ms = 250.0
 mix = 1.0
 sidechain = ""
+
+[sub_resource type="AudioEffectCompressor" id=10]
+
+resource_name = "Compressor"
+threshold = -1.0
+ratio = 8.0
+gain = 0.0
+attack_us = 20.0
+release_ms = 250.0
+mix = 1.0
+sidechain = ""
+
+[sub_resource type="AudioEffectReverb" id=9]
+
+resource_name = "Reverb"
+predelay_msec = 150.0
+predelay_feedback = 0.4
+room_size = 0.2
+damping = 0.5
+spread = 1.0
+hipass = 0.0
+dry = 1.0
+wet = 0.2
 
 [resource]
 
@@ -168,7 +191,7 @@ bus/3/name = "PlayerLaser"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.8
+bus/3/volume_db = -5.7
 bus/3/send = "Master"
 bus/3/effect/0/effect = SubResource( 6 )
 bus/3/effect/0/enabled = true
@@ -176,4 +199,14 @@ bus/3/effect/1/effect = SubResource( 7 )
 bus/3/effect/1/enabled = true
 bus/3/effect/2/effect = SubResource( 8 )
 bus/3/effect/2/enabled = true
+bus/4/name = "Music"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -0.2
+bus/4/send = "Master"
+bus/4/effect/0/effect = SubResource( 10 )
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource( 9 )
+bus/4/effect/1/enabled = true
 

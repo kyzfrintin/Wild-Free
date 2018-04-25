@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mus_Loop_A_Drums_Heavy.wav-b02d4a857e00f417ba2f2c8ac3f5cd50.sample"
+
+[deps]
+
+source_file="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav"
+source_md5="311004cf24850b6800aa64dacc94a392"
+
+dest_files=[ "res://.import/Mus_Loop_A_Drums_Heavy.wav-b02d4a857e00f417ba2f2c8ac3f5cd50.sample" ]
+dest_md5="03a0dce39e9f7a8bad9a6a92bc0cab6f"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

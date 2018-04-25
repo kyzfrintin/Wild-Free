@@ -248,7 +248,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 0.4
+wait_time = 0.05
 one_shot = true
 autostart = false
 

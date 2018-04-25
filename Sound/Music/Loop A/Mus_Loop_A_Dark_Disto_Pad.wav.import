@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mus_Loop_A_Dark_Disto_Pad.wav-600dce2e10f273716418e4407d8b42ec.sample"
+
+[deps]
+
+source_file="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav"
+source_md5="3df762eec01a89bce81186de011fa780"
+
+dest_files=[ "res://.import/Mus_Loop_A_Dark_Disto_Pad.wav-600dce2e10f273716418e4407d8b42ec.sample" ]
+dest_md5="19c3e51463d9098453697493c3406e74"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

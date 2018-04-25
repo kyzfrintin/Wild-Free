@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mus_Loop_A_Synth_Melody_Chords.wav-9ebf6bf4d7fa162617738d8bdb2329ba.sample"
+
+[deps]
+
+source_file="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav"
+source_md5="053e498048425f89f80a151cdcd80d83"
+
+dest_files=[ "res://.import/Mus_Loop_A_Synth_Melody_Chords.wav-9ebf6bf4d7fa162617738d8bdb2329ba.sample" ]
+dest_md5="8902cc2aa525c2986a6bba40dbecb0fd"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

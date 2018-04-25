@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mus_Loop_A_Drums_Light.wav-75ac1bb8af0c55a95218c3b54b8a7710.sample"
+
+[deps]
+
+source_file="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Light.wav"
+source_md5="85a942e97936e214af7b247da2a7566b"
+
+dest_files=[ "res://.import/Mus_Loop_A_Drums_Light.wav-75ac1bb8af0c55a95218c3b54b8a7710.sample" ]
+dest_md5="9838be4e909d1ea697bc8b9869fddfae"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -8,15 +8,20 @@ export(AudioStreamSample) var layer5
 export(AudioStreamSample) var layer6
 export(AudioStreamSample) var layer7
 export(AudioStreamSample) var layer8
+export(AudioStreamSample) var layer9
+export(AudioStreamSample) var layer10
+export(AudioStreamSample) var layer11
+export(AudioStreamSample) var layer12
 
 export var tempo = 0
 export var bars = 0
 export var trans_time = 0
 
 onready var tweens = [get_node("Tween"), get_node("Tween2"), get_node("Tween3"), get_node("Tween4"),
-get_node("Tween5"), get_node("Tween6"), get_node("Tween7"), get_node("Tween8")] 
+get_node("Tween5"), get_node("Tween6"), get_node("Tween7"), get_node("Tween8"), get_node("Tween9"),
+get_node("Tween10"),get_node("Tween11"), get_node("Tween12")] 
 
-onready var layers = [layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8]
+onready var layers = [layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8, layer9, layer10, layer11, layer12]
 onready var audioplayer = preload("res://Scenes/Layer.tscn")
 
 var players = []
@@ -61,7 +66,12 @@ func _process(delta):
 		
 	beat = floor(beat)
 	bar = floor(beat/4) + 1
-	
+
+func _start_muted():
+	for i in players:
+		i.set_volume_db(-60.0)
+	_play()
+
 func _play():
 	if !playing:
 		playing = true

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mus_Loop_A_Piano_Melody.wav-70a000e2d87239a3381c2b0336c05373.sample"
+
+[deps]
+
+source_file="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav"
+source_md5="606020a34c01d749522a7a3e0165c03b"
+
+dest_files=[ "res://.import/Mus_Loop_A_Piano_Melody.wav-70a000e2d87239a3381c2b0336c05373.sample" ]
+dest_md5="060885f0e20777575c8233087de64e3b"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

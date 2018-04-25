@@ -11,7 +11,8 @@ func _ready():
 	for i in range(number):
 		var num = floor(rand_range(0,7))
 		var nest = nest_res.instance()
-		nest.position = Vector2(rand_range(-1920*8, 1920*8), rand_range(-1080*8, 1080*8))
+		nest.position = Vector2(rand_range(-1920*3, 1920*3), rand_range(-1080*3, 1080*3))
 		nest.rotation = rand_range(0,360)
 		add_child(nest)
+
 	

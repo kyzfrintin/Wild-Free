@@ -43,8 +43,8 @@ tangential_accel = 0.0
 tangential_accel_random = 0.0
 damping = 0.0
 damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
+angle = 360.0
+angle_random = 1.0
 scale = 40.0
 scale_random = 1.0
 color_ramp = SubResource( 2 )
@@ -57,7 +57,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Scale" ]
 
-[node name="drone_factory" type="Node2D" index="0"]
+[node name="drone_factory" type="Node2D"]
 
 script = ExtResource( 1 )
 spawn_range = 100

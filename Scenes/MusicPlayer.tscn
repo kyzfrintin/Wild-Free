@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/MusicPlayer.gd" type="Script" id=1]
 
@@ -82,6 +82,46 @@ mix_rate = 44100
 stereo = false
 data = PoolByteArray(  )
 
+[sub_resource type="AudioStreamSample" id=9]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=10]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=11]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
+[sub_resource type="AudioStreamSample" id=12]
+
+format = 0
+loop_mode = 0
+loop_begin = 0
+loop_end = 0
+mix_rate = 44100
+stereo = false
+data = PoolByteArray(  )
+
 [node name="MusicPlayer" type="Node2D"]
 
 script = ExtResource( 1 )
@@ -93,6 +133,10 @@ layer5 = SubResource( 5 )
 layer6 = SubResource( 6 )
 layer7 = SubResource( 7 )
 layer8 = SubResource( 8 )
+layer9 = SubResource( 9 )
+layer10 = SubResource( 10 )
+layer11 = SubResource( 11 )
+layer12 = SubResource( 12 )
 tempo = 0
 bars = 0
 trans_time = 4
@@ -168,6 +212,46 @@ playback/speed = 1.0
 _sections_unfolded = [ "Pause", "playback" ]
 
 [node name="Tween8" type="Tween" parent="." index="7"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween9" type="Tween" parent="." index="8"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween10" type="Tween" parent="." index="9"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween11" type="Tween" parent="." index="10"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "Pause", "playback" ]
+
+[node name="Tween12" type="Tween" parent="." index="11"]
 
 repeat = false
 playback_process_mode = 1
