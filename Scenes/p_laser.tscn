@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 41.8503
 
-[node name="PlayerLaser" type="KinematicBody2D"]
+[node name="PlayerLaser" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -23,6 +23,60 @@ _sections_unfolded = [ "Collision", "Transform", "collision" ]
 rotation = 1.5708
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="light trail" type="Sprite" parent="Sprite" index="0"]
+
+modulate = Color( 1, 1, 1, 0.198902 )
+show_behind_parent = true
+position = Vector2( -0.283209, 38.0914 )
+scale = Vector2( 2.85936, 2.85936 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="light trail2" type="Sprite" parent="Sprite" index="1"]
+
+modulate = Color( 1, 1, 1, 0.198902 )
+show_behind_parent = true
+position = Vector2( -0.283209, 38.0914 )
+scale = Vector2( 2.85936, 2.85936 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="light trail3" type="Sprite" parent="Sprite" index="2"]
+
+modulate = Color( 1, 1, 1, 0.198902 )
+show_behind_parent = true
+position = Vector2( -0.283209, 38.0914 )
+scale = Vector2( 2.85936, 2.85936 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="light trail4" type="Sprite" parent="Sprite" index="3"]
+
+modulate = Color( 1, 1, 1, 0.198902 )
+show_behind_parent = true
+position = Vector2( -0.283209, 38.0914 )
+scale = Vector2( 2.85936, 2.85936 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="light trail5" type="Sprite" parent="Sprite" index="4"]
+
+modulate = Color( 1, 1, 1, 0.198902 )
+show_behind_parent = true
+position = Vector2( -0.283209, 38.0914 )
+scale = Vector2( 2.85936, 2.85936 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="light trail6" type="Sprite" parent="Sprite" index="5"]
+
+modulate = Color( 1, 1, 1, 0.198902 )
+show_behind_parent = true
+position = Vector2( -0.283209, 38.0914 )
+scale = Vector2( 2.85936, 2.85936 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

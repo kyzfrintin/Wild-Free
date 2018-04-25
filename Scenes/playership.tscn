@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Characters/playerShip2_red.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sound/FX/ship_move_rumble.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sound/FX/ship_boost.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sound/FX/laser_shot.wav" type="AudioStream" id=7]
+[ext_resource path="res://turretBase_big.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -297,7 +298,7 @@ bus = "Master"
 [node name="boost" type="AudioStreamPlayer" parent="sounds" index="3"]
 
 stream = SubResource( 6 )
-volume_db = -5.0
+volume_db = -10.0
 autoplay = false
 mix_target = 0
 bus = "Master"
@@ -305,13 +306,14 @@ bus = "Master"
 [node name="laser" type="AudioStreamPlayer" parent="sounds" index="4"]
 
 stream = SubResource( 7 )
-volume_db = -10.0
+volume_db = -30.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
 [node name="Camera2D" type="Camera2D" parent="." index="9"]
 
+scale = Vector2( 5.40625, 5.40625 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -335,6 +337,15 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Smoothing" ]
+
+[node name="Sprite2" type="Sprite" parent="." index="10"]
+
+modulate = Color( 0.404978, 0.585938, 0.384521, 0.607726 )
+show_behind_parent = true
+position = Vector2( -6.0118, 0.0174942 )
+scale = Vector2( 6.57803, 6.57803 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [connection signal="timeout" from="Timer" to="." method="fire_cooldown"]
 

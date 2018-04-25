@@ -65,25 +65,25 @@ func _process(delta):
 		if thrust_loop.playing:
 			thrust_loop.stop()
 		
-	if Input.is_mouse_button_pressed(1) && canfire:
+	if (Input.is_mouse_button_pressed(1) or Input.is_action_pressed("gp_pad_fire")) and canfire:
 		var laser = bullet_res.instance()
 		laser.position = position
-		laser.targetx = get_global_mouse_position().x
-		laser.targety = get_global_mouse_position().y
+#		laser.targetx = get_global_mouse_position().x
+#		laser.targety = get_global_mouse_position().y
 		get_parent().get_node("bullets").add_child(laser)
 		canfire = false
 		get_node("Timer").start()
 		laser_sound.play()
 		
-	if Input.is_action_pressed("gp_pad_fire") && canfire:
-		var laser = bullet_res.instance()
-		laser.position = position
-		laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
-		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
-		get_parent().get_node("bullets").add_child(laser)
-		canfire = false
-		get_node("Timer").start()
-		laser_sound.play()
+#	if Input.is_action_pressed("gp_pad_fire") && canfire:
+#		var laser = bullet_res.instance()
+#		laser.position = position
+#		laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
+#		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
+#		get_parent().get_node("bullets").add_child(laser)
+#		canfire = false
+#		get_node("Timer").start()
+#		laser_sound.play()
 		
 	if HP < 0:
 		die()

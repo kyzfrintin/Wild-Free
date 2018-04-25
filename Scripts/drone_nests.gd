@@ -6,6 +6,7 @@ onready var player = get_parent().get_node("player")
 var drones = 0
 
 func _ready():
+	return
 	var number = floor(rand_range(0, Max_Nests))
 	
 	for i in range(number):

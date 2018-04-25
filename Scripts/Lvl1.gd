@@ -10,3 +10,8 @@ func _process(delta):
 	
 func _ready():
 	pass
+	
+
+func _input(event):
+	if !event.is_echo() and Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
