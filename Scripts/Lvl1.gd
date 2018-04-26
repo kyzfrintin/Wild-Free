@@ -16,7 +16,6 @@ func _process(delta):
 	print(str(intensity))
 	play_arrangement(intensity)
 	
-		
 func _ready():
 	music_a._start_muted()
 	
