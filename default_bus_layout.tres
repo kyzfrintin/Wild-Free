@@ -82,7 +82,7 @@ pitch_scale = 0.6
 resource_name = "Distortion"
 mode = 1
 pre_gain = 0.0
-keep_hf_hz = 500.0
+keep_hf_hz = 300.0
 drive = 0.0
 post_gain = 0.0
 
