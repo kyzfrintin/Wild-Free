@@ -169,7 +169,7 @@ hipass = 0.0
 dry = 1.0
 wet = 0.2
 
-[sub_resource type="AudioEffectPhaser" id=14]
+[sub_resource type="AudioEffectPhaser" id=11]
 
 resource_name = "Phaser"
 range_min_hz = 100.0
@@ -178,7 +178,7 @@ rate_hz = 0.5
 feedback = 0.7
 depth = 0.4
 
-[sub_resource type="AudioEffectCompressor" id=13]
+[sub_resource type="AudioEffectCompressor" id=12]
 
 resource_name = "Compressor"
 threshold = -6.0
@@ -247,8 +247,8 @@ bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = -11.3
 bus/5/send = "Master"
-bus/5/effect/0/effect = SubResource( 14 )
+bus/5/effect/0/effect = SubResource( 11 )
 bus/5/effect/0/enabled = true
-bus/5/effect/1/effect = SubResource( 13 )
+bus/5/effect/1/effect = SubResource( 12 )
 bus/5/effect/1/enabled = true
 
