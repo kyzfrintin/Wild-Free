@@ -6,6 +6,8 @@ func _ready():
 	get_node("Timer").start()
 	get_node("boom").play()
 
+func _process(delta):
+	get_node("flash").modulate.a -= 3
 
 func _on_Timer_timeout():
 	queue_free()
