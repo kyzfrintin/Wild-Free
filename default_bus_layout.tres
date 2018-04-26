@@ -195,7 +195,7 @@ resource_name = "Distortion"
 mode = 0
 pre_gain = 0.0
 keep_hf_hz = 1000.0
-drive = 1.0
+drive = 0.1
 post_gain = 0.0
 
 [resource]
