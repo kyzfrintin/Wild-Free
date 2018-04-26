@@ -44,7 +44,6 @@ func approach():
 	
 	
 func attack():
-	rotation = get_angle_to(player.pos)
 	var att_vec = att_ray.cast_to
 	att_tween.interpolate_property(self, 'position', position, att_vec, 0.5/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
 	att_tween.start()
@@ -54,6 +53,7 @@ func damage(amnt):
 	HP -= amnt
 
 func _on_end_approach(object, key):
+	rotation = get_angle_to(player.pos)
 	if distance > 500:
 		approach()
 	else:
