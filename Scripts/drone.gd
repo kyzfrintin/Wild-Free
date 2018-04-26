@@ -45,9 +45,9 @@ func approach():
 	
 	
 func attack():
-	look_at(player.pos)
 	att_snd.play()
 	var att_vec = att_ray.cast_to.rotated(rotation)
+	look_at(att_vec)
 	att_tween.interpolate_property(self, 'position', position, att_vec, 0.95/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
 	att_tween.start()
 	pass
