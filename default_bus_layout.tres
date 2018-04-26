@@ -288,4 +288,10 @@ bus/6/effect/1/effect = SubResource( 13 )
 bus/6/effect/1/enabled = true
 bus/6/effect/2/effect = SubResource( 14 )
 bus/6/effect/2/enabled = true
+bus/7/name = "New Bus"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = "Master"
 
