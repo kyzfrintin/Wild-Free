@@ -21,22 +21,9 @@ func _process(delta):
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
 	
-		# Retrieve the captured image
-		var img = get_viewport().get_texture().get_data()
-	  
-		# Flip it on the y-axis (because it's flipped)
-		img.flip_y()
-	
-		# Create a texture for it
-		var tex = ImageTexture.new()
-		tex.create_from_image(img)
-	
-		# Set it to the capture node
-		get_node("capture").set_texture(tex)
-		
 		var data = get_viewport().get_texture().get_data()
 		data.flip_y()
-		data.save_png('screenshot.png')
+		data.save_png('screenshot' + OS.get_time() + '.png')
 	
 func _ready():
 	music_a._start_muted()
