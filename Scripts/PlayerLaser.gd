@@ -11,7 +11,7 @@ func _ready():
 	pass
 	
 func _process(delta):
-	move_and_collide(Vector2(speed, 0).rotated(rotation))
+	move_and_slide(Vector2(speed, 0).rotated(rotation))
 
 func _on_Timer_timeout():
 	queue_free()
