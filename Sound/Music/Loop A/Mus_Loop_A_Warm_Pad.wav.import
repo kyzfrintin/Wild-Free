@@ -10,7 +10,7 @@ source_file="res://Sound/Music/Loop A/Mus_Loop_A_Warm_Pad.wav"
 source_md5="2098c608b8e7d932c38aed5850c4fa7d"
 
 dest_files=[ "res://.import/Mus_Loop_A_Warm_Pad.wav-03e45c6eca0c24ff1d1034f1f69e4abc.sample" ]
-dest_md5="34a828cf4cbe6c0c41cd27be47981f94"
+dest_md5="d6533fb30289179ae919b2a905380235"
 
 [params]
 
@@ -21,4 +21,4 @@ force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
 edit/loop=true
-compress/mode=0
+compress/mode=1

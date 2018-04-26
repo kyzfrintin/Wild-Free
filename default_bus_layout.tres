@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=18 format=2]
+[gd_resource type="AudioBusLayout" load_steps=17 format=2]
 
 [sub_resource type="AudioEffectReverb" id=2]
 
@@ -226,15 +226,6 @@ rate_hz = 2.73
 feedback = 0.7
 depth = 1.0
 
-[sub_resource type="AudioEffectDistortion" id=18]
-
-resource_name = "Distortion"
-mode = 1
-pre_gain = 0.5
-keep_hf_hz = 16000.0
-drive = 0.5
-post_gain = 0.5
-
 [resource]
 
 bus/0/name = "Master"
@@ -288,7 +279,7 @@ bus/4/effect/0/enabled = true
 bus/4/effect/1/effect = SubResource( 13 )
 bus/4/effect/1/enabled = true
 bus/4/effect/2/effect = SubResource( 14 )
-bus/4/effect/2/enabled = true
+bus/4/effect/2/enabled = false
 bus/5/name = "Music"
 bus/5/solo = false
 bus/5/mute = false
@@ -309,7 +300,7 @@ bus/6/effect/0/effect = SubResource( 11 )
 bus/6/effect/0/enabled = true
 bus/6/effect/1/effect = SubResource( 12 )
 bus/6/effect/1/enabled = true
-bus/7/name = "DroneAttack"
+bus/7/name = "DroneSounds"
 bus/7/solo = false
 bus/7/mute = false
 bus/7/bypass_fx = false
@@ -317,6 +308,4 @@ bus/7/volume_db = -8.5
 bus/7/send = "Master"
 bus/7/effect/0/effect = SubResource( 17 )
 bus/7/effect/0/enabled = true
-bus/7/effect/1/effect = SubResource( 18 )
-bus/7/effect/1/enabled = true
 

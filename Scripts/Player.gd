@@ -7,6 +7,7 @@ export var turn_spd = 2.6
 onready var emitters = [get_node("smoke"), get_node("fire")]
 onready var view_size = get_viewport_rect().size
 onready var tween = get_node("Tween")
+onready var cam = get_node("Camera2D")
 onready var cast = get_node("RayCast2D")
 onready var bullet_res = preload("res://Scenes/p_laser.tscn")
 onready var boostemit = get_node("boost")
@@ -17,9 +18,11 @@ onready var boost_sound = get_node("sounds/boost")
 onready var laser_sound = get_node("sounds/laser")
 onready var scrape_sound = get_node("sounds/ship_scrape")
 onready var hit_sound = get_node("sounds/ship_hit")
+onready var cam_tweeen = get_node("cam_tween")
 
 const MAX_HP = 100
 
+var shake = 0
 var vel = Vector2()
 var rot = 0
 var pos = Vector2()
@@ -51,6 +54,7 @@ func _process(delta):
 		tween.start()
 		boost_sound.play()
 		boostemit.emitting = true
+		shake = 10
 	
 	if Input.is_action_just_pressed("gp_forwards"):
 		if !thrust_start.playing:
@@ -76,6 +80,7 @@ func _process(delta):
 		canfire = false
 		get_node("Timer").start()
 		laser_sound.play()
+		shake = 5
 		
 	if Input.is_action_pressed("gp_pad_fire") && canfire:
 		var laser = bullet_res.instance()
@@ -86,9 +91,15 @@ func _process(delta):
 		canfire = false
 		get_node("Timer").start()
 		laser_sound.play()
+		shake = 5
 		
 	if HP < 0:
 		die()
+		
+	if shake > 0:
+		cam_shake(15)
+	else:
+		cam.offset = Vector2(0,0)
 	
 	
 	rotation = rot
@@ -96,8 +107,13 @@ func _process(delta):
 	pos += vel * delta
 	position = pos
 	
+func cam_shake(intensity):
+	cam.offset = Vector2(rand_range(-intensity, intensity), rand_range(-intensity, intensity))
+	shake -= 1
+	
 func hurt(amnt):
 	HP -= amnt
+	shake = 30
 	hit_sound.play()
 	scrape_sound.play()
 

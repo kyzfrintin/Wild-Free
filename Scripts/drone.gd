@@ -6,6 +6,8 @@ onready var att_tween = get_node("attack_tween")
 onready var timer = get_node("attack_timer")
 onready var att_ray = get_node("attack_vec")
 onready var att_snd = get_node("drone_attack")
+onready var hit_snd = get_node("drone_hit")
+onready var ding_snd = get_node("drone_ding")
 var home
 
 var distance = 0.0
@@ -47,7 +49,7 @@ func approach():
 func attack():
 	att_snd.play()
 	var att_vec = att_ray.cast_to.rotated(rotation)
-	look_at(att_vec)
+	look_at(player.pos)
 	att_tween.interpolate_property(self, 'position', position, att_vec, 0.95/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
 	att_tween.start()
 	pass

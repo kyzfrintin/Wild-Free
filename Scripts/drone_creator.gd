@@ -35,9 +35,11 @@ func drone_hit(body, drone):
 		body.hurt(10*drone.strength)
 	if "Laser" in hitname:
 		print("pew")
-		body.queue_free()
+		drone.hit_snd.play()
+		drone.ding_snd.play()
 		drone.damage(50*rand_range(0.8, 2.5))
 		if drone.HP < 0:
 			get_parent().drones -= 1
 			drone.die()
+		body.queue_free()
 	

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/drone_ding.wav-39bb4b31000176917979d6b2c270fcc9.sample"
+
+[deps]
+
+source_file="res://Sound/FX/drone_ding.wav"
+source_md5="b2fcd263bd96593723d5a73edfadcd8b"
+
+dest_files=[ "res://.import/drone_ding.wav-39bb4b31000176917979d6b2c270fcc9.sample" ]
+dest_md5="b3f3217ad6e98eb7f4410eee5c6a5238"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

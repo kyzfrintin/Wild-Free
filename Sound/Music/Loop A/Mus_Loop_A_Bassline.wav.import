@@ -10,7 +10,7 @@ source_file="res://Sound/Music/Loop A/Mus_Loop_A_Bassline.wav"
 source_md5="8b15a83015d6af0fc6c44a3d41712a07"
 
 dest_files=[ "res://.import/Mus_Loop_A_Bassline.wav-8ab92e1c9010f4443ea0bc19fadfca74.sample" ]
-dest_md5="9c9195cc0d6420165dd76125e714b59e"
+dest_md5="e5efae22b780ad00551d30d63acd8aa6"
 
 [params]
 
@@ -21,4 +21,4 @@ force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
 edit/loop=true
-compress/mode=0
+compress/mode=1

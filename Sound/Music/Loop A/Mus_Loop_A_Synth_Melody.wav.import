@@ -10,7 +10,7 @@ source_file="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody.wav"
 source_md5="da8854d7b181008d0ae439f1d7353bc1"
 
 dest_files=[ "res://.import/Mus_Loop_A_Synth_Melody.wav-3668c4734d40da8e63d3d83877698575.sample" ]
-dest_md5="1d4296b1f9bd3b8fa0cb0ade47d63922"
+dest_md5="6ccf4c611988e93869c7f68094357687"
 
 [params]
 
@@ -21,4 +21,4 @@ force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
 edit/loop=true
-compress/mode=0
+compress/mode=1
