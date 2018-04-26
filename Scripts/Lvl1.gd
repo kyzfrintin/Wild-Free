@@ -15,6 +15,28 @@ func _process(delta):
 	intensity = floor(intensity)+1
 	play_arrangement(intensity)
 	print(intensity)
+	if Input.is_action_just_pressed("ui_screenshot"):
+		get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+		# Let two frames pass to make sure the screen was captured
+		yield(get_tree(), "idle_frame")
+		yield(get_tree(), "idle_frame")
+	
+		# Retrieve the captured image
+		var img = get_viewport().get_texture().get_data()
+	  
+		# Flip it on the y-axis (because it's flipped)
+		img.flip_y()
+	
+		# Create a texture for it
+		var tex = ImageTexture.new()
+		tex.create_from_image(img)
+	
+		# Set it to the capture node
+		get_node("capture").set_texture(tex)
+		
+		var data = get_viewport().get_texture().get_data()
+		data.flip_y()
+		data.save_png('screenshot.png')
 	
 func _ready():
 	music_a._start_muted()
