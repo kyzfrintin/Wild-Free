@@ -122,4 +122,10 @@ bus/7/mute = false
 bus/7/bypass_fx = false
 bus/7/volume_db = -8.5
 bus/7/send = "Master"
+bus/8/name = "Explosions"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 0.0
+bus/8/send = "Master"
 
