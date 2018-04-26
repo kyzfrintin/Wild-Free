@@ -53,7 +53,7 @@ post_gain = 0.0
 [sub_resource type="AudioEffectCompressor" id=5]
 
 resource_name = "Compressor"
-threshold = -50.0
+threshold = -1.0
 ratio = 48.0
 gain = 0.0
 attack_us = 20.0
@@ -108,7 +108,7 @@ bus/3/bypass_fx = false
 bus/3/volume_db = -15.0
 bus/3/send = "Master"
 bus/3/effect/0/effect = SubResource( 8 )
-bus/3/effect/0/enabled = true
+bus/3/effect/0/enabled = false
 bus/4/name = "ShipHits"
 bus/4/solo = false
 bus/4/mute = false
