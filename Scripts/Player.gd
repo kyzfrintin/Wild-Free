@@ -98,6 +98,8 @@ func _process(delta):
 	
 func hurt(amnt):
 	HP -= amnt
+	hit_sound.play()
+	scrape_sound.play()
 
 func fire_cooldown():
 	canfire = true
