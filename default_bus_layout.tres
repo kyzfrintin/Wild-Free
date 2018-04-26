@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=8 format=2]
+[gd_resource type="AudioBusLayout" load_steps=9 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 
@@ -18,6 +18,17 @@ _sections_unfolded = [ "Predelay" ]
 resource_name = "Compressor"
 threshold = -5.0
 ratio = 15.0
+gain = 0.0
+attack_us = 20.0
+release_ms = 250.0
+mix = 1.0
+sidechain = ""
+
+[sub_resource type="AudioEffectCompressor" id=8]
+
+resource_name = "Compressor"
+threshold = 0.0
+ratio = 4.0
 gain = 0.0
 attack_us = 20.0
 release_ms = 250.0
@@ -95,6 +106,8 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = -15.0
 bus/3/send = "Master"
+bus/3/effect/0/effect = SubResource( 8 )
+bus/3/effect/0/enabled = true
 bus/4/name = "ShipHits"
 bus/4/solo = false
 bus/4/mute = false
