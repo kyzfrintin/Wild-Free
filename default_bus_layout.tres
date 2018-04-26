@@ -34,6 +34,7 @@ attack_us = 20.0
 release_ms = 250.0
 mix = 1.0
 sidechain = ""
+_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="AudioEffectPitchShift" id=3]
 
