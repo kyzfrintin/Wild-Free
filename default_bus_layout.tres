@@ -192,7 +192,7 @@ sidechain = ""
 [sub_resource type="AudioEffectPitchShift" id=15]
 
 resource_name = "PitchShift"
-pitch_scale = 1.0
+pitch_scale = 0.6
 
 [sub_resource type="AudioEffectDistortion" id=13]
 
