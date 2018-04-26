@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=9 format=2]
+[gd_resource type="AudioBusLayout" load_steps=10 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 
@@ -77,6 +77,15 @@ sidechain = ""
 resource_name = "PitchShift"
 pitch_scale = 0.6
 
+[sub_resource type="AudioEffectDistortion" id=9]
+
+resource_name = "Distortion"
+mode = 1
+pre_gain = 0.0
+keep_hf_hz = 500.0
+drive = 0.0
+post_gain = 0.0
+
 [resource]
 
 bus/0/name = "Master"
@@ -149,4 +158,6 @@ bus/8/volume_db = 0.0
 bus/8/send = "Master"
 bus/8/effect/0/effect = SubResource( 7 )
 bus/8/effect/0/enabled = true
+bus/8/effect/1/effect = SubResource( 9 )
+bus/8/effect/1/enabled = true
 
