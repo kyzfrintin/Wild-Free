@@ -16,7 +16,7 @@ _sections_unfolded = [ "Predelay" ]
 [sub_resource type="AudioEffectCompressor" id=19]
 
 resource_name = "Compressor"
-threshold = 0.0
+threshold = -5.0
 ratio = 4.0
 gain = 0.0
 attack_us = 20.0
