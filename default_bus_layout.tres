@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=18 format=2]
+[gd_resource type="AudioBusLayout" load_steps=19 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 
@@ -217,7 +217,7 @@ sidechain = ""
 [sub_resource type="AudioEffectChorus" id=16]
 
 resource_name = "Chorus"
-voice_count = 2
+voice_count = 4
 dry = 1.0
 wet = 0.5
 voice/1/delay_ms = 15.0
@@ -232,6 +232,18 @@ voice/2/depth_ms = 3.0
 voice/2/level_db = 0.0
 voice/2/cutoff_hz = 8000.0
 voice/2/pan = 0.5
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 12.0
+voice/4/rate_hz = 1.0
+voice/4/depth_ms = 0.0
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
 
 [sub_resource type="AudioEffectPhaser" id=17]
 
@@ -241,6 +253,15 @@ range_max_hz = 2500.0
 rate_hz = 2.73
 feedback = 0.7
 depth = 1.0
+
+[sub_resource type="AudioEffectDistortion" id=18]
+
+resource_name = "Distortion"
+mode = 0
+pre_gain = 0.0
+keep_hf_hz = 16000.0
+drive = 0.0
+post_gain = 0.0
 
 [resource]
 
@@ -326,4 +347,6 @@ bus/7/effect/0/effect = SubResource( 16 )
 bus/7/effect/0/enabled = true
 bus/7/effect/1/effect = SubResource( 17 )
 bus/7/effect/1/enabled = true
+bus/7/effect/2/effect = SubResource( 18 )
+bus/7/effect/2/enabled = true
 
