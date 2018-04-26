@@ -16,7 +16,7 @@ radius = 44.2484
 audio_stream = ExtResource( 5 )
 random_pitch = 1.2
 
-[node name="drone" type="RigidBody2D"]
+[node name="drone" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 3
