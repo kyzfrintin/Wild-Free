@@ -261,7 +261,7 @@ mode = 1
 pre_gain = 0.5
 keep_hf_hz = 16000.0
 drive = 0.5
-post_gain = 0.0
+post_gain = 0.5
 
 [resource]
 
