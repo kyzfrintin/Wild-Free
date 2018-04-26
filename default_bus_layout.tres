@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=10 format=2]
+[gd_resource type="AudioBusLayout" load_steps=11 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 
@@ -86,6 +86,17 @@ keep_hf_hz = 300.0
 drive = 0.7
 post_gain = 0.0
 
+[sub_resource type="AudioEffectCompressor" id=10]
+
+resource_name = "Compressor"
+threshold = 0.0
+ratio = 4.0
+gain = 0.0
+attack_us = 20.0
+release_ms = 250.0
+mix = 1.0
+sidechain = ""
+
 [resource]
 
 bus/0/name = "Master"
@@ -160,4 +171,6 @@ bus/8/effect/0/effect = SubResource( 7 )
 bus/8/effect/0/enabled = true
 bus/8/effect/1/effect = SubResource( 9 )
 bus/8/effect/1/enabled = true
+bus/8/effect/2/effect = SubResource( 10 )
+bus/8/effect/2/enabled = true
 
