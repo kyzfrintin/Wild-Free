@@ -24,5 +24,5 @@ func _ready():
 	var num = floor(rand_range(10, Max_Pickups))
 	for i in range(num):
 		var health = health_up_res.instance()
-		health.position = Vector2(rand_range(-1920*6,1920*6), rand_range(-1080*6, 1080*6))
+		health.position = Vector2(rand_range(-1920*8,1920*8), rand_range(-1080*8, 1080*8))
 		add_child(health)

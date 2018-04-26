@@ -367,7 +367,7 @@ bus = "PlayerLaser"
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 3.2, 3.2 )
+zoom = Vector2( 2.5, 2.5 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -387,15 +387,6 @@ editor_draw_screen = false
 editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing" ]
-
-[node name="cam_tween" type="Tween" parent="." index="10"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
 
 [connection signal="timeout" from="Timer" to="." method="fire_cooldown"]
 

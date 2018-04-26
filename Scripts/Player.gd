@@ -18,7 +18,6 @@ onready var boost_sound = get_node("sounds/boost")
 onready var laser_sound = get_node("sounds/laser")
 onready var scrape_sound = get_node("sounds/ship_scrape")
 onready var hit_sound = get_node("sounds/ship_hit")
-onready var cam_tweeen = get_node("cam_tween")
 
 const MAX_HP = 100
 

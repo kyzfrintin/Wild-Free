@@ -16,9 +16,6 @@ var strength = 0
 var HP = 100
 var damage = 0
 
-func _process(delta):
-	pass
-
 func _ready():
 	strength = rand_range(0.5,2.8)
 	HP = HP*strength

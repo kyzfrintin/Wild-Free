@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 18.3032
 
-[node name="health_up" type="Area2D" index="0"]
+[node name="health_up" type="Area2D"]
 
 scale = Vector2( 3, 3 )
 input_pickable = true
