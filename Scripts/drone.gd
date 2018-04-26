@@ -53,7 +53,7 @@ func damage(amnt):
 	HP -= amnt
 
 func _on_end_approach(object, key):
-	rotation = get_angle_to(player.pos)
+	rotation = get_angle_to(player.position)
 	if distance > 950:
 		approach()
 	else:
