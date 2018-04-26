@@ -15,15 +15,7 @@ func _process(delta):
 	intensity = floor(intensity)+1
 	print(str(intensity))
 	play_arrangement(intensity)
-	if Input.is_action_just_pressed("ui_screenshot"):
-		get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
-		# Let two frames pass to make sure the screen was captured
-		yield(get_tree(), "idle_frame")
-		yield(get_tree(), "idle_frame")
-		var save_dir = str('user://screenshot-' + str(floor(rand_range(11111,99999))) + '.png')
-		var data = get_viewport().get_texture().get_data()
-		data.flip_y()
-		data.save_png(save_dir)
+	
 		
 func _ready():
 	music_a._start_muted()
