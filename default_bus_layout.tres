@@ -89,8 +89,8 @@ post_gain = 0.0
 [sub_resource type="AudioEffectCompressor" id=10]
 
 resource_name = "Compressor"
-threshold = 0.0
-ratio = 4.0
+threshold = -1.0
+ratio = 8.0
 gain = 0.0
 attack_us = 20.0
 release_ms = 250.0
