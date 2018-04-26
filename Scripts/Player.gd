@@ -15,6 +15,8 @@ onready var thrust_loop = get_node("sounds/move_loop")
 onready var thrust_rumble = get_node("sounds/thrust_rumble")
 onready var boost_sound = get_node("sounds/boost")
 onready var laser_sound = get_node("sounds/laser")
+onready var scrape_sound = get_node("sounds/ship_scrape")
+onready var hit_sound = get_node("sounds/ship_hit")
 
 const MAX_HP = 100
 
