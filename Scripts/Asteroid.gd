@@ -2,8 +2,7 @@ extends Sprite
 
 onready var ast_res = preload("res://Scenes/SmallAst.tscn")
 
-export var max_small = 0
-
+var max_small = 60
 var scaler = 0.0
 
 func _ready():

@@ -1,0 +1,53 @@
+[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 0.0627615, 0.569038, 0.786611, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.957031, 0.921546, 0.0485992, 1, 0.90625, 0.47301, 0.0531006, 0.640902, 1, 0.210938, 0, 0.502745, 0.960938, 0.0412903, 0.0412903, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 64
+
+[resource]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 20.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 28.0
+scale_random = 1.0
+color_ramp = SubResource( 6 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Initial Velocity", "Radial Accel", "Spread", "Tangential Accel" ]
+

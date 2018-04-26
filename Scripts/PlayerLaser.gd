@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const speed = 10000
+const speed = 5000
 var targetx
 var targety
 var damage = 50
@@ -10,8 +10,8 @@ func _ready():
 	get_node("Timer").start()
 	pass
 	
-func _process(delta):
-	move_and_slide(Vector2(speed, 0).rotated(rotation))
+func _physics_process(delta):
+	move_and_slide(Vector2(speed, 0).rotated(rotation), Vector2(0,0), 5, 1, 45)
 
 func _on_Timer_timeout():
 	queue_free()

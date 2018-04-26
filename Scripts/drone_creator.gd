@@ -2,6 +2,7 @@ extends Node2D
 
 onready var spawner = get_node("spawner")
 onready var drone_res = preload("res://Scenes/enem_drone.tscn")
+onready var drone_boom_res = preload("res://Scenes/explosion.tscn")
 export var spawn_range = 0
 onready var player = get_parent().player
 var rot1 = rand_range(-1.3,1.3)
@@ -34,12 +35,16 @@ func drone_hit(body, drone):
 	if body == player:
 		body.hurt(10*drone.strength)
 	if "Laser" in hitname:
-		print("pew")
 		drone.hit_snd.play()
 		drone.ding_snd.play()
-		drone.damage(50*rand_range(0.8, 2.5))
+		drone.damage(25*rand_range(0.8, 2.5))
 		if drone.HP < 0:
 			get_parent().drones -= 1
+			var boom = drone_boom_res.instance()
+			boom.position = drone.position
+			boom.scale = drone.scale
+			player.shake = 60*drone.strength
+			get_parent().add_child(boom)
 			drone.die()
-		body.queue_free()
+		
 	

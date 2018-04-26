@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Area2D
 
 var player
 onready var app_tween = get_node("approach_tween")

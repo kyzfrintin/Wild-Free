@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/drone_explode.wav-4fcedef0ce081289155f3867d7f40570.sample"
+
+[deps]
+
+source_file="res://Sound/FX/drone_explode.wav"
+source_md5="a68b8b5b9257075b26c948caa7784b2d"
+
+dest_files=[ "res://.import/drone_explode.wav-4fcedef0ce081289155f3867d7f40570.sample" ]
+dest_md5="53b05b6cc88ea87e15bcee314f13f54c"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/drone.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Characters/enemyBlack1.png" type="Texture" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://Sound/FX/drone_attack.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sound/FX/drone_ding.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sound/FX/drone_hit.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound/FX/drone_explode.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 44.2484
+radius = 49.1357
 
 [sub_resource type="AudioStreamRandomPitch" id=3]
 
@@ -21,33 +22,29 @@ random_pitch = 1.2
 [sub_resource type="AudioStreamRandomPitch" id=4]
 
 audio_stream = ExtResource( 6 )
-random_pitch = 1.2
+random_pitch = 1.1
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 
 audio_stream = ExtResource( 7 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=5]
+
+audio_stream = ExtResource( 8 )
 random_pitch = 1.2
 
-[node name="drone" type="RigidBody2D" index="0"]
+[node name="drone" type="Area2D"]
 
-input_pickable = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
 collision_layer = 3
 collision_mask = 3
-mode = 3
-mass = 0.000102041
-friction = 0.0
-bounce = 0.0
-gravity_scale = 0.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 100
-contact_monitor = true
-sleeping = false
-can_sleep = false
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
@@ -122,7 +119,7 @@ area_mask = 1
 [node name="drone_ding" type="AudioStreamPlayer2D" parent="." index="8"]
 
 stream = SubResource( 4 )
-volume_db = -5.0
+volume_db = -10.0
 autoplay = false
 max_distance = 4000.0
 attenuation = 2.0
@@ -132,24 +129,43 @@ area_mask = 1
 [node name="drone_hit" type="AudioStreamPlayer2D" parent="." index="9"]
 
 stream = SubResource( 2 )
-volume_db = -5.0
+volume_db = -8.0
 autoplay = false
 max_distance = 4000.0
 attenuation = 2.0
 bus = "DroneSounds"
 area_mask = 1
 
-[node name="attack_vec" type="RayCast2D" parent="." index="10"]
+[node name="drone_explode" type="AudioStreamPlayer2D" parent="." index="10"]
+
+stream = SubResource( 5 )
+volume_db = 0.0
+autoplay = false
+max_distance = 4000.0
+attenuation = 2.0
+bus = "DroneSounds"
+area_mask = 1
+
+[node name="attack_vec" type="RayCast2D" parent="." index="11"]
 
 enabled = false
 exclude_parent = true
 cast_to = Vector2( 2000, 0 )
 collision_mask = 16
 
+[node name="Timer" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
 [connection signal="tween_completed" from="approach_tween" to="." method="_on_end_approach"]
 
 [connection signal="tween_completed" from="attack_tween" to="." method="_on_attack_finish"]
 
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

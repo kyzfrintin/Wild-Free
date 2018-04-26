@@ -76,7 +76,7 @@ func _process(delta):
 		laser.position = position
 		laser.targetx = get_global_mouse_position().x
 		laser.targety = get_global_mouse_position().y
-		get_parent().get_node("bullets").add_child(laser)
+		get_parent().get_node("bullets").add_child(laser,true)
 		canfire = false
 		get_node("Timer").start()
 		laser_sound.play()
@@ -97,7 +97,7 @@ func _process(delta):
 		die()
 		
 	if shake > 0:
-		cam_shake(15)
+		cam_shake(30)
 	else:
 		cam.offset = Vector2(0,0)
 	

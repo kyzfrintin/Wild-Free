@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/ast_factory.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Asteroid.gd" type="Script" id=2]
@@ -15,46 +15,6 @@
 flags = 4
 load_path = "res://.import/meteorGrey_big1.png-b8968041294d26986efdcf144c1013d0.stex"
 
-[sub_resource type="CircleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=4]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=5]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=6]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=7]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=8]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
-[sub_resource type="CircleShape2D" id=9]
-
-custom_solver_bias = 0.0
-radius = 50.7253
-
 [node name="asteroid_factory" type="Node2D"]
 
 script = ExtResource( 1 )
@@ -65,38 +25,12 @@ position = Vector2( 257.755, 117.573 )
 texture = SubResource( 1 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid/Sprite" index="0"]
-
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid2" type="Sprite" parent="." index="1"]
 
 position = Vector2( 466.206, 113.625 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid2" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid2/Sprite" index="0"]
-
-shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid3" type="Sprite" parent="." index="2"]
@@ -105,19 +39,6 @@ position = Vector2( 645.58, 124.177 )
 texture = ExtResource( 4 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid3" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid3/Sprite" index="0"]
-
-shape = SubResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid4" type="Sprite" parent="." index="3"]
 
@@ -125,38 +46,12 @@ position = Vector2( 838.519, 121.162 )
 texture = ExtResource( 5 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid4" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid4/Sprite" index="0"]
-
-shape = SubResource( 5 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid5" type="Sprite" parent="." index="4"]
 
 position = Vector2( 256.686, 303.55 )
 texture = ExtResource( 6 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid5" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid5/Sprite" index="0"]
-
-shape = SubResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid6" type="Sprite" parent="." index="5"]
@@ -166,19 +61,6 @@ position = Vector2( 449.625, 303.55 )
 texture = ExtResource( 7 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid6" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid6/Sprite" index="0"]
-
-shape = SubResource( 7 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid7" type="Sprite" parent="." index="6"]
 
@@ -187,19 +69,6 @@ position = Vector2( 650.102, 306.565 )
 texture = ExtResource( 8 )
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid7" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid7/Sprite" index="0"]
-
-shape = SubResource( 8 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="Asteroid8" type="Sprite" parent="." index="7"]
 
@@ -207,19 +76,6 @@ visible = false
 position = Vector2( 855.1, 302.043 )
 texture = ExtResource( 9 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
-max_small = 30
-
-[node name="Sprite" type="KinematicBody2D" parent="Asteroid8" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid8/Sprite" index="0"]
-
-shape = SubResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 

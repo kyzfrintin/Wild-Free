@@ -24,7 +24,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -151,8 +151,8 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="drone_nests" type="Node2D" parent="." index="4"]
 
 script = ExtResource( 6 )
-Max_Nests = 3
-Max_Drones = 20
+Max_Nests = 15
+Max_Drones = 50
 
 [node name="music_loop_a" parent="." index="5" instance=ExtResource( 7 )]
 
