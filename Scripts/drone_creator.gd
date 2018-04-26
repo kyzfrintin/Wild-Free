@@ -44,7 +44,7 @@ func drone_hit(body, drone):
 			boom.position = drone.position
 			boom.scale = drone.scale
 			player.shake = 60*drone.strength
-			get_parent().add_child(boom)
+			get_parent().get_parent().add_child(boom)
 			drone.die()
 		
 	
