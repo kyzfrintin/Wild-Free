@@ -32,7 +32,7 @@ func on_spawn():
 func drone_hit(body, drone):
 	var hitname = body.get_name()
 	if body == player:
-		body.hurt(50*drone.strength)
+		body.hurt(10*drone.strength)
 	if "Laser" in hitname:
 		print("pew")
 		body.queue_free()
