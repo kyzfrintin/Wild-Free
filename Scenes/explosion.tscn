@@ -77,6 +77,7 @@ autostart = false
 
 [node name="flash" type="Polygon2D" parent="." index="4"]
 
+modulate = Color( 1, 1, 1, 0.784314 )
 scale = Vector2( 2, 2 )
 polygon = PoolVector2Array( -7000, -7000, 7000, -7000, 7000, 7000, -7000, 7000 )
 uv = PoolVector2Array( -3000, -3000, 3000, 3000, -3000, 3000, 3000, 3000 )
@@ -90,7 +91,7 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
