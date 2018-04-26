@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const speed = 25000
+const speed = 10000
 var targetx
 var targety
 var damage = 50
