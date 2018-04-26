@@ -14,13 +14,12 @@ func _process(delta):
 	intensity = (float(drone_nests.drones)/drone_nests.Max_Drones)*4
 	intensity = floor(intensity)+1
 	play_arrangement(intensity)
-	print(intensity)
 	if Input.is_action_just_pressed("ui_screenshot"):
 		get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 		# Let two frames pass to make sure the screen was captured
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
-		var save_dir = str('user://screenshot' + str(OS.get_time(false)) + '.png')
+		var save_dir = str('user://screenshot' + str(OS.get_time(true)) + '.png')
 		var data = get_viewport().get_texture().get_data()
 		data.flip_y()
 #		data.save_png(save_dir)
