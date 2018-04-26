@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=13 format=2]
+[gd_resource type="AudioBusLayout" load_steps=14 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 
@@ -189,6 +189,15 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
+[sub_resource type="AudioEffectDistortion" id=13]
+
+resource_name = "Distortion"
+mode = 0
+pre_gain = 0.0
+keep_hf_hz = 1000.0
+drive = 0.0
+post_gain = 0.0
+
 [resource]
 
 bus/0/name = "Master"
@@ -257,4 +266,6 @@ bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 0.0
 bus/6/send = "Master"
+bus/6/effect/0/effect = SubResource( 13 )
+bus/6/effect/0/enabled = true
 
