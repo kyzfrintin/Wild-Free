@@ -53,6 +53,10 @@ gp_pad_fire=[ Object(InputEventJoypadButton,"resource_local_to_scene":false,"res
 ui_screenshot=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"unicode":0,"echo":false,"script":null)
  ]
 
+[memory]
+
+limits/message_queue/max_size_kb=2048
+
 [physics]
 
 2d/thread_model=2
