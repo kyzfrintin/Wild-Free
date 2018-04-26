@@ -14,7 +14,7 @@ var HP = 100
 var damage = 0
 
 func _process(delta):
-	distance = position.distance_to(player.pos)
+	
 
 func _ready():
 	strength = rand_range(0.5,2.8)
@@ -53,6 +53,7 @@ func damage(amnt):
 	HP -= amnt
 
 func _on_end_approach(object, key):
+	distance = position.distance_to(player.pos)
 	rotation = get_angle_to(player.position)
 	if distance > 950:
 		approach()
