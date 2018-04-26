@@ -26,7 +26,7 @@ flag_disable_z = true
 spread = 5.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 0.0
+initial_velocity = 200.0
 initial_velocity_random = 1.0
 angular_velocity = 40.0
 angular_velocity_random = 1.0
@@ -75,8 +75,8 @@ position = Vector2( -19, -2.86892e-06 )
 rotation = -3.14159
 scale = Vector2( 0.5, 0.5 )
 emitting = true
-amount = 60
-lifetime = 3.0
+amount = 100
+lifetime = 6.0
 one_shot = false
 preprocess = 0.0
 speed_scale = 1.0
@@ -145,6 +145,7 @@ _sections_unfolded = [ "Process Material", "Time", "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="." index="3"]
 
+visible = false
 rotation = 1.5708
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
