@@ -323,7 +323,7 @@ bus = "Ship_Move"
 [node name="ship_scrape" type="AudioStreamPlayer" parent="sounds" index="2"]
 
 stream = SubResource( 13 )
-volume_db = -10.0
+volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "ShipHits"
