@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=14 format=2]
+[gd_resource type="AudioBusLayout" load_steps=15 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 
@@ -198,6 +198,17 @@ keep_hf_hz = 1000.0
 drive = 0.1
 post_gain = 0.0
 
+[sub_resource type="AudioEffectCompressor" id=14]
+
+resource_name = "Compressor"
+threshold = 0.0
+ratio = 4.0
+gain = 0.0
+attack_us = 20.0
+release_ms = 250.0
+mix = 1.0
+sidechain = ""
+
 [resource]
 
 bus/0/name = "Master"
@@ -268,4 +279,6 @@ bus/6/volume_db = -24.3
 bus/6/send = "Master"
 bus/6/effect/0/effect = SubResource( 13 )
 bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource( 14 )
+bus/6/effect/1/enabled = true
 
