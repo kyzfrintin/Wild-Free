@@ -54,7 +54,7 @@ func damage(amnt):
 
 func _on_end_approach(object, key):
 	rotation = get_angle_to(player.pos)
-	if distance > 500:
+	if distance > 700:
 		approach()
 	else:
 		timer.wait_time = 2/strength
