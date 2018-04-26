@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=7 format=2]
+[gd_resource type="AudioBusLayout" load_steps=8 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 
@@ -59,6 +59,11 @@ attack_us = 20.0
 release_ms = 250.0
 mix = 1.0
 sidechain = ""
+
+[sub_resource type="AudioEffectPitchShift" id=7]
+
+resource_name = "PitchShift"
+pitch_scale = 0.6
 
 [resource]
 
@@ -128,4 +133,6 @@ bus/8/mute = false
 bus/8/bypass_fx = false
 bus/8/volume_db = 0.0
 bus/8/send = "Master"
+bus/8/effect/0/effect = SubResource( 7 )
+bus/8/effect/0/enabled = true
 
