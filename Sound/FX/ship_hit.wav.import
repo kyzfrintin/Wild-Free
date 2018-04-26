@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ship_hit.wav-af72158e7197ff5c85c061c5d695ad9e.sample"
+
+[deps]
+
+source_file="res://Sound/FX/ship_hit.wav"
+source_md5="85121f8cd57f54f9c658cc4b0c2d9ea1"
+
+dest_files=[ "res://.import/ship_hit.wav-af72158e7197ff5c85c061c5d695ad9e.sample" ]
+dest_md5="1063a37d06d5dc700bfe7bb21c58bcc1"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
