@@ -258,7 +258,7 @@ depth = 1.0
 
 resource_name = "Distortion"
 mode = 1
-pre_gain = 0.0
+pre_gain = 0.5
 keep_hf_hz = 16000.0
 drive = 0.5
 post_gain = 0.0
