@@ -19,16 +19,16 @@ width = 64
 render_priority = 0
 trail_divisor = 1
 emission_shape = 1
-emission_sphere_radius = 5.0
+emission_sphere_radius = 20.0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 3.0
+spread = 1.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1000.0
 initial_velocity_random = 0.3
-angular_velocity = 40.0
+angular_velocity = 300.0
 angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -52,7 +52,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Initial Velocity", "Scale", "Spread" ]
+_sections_unfolded = [ "Angular Velocity", "Emission Shape", "Initial Velocity", "Spread" ]
 
 [sub_resource type="CapsuleShape2D" id=4]
 
