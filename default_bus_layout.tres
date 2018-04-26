@@ -237,8 +237,8 @@ voice/2/pan = 0.5
 
 resource_name = "Phaser"
 range_min_hz = 1000.0
-range_max_hz = 1600.0
-rate_hz = 0.5
+range_max_hz = 2500.0
+rate_hz = 2.73
 feedback = 0.7
 depth = 1.0
 
