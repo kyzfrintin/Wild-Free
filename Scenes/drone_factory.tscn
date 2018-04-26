@@ -60,13 +60,13 @@ _sections_unfolded = [ "Color", "Scale" ]
 [node name="drone_factory" type="Node2D"]
 
 script = ExtResource( 1 )
-spawn_range = 100
+spawn_range = 200
 max_drones = 10
 
 [node name="spawner" type="Timer" parent="." index="0"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 autostart = false
 

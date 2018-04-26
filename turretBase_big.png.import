@@ -7,7 +7,10 @@ path="res://.import/turretBase_big.png-8e287d7bb4f05379f9e205ef8da9d1f5.stex"
 [deps]
 
 source_file="res://turretBase_big.png"
+source_md5="996bfb5738413867d04674fc912e83df"
+
 dest_files=[ "res://.import/turretBase_big.png-8e287d7bb4f05379f9e205ef8da9d1f5.stex" ]
+dest_md5="28eec40e54aa2f047efb61bdca31c10c"
 
 [params]
 

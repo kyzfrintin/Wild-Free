@@ -7,7 +7,10 @@ path="res://.import/meteorGrey_big2.png-850c25c6051c836fe0ea98a69976ab4b.stex"
 [deps]
 
 source_file="res://Textures/Scenery/meteorGrey_big2.png"
+source_md5="aa89d70a0f75f58936326f999eb5c1ef"
+
 dest_files=[ "res://.import/meteorGrey_big2.png-850c25c6051c836fe0ea98a69976ab4b.stex" ]
+dest_md5="77074d834bd12ae8796f967fcfbbf985"
 
 [params]
 

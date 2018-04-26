@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/drone_boops_2.wav-5cef1737de32653dd383d97497a13b34.sample"
+
+[deps]
+
+source_file="res://Sound/FX/drone_boops_2.wav"
+source_md5="832c6ae406f7f70ae1e029a618eeecc9"
+
+dest_files=[ "res://.import/drone_boops_2.wav-5cef1737de32653dd383d97497a13b34.sample" ]
+dest_md5="8d2181405bd18fdf1d32f47c8ac162ac"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

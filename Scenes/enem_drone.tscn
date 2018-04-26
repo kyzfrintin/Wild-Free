@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/drone.gd" type="Script" id=1]
-[ext_resource path="res://Textures/Characters/ufoBlue.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Characters/enemyBlack1.png" type="Texture" id=2]
+[ext_resource path="res://Sound/FX/drone_loop.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sound/FX/drone_loop_low.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -37,9 +39,11 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+rotation = 3.14159
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="motion" type="Tween" parent="." index="2"]
+[node name="approach_tween" type="Tween" parent="." index="2"]
 
 repeat = false
 playback_process_mode = 1
@@ -49,13 +53,54 @@ playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "playback" ]
 
-[node name="retarget" type="Timer" parent="." index="3"]
+[node name="attack_tween" type="Tween" parent="." index="3"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+_sections_unfolded = [ "playback" ]
+
+[node name="attack_timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 0.15
 one_shot = true
 autostart = false
 
-[connection signal="timeout" from="retarget" to="." method="retarget"]
+[node name="drone_hum_high" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = true
+max_distance = 3000.0
+attenuation = 0.5
+bus = "DroneHum"
+area_mask = 1
+
+[node name="drone_hum_low" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+autoplay = true
+max_distance = 4000.0
+attenuation = 2.0
+bus = "DroneHum"
+area_mask = 1
+
+[node name="attack_vec" type="RayCast2D" parent="." index="7"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 700, 0 )
+collision_mask = 1
+
+[connection signal="tween_completed" from="approach_tween" to="." method="_on_end_approach"]
+
+[connection signal="tween_completed" from="attack_tween" to="." method="_on_attack_finish"]
+
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 
 

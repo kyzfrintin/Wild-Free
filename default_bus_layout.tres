@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=11 format=2]
+[gd_resource type="AudioBusLayout" load_steps=13 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 
@@ -146,7 +146,7 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
-[sub_resource type="AudioEffectCompressor" id=10]
+[sub_resource type="AudioEffectCompressor" id=9]
 
 resource_name = "Compressor"
 threshold = -1.0
@@ -157,7 +157,7 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
-[sub_resource type="AudioEffectReverb" id=9]
+[sub_resource type="AudioEffectReverb" id=10]
 
 resource_name = "Reverb"
 predelay_msec = 150.0
@@ -168,6 +168,26 @@ spread = 1.0
 hipass = 0.0
 dry = 1.0
 wet = 0.2
+
+[sub_resource type="AudioEffectPhaser" id=14]
+
+resource_name = "Phaser"
+range_min_hz = 100.0
+range_max_hz = 1600.0
+rate_hz = 0.5
+feedback = 0.7
+depth = 0.4
+
+[sub_resource type="AudioEffectCompressor" id=13]
+
+resource_name = "Compressor"
+threshold = -6.0
+ratio = 25.0
+gain = 2.0
+attack_us = 20.0
+release_ms = 250.0
+mix = 1.0
+sidechain = ""
 
 [resource]
 
@@ -190,7 +210,7 @@ bus/1/send = "Master"
 bus/1/effect/0/effect = SubResource( 3 )
 bus/1/effect/0/enabled = true
 bus/1/effect/1/effect = SubResource( 4 )
-bus/1/effect/1/enabled = false
+bus/1/effect/1/enabled = true
 bus/2/name = "Ship_Boost"
 bus/2/solo = false
 bus/2/mute = false
@@ -215,10 +235,20 @@ bus/4/name = "Music"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -15.9
+bus/4/volume_db = -11.2
 bus/4/send = "Master"
-bus/4/effect/0/effect = SubResource( 10 )
+bus/4/effect/0/effect = SubResource( 9 )
 bus/4/effect/0/enabled = true
-bus/4/effect/1/effect = SubResource( 9 )
+bus/4/effect/1/effect = SubResource( 10 )
 bus/4/effect/1/enabled = true
+bus/5/name = "DroneHum"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -11.3
+bus/5/send = "Master"
+bus/5/effect/0/effect = SubResource( 14 )
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource( 13 )
+bus/5/effect/1/enabled = true
 

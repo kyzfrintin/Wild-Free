@@ -7,7 +7,10 @@ path="res://.import/meteorBrown_big4.png-f268b123921e6388a7e2565f4dd1f89b.stex"
 [deps]
 
 source_file="res://Textures/Scenery/meteorBrown_big4.png"
+source_md5="cf5715cfb767048f58a8fecfca5a24f8"
+
 dest_files=[ "res://.import/meteorBrown_big4.png-f268b123921e6388a7e2565f4dd1f89b.stex" ]
+dest_md5="2e9c8c5a985c0f681842dc7c649f3428"
 
 [params]
 

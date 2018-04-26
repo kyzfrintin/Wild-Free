@@ -7,7 +7,10 @@ path="res://.import/engine2.png-03f429f4930b7694907c26ab9e39b8f3.stex"
 [deps]
 
 source_file="res://Textures/Mechanisms/engine2.png"
+source_md5="daa977f58c188b90108ffe2081ab6eac"
+
 dest_files=[ "res://.import/engine2.png-03f429f4930b7694907c26ab9e39b8f3.stex" ]
+dest_md5="c1ce6398f5e73b6e68cc50c8d2e21c81"
 
 [params]
 

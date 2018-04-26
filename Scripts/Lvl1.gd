@@ -11,7 +11,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 	HPbar.value = player.HP
-	intensity = (float(drone_nests.drones)/50.0)*4
+	intensity = (float(drone_nests.drones)/drone_nests.Max_Drones)*4
 	intensity = floor(intensity)+1
 	play_arrangement(intensity)
 	print(intensity)

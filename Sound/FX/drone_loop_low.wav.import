@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/drone_loop_low.wav-0854225b7b169804c30223ecb9549634.sample"
+
+[deps]
+
+source_file="res://Sound/FX/drone_loop_low.wav"
+source_md5="38ebadae44dca61a1baf53aa4cc47340"
+
+dest_files=[ "res://.import/drone_loop_low.wav-0854225b7b169804c30223ecb9549634.sample" ]
+dest_md5="ae7ab7c0f09017b6d62cf41d34fb5169"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=true
+compress/mode=0

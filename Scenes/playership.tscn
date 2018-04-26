@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Characters/playerShip2_red.png" type="Texture" id=2]
@@ -13,22 +13,33 @@
 custom_solver_bias = 0.0
 radius = 50.666
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 0.556485, 0.995816 )
+colors = PoolColorArray( 0.09375, 0.0904541, 0.0904541, 1, 0.341912, 0.3364, 0.3364, 0.348078, 0.367188, 0.36145, 0.36145, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 64
+
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
 emission_shape = 1
-emission_sphere_radius = 10.0
+emission_sphere_radius = 20.0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 45.0
+spread = 60.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 3.0
+initial_velocity = 2.0
 initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
+angular_velocity = 12.0
+angular_velocity_random = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = 0.0
@@ -36,14 +47,14 @@ linear_accel_random = 0.0
 radial_accel = 0.0
 radial_accel_random = 0.0
 tangential_accel = 0.0
-tangential_accel_random = 0.0
+tangential_accel_random = 1.0
 damping = 0.0
 damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 30.0
+angle = 360.0
+angle_random = 1.0
+scale = 75.0
 scale_random = 1.0
-color = Color( 0.167969, 0.160751, 0.160751, 1 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -51,9 +62,20 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
+_sections_unfolded = [ "Emission Shape" ]
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 0.0627615, 0.569038, 0.786611, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.957031, 0.921546, 0.0485992, 1, 0.90625, 0.47301, 0.0531006, 0.640902, 1, 0.210938, 0, 0.502745, 0.960938, 0.0412903, 0.0412903, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 64
+
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -75,15 +97,15 @@ linear_accel = 0.0
 linear_accel_random = 0.0
 radial_accel = 0.0
 radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
 damping = 0.0
 damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 20.0
+angle = 360.0
+angle_random = 1.0
+scale = 28.0
 scale_random = 1.0
-color = Color( 0.996094, 0.813278, 0.618668, 0.232039 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -91,9 +113,9 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Gravity", "Initial Velocity" ]
+_sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Tangential Accel" ]
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=8]
 
 render_priority = 0
 trail_divisor = 1
@@ -133,22 +155,22 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
 
-[sub_resource type="AudioStreamRandomPitch" id=5]
+[sub_resource type="AudioStreamRandomPitch" id=9]
 
 audio_stream = ExtResource( 3 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=6]
+[sub_resource type="AudioStreamRandomPitch" id=10]
 
 audio_stream = ExtResource( 6 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=11]
 
 audio_stream = ExtResource( 7 )
 random_pitch = 1.1
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -166,11 +188,11 @@ shape = SubResource( 1 )
 
 [node name="smoke" type="Particles2D" parent="." index="1"]
 
-modulate = Color( 1, 1, 1, 0.303843 )
+modulate = Color( 1, 1, 1, 0.0509804 )
 position = Vector2( -30, 0 )
 rotation = 1.5708
 emitting = false
-amount = 600
+amount = 1400
 lifetime = 4.0
 one_shot = false
 preprocess = 0.0
@@ -182,24 +204,24 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 2 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Time" ]
+_sections_unfolded = [ "Process Material", "Time", "Visibility" ]
 
 [node name="fire" type="Particles2D" parent="." index="2"]
 
-modulate = Color( 1, 1, 1, 0.303843 )
+modulate = Color( 1, 1, 1, 0.082902 )
 position = Vector2( -30, 0 )
 rotation = 1.5708
 emitting = false
-amount = 300
-lifetime = 2.0
+amount = 1000
+lifetime = 4.0
 one_shot = false
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 3.0
 explosiveness = 0.0
 randomness = 0.0
 fixed_fps = 0
@@ -207,12 +229,12 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 3 )
+process_material = SubResource( 7 )
 texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Process Material", "Time" ]
+_sections_unfolded = [ "Process Material", "Time", "Visibility" ]
 
 [node name="boost" type="Particles2D" parent="." index="3"]
 
@@ -232,7 +254,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 4 )
+process_material = SubResource( 8 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -272,7 +294,7 @@ collision_mask = 1
 
 [node name="thrust_off" type="AudioStreamPlayer" parent="sounds" index="0"]
 
-stream = SubResource( 5 )
+stream = SubResource( 9 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
@@ -296,7 +318,7 @@ bus = "Ship_Move"
 
 [node name="boost" type="AudioStreamPlayer" parent="sounds" index="3"]
 
-stream = SubResource( 6 )
+stream = SubResource( 10 )
 volume_db = -5.0
 autoplay = false
 mix_target = 0
@@ -304,7 +326,7 @@ bus = "Ship_Boost"
 
 [node name="laser" type="AudioStreamPlayer" parent="sounds" index="4"]
 
-stream = SubResource( 7 )
+stream = SubResource( 11 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
@@ -315,7 +337,7 @@ bus = "PlayerLaser"
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 3.2, 3.2 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -324,17 +346,17 @@ limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 10.0
+smoothing_speed = 12.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.4
-drag_margin_top = 0.4
-drag_margin_right = 0.4
-drag_margin_bottom = 0.4
-editor_draw_screen = true
+drag_margin_left = 0.5
+drag_margin_top = 0.5
+drag_margin_right = 0.5
+drag_margin_bottom = 0.5
+editor_draw_screen = false
 editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Smoothing" ]
+editor_draw_drag_margin = true
+_sections_unfolded = [ "Drag Margin", "Editor", "Offset", "Smoothing" ]
 
 [connection signal="timeout" from="Timer" to="." method="fire_cooldown"]
 
