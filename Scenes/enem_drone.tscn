@@ -84,7 +84,7 @@ area_mask = 1
 [node name="drone_hum_low" type="AudioStreamPlayer2D" parent="." index="6"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
+volume_db = 4.0
 autoplay = true
 max_distance = 4000.0
 attenuation = 2.0
