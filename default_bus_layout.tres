@@ -54,7 +54,7 @@ post_gain = 0.0
 
 resource_name = "Compressor"
 threshold = -1.0
-ratio = 48.0
+ratio = 10.0
 gain = 0.0
 attack_us = 20.0
 release_ms = 250.0
