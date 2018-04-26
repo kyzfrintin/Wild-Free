@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/drone_attack.wav-223a4d31aa71d849dbe519f65fa4b5a0.sample"
+
+[deps]
+
+source_file="res://Sound/FX/drone_attack.wav"
+source_md5="96fd310b41fe2d02b5fddac5dd4d28f2"
+
+dest_files=[ "res://.import/drone_attack.wav-223a4d31aa71d849dbe519f65fa4b5a0.sample" ]
+dest_md5="72aaa6fcac10c8890bfa21b32467986e"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
