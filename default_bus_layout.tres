@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=16 format=2]
+[gd_resource type="AudioBusLayout" load_steps=18 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 
@@ -214,6 +214,34 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
+[sub_resource type="AudioEffectChorus" id=16]
+
+resource_name = "Chorus"
+voice_count = 2
+dry = 1.0
+wet = 0.5
+voice/1/delay_ms = 15.0
+voice/1/rate_hz = 0.8
+voice/1/depth_ms = 2.0
+voice/1/level_db = 0.0
+voice/1/cutoff_hz = 8000.0
+voice/1/pan = -0.5
+voice/2/delay_ms = 20.0
+voice/2/rate_hz = 1.2
+voice/2/depth_ms = 3.0
+voice/2/level_db = 0.0
+voice/2/cutoff_hz = 8000.0
+voice/2/pan = 0.5
+
+[sub_resource type="AudioEffectPhaser" id=17]
+
+resource_name = "Phaser"
+range_min_hz = 1000.0
+range_max_hz = 1600.0
+rate_hz = 0.5
+feedback = 0.7
+depth = 1.0
+
 [resource]
 
 bus/0/name = "Master"
@@ -288,10 +316,14 @@ bus/6/effect/0/effect = SubResource( 11 )
 bus/6/effect/0/enabled = true
 bus/6/effect/1/effect = SubResource( 12 )
 bus/6/effect/1/enabled = true
-bus/7/name = "New Bus"
+bus/7/name = "DroneAttack"
 bus/7/solo = false
 bus/7/mute = false
 bus/7/bypass_fx = false
 bus/7/volume_db = 0.0
 bus/7/send = "Master"
+bus/7/effect/0/effect = SubResource( 16 )
+bus/7/effect/0/enabled = true
+bus/7/effect/1/effect = SubResource( 17 )
+bus/7/effect/1/enabled = true
 
