@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 radius = 53.1765
 
-[node name="drone" type="RigidBody2D"]
+[node name="drone" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 3
@@ -94,7 +94,7 @@ area_mask = 1
 
 enabled = false
 exclude_parent = true
-cast_to = Vector2( 700, 0 )
+cast_to = Vector2( 0, -700 )
 collision_mask = 1
 
 [connection signal="tween_completed" from="approach_tween" to="." method="_on_end_approach"]
