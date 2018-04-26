@@ -1,13 +1,5 @@
 [gd_resource type="AudioBusLayout" load_steps=18 format=2]
 
-[sub_resource type="AudioEffectLimiter" id=1]
-
-resource_name = "Limiter"
-ceiling_db = -0.5
-threshold_db = -0.3
-soft_clip_db = 0.0
-soft_clip_ratio = 10.0
-
 [sub_resource type="AudioEffectReverb" id=2]
 
 resource_name = "Reverb"
@@ -20,6 +12,17 @@ hipass = 0.0
 dry = 1.0
 wet = 0.1
 _sections_unfolded = [ "Predelay" ]
+
+[sub_resource type="AudioEffectCompressor" id=19]
+
+resource_name = "Compressor"
+threshold = 0.0
+ratio = 4.0
+gain = 0.0
+attack_us = 20.0
+release_ms = 250.0
+mix = 1.0
+sidechain = ""
 
 [sub_resource type="AudioEffectChorus" id=3]
 
@@ -240,9 +243,9 @@ bus/0/mute = false
 bus/0/bypass_fx = false
 bus/0/volume_db = 0.0
 bus/0/send = ""
-bus/0/effect/0/effect = SubResource( 1 )
-bus/0/effect/0/enabled = false
-bus/0/effect/1/effect = SubResource( 2 )
+bus/0/effect/0/effect = SubResource( 2 )
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource( 19 )
 bus/0/effect/1/enabled = true
 bus/1/name = "Ship_Move"
 bus/1/solo = false
