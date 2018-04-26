@@ -192,7 +192,7 @@ sidechain = ""
 [sub_resource type="AudioEffectDistortion" id=13]
 
 resource_name = "Distortion"
-mode = 0
+mode = 2
 pre_gain = 0.0
 keep_hf_hz = 1000.0
 drive = 0.1
