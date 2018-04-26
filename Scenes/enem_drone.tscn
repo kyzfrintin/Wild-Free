@@ -100,7 +100,7 @@ area_mask = 1
 [node name="drone_attack" type="AudioStreamPlayer2D" parent="." index="7"]
 
 stream = SubResource( 2 )
-volume_db = 0.0
+volume_db = -5.0
 autoplay = false
 max_distance = 4000.0
 attenuation = 2.0

@@ -5,7 +5,7 @@
 resource_name = "Limiter"
 ceiling_db = -0.5
 threshold_db = -0.3
-soft_clip_db = 2.0
+soft_clip_db = 0.0
 soft_clip_ratio = 10.0
 
 [sub_resource type="AudioEffectReverb" id=2]
