@@ -44,7 +44,7 @@ func approach():
 	
 	
 func attack():
-	look_at(player.position)
+	look_at(player.pos)
 	var att_vec = att_ray.cast_to.rotated(rotation)
 	att_tween.interpolate_property(self, 'position', position, att_vec, 0.5/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
 	att_tween.start()
@@ -54,11 +54,11 @@ func damage(amnt):
 	HP -= amnt
 
 func _on_end_approach(object, key):
-	distance = position.distance_to(player.position)
+	distance = position.distance_to(player.pos)
 	if distance > 1900:
 		approach()
 	else:
-		look_at(player.position)
+		look_at(player.pos)
 		timer.wait_time = 2/strength
 		timer.start()
 
