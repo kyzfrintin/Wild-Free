@@ -94,7 +94,7 @@ area_mask = 1
 
 enabled = false
 exclude_parent = true
-cast_to = Vector2( 0, -700 )
+cast_to = Vector2( 0, -1000 )
 collision_mask = 1
 
 [connection signal="tween_completed" from="approach_tween" to="." method="_on_end_approach"]
