@@ -251,4 +251,10 @@ bus/5/effect/0/effect = SubResource( 11 )
 bus/5/effect/0/enabled = true
 bus/5/effect/1/effect = SubResource( 12 )
 bus/5/effect/1/enabled = true
+bus/6/name = "ShipHits"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = "Master"
 
