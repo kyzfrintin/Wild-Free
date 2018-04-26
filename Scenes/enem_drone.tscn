@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/drone.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Characters/enemyBlack1.png" type="Texture" id=2]
 [ext_resource path="res://Sound/FX/drone_loop.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sound/FX/drone_loop_low.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sound/FX/drone_attack.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 44.2484
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+
+audio_stream = ExtResource( 5 )
+random_pitch = 1.2
 
 [node name="drone" type="RigidBody2D" index="0"]
 
@@ -91,14 +97,14 @@ attenuation = 2.0
 bus = "DroneHum"
 area_mask = 1
 
-[node name="drone_hum_low2" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="drone_attack" type="AudioStreamPlayer2D" parent="." index="7"]
 
-stream = ExtResource( 4 )
-volume_db = 4.0
-autoplay = true
+stream = SubResource( 2 )
+volume_db = 0.0
+autoplay = false
 max_distance = 4000.0
 attenuation = 2.0
-bus = "DroneHum"
+bus = "DroneAttack"
 area_mask = 1
 
 [node name="attack_vec" type="RayCast2D" parent="." index="8"]

@@ -5,6 +5,7 @@ onready var app_tween = get_node("approach_tween")
 onready var att_tween = get_node("attack_tween")
 onready var timer = get_node("attack_timer")
 onready var att_ray = get_node("attack_vec")
+onready var att_snd = get_node("drone_attack")
 var home
 
 var distance = 0.0
