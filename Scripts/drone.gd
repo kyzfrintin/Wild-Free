@@ -35,7 +35,7 @@ func _ready():
 #	timer.start()
 
 func approach():
-	var app_range = 2000
+	var app_range = 1200
 	var app_vec = Vector2(player.pos.x+rand_range(-app_range,app_range), player.pos.y+rand_range(-app_range,app_range))
 	rotation = get_angle_to(app_vec)
 	app_tween.interpolate_property(self, 'position', position, app_vec, 2/strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
