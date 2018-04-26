@@ -23,7 +23,7 @@ func _process(delta):
 	
 		var data = get_viewport().get_texture().get_data()
 		data.flip_y()
-		data.save_png('screenshot' + str(OS.get_time()) + '.png')
+		data.save_png('user://screenshot' + str(OS.get_time()) + '.png')
 	
 func _ready():
 	music_a._start_muted()
