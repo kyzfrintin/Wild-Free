@@ -257,10 +257,10 @@ depth = 1.0
 [sub_resource type="AudioEffectDistortion" id=18]
 
 resource_name = "Distortion"
-mode = 0
+mode = 1
 pre_gain = 0.0
 keep_hf_hz = 16000.0
-drive = 0.0
+drive = 0.2
 post_gain = 0.0
 
 [resource]
