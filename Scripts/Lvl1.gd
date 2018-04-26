@@ -20,10 +20,10 @@ func _process(delta):
 		# Let two frames pass to make sure the screen was captured
 		yield(get_tree(), "idle_frame")
 		yield(get_tree(), "idle_frame")
-	
+		var save_dir = str('user://screenshot' + str(OS.get_time(false)) + '.png')
 		var data = get_viewport().get_texture().get_data()
 		data.flip_y()
-		data.save_png('user://screenshot.png')
+		data.save_png(save_dir)
 	
 func _ready():
 	music_a._start_muted()
