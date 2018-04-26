@@ -39,7 +39,7 @@ func approach():
 	var app_range = 1200
 	var app_vec = Vector2(player.pos.x+rand_range(-app_range,app_range), player.pos.y+rand_range(-app_range,app_range))
 	look_at(app_vec)
-	app_tween.interpolate_property(self, 'position', position, app_vec, 2/strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
+	app_tween.interpolate_property(self, 'position', position, app_vec, 3/strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	app_tween.start()
 	
 	
@@ -48,7 +48,7 @@ func attack():
 	look_at(player.pos)
 	att_snd.play()
 	var att_vec = att_ray.cast_to.rotated(rotation)
-	att_tween.interpolate_property(self, 'position', position, att_vec, 0.5/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
+	att_tween.interpolate_property(self, 'position', position, att_vec, 0.95/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
 	att_tween.start()
 	pass
 
