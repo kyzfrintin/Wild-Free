@@ -37,7 +37,7 @@ func _ready():
 func approach():
 	var app_range = 1200
 	var app_vec = Vector2(player.pos.x+rand_range(-app_range,app_range), player.pos.y+rand_range(-app_range,app_range))
-	rotation = look_at(app_vec)
+	look_at(app_vec)
 	app_tween.interpolate_property(self, 'position', position, app_vec, 2/strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	app_tween.start()
 	
@@ -57,7 +57,7 @@ func _on_end_approach(object, key):
 	if distance > 1900:
 		approach()
 	else:
-		rotation = look_at(player.position)
+		look_at(player.position)
 		timer.wait_time = 2/strength
 		timer.start()
 
