@@ -13,7 +13,6 @@ func _process(delta):
 	HPbar.value = player.HP
 	intensity = (float(drone_nests.drones)/drone_nests.Max_Drones*2)*4
 	intensity = floor(intensity)+1
-	print(str(intensity))
 	play_arrangement(intensity)
 	
 func _ready():

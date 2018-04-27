@@ -24,7 +24,7 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
-[sub_resource type="AudioEffectCompressor" id=8]
+[sub_resource type="AudioEffectCompressor" id=3]
 
 resource_name = "Compressor"
 threshold = 0.0
@@ -36,12 +36,12 @@ mix = 1.0
 sidechain = ""
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="AudioEffectPitchShift" id=3]
+[sub_resource type="AudioEffectPitchShift" id=4]
 
 resource_name = "PitchShift"
 pitch_scale = 0.3
 
-[sub_resource type="AudioEffectDistortion" id=4]
+[sub_resource type="AudioEffectDistortion" id=5]
 
 resource_name = "Distortion"
 mode = 1
@@ -50,7 +50,7 @@ keep_hf_hz = 500.0
 drive = 0.7
 post_gain = 0.0
 
-[sub_resource type="AudioEffectCompressor" id=5]
+[sub_resource type="AudioEffectCompressor" id=6]
 
 resource_name = "Compressor"
 threshold = -1.0
@@ -61,7 +61,7 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
-[sub_resource type="AudioEffectCompressor" id=6]
+[sub_resource type="AudioEffectCompressor" id=7]
 
 resource_name = "Compressor"
 threshold = -4.0
@@ -72,7 +72,7 @@ release_ms = 250.0
 mix = 1.0
 sidechain = ""
 
-[sub_resource type="AudioEffectPitchShift" id=7]
+[sub_resource type="AudioEffectPitchShift" id=8]
 
 resource_name = "PitchShift"
 pitch_scale = 0.6
@@ -127,7 +127,7 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = -15.0
 bus/3/send = "Master"
-bus/3/effect/0/effect = SubResource( 8 )
+bus/3/effect/0/effect = SubResource( 3 )
 bus/3/effect/0/enabled = false
 bus/4/name = "ShipHits"
 bus/4/solo = false
@@ -135,9 +135,9 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = -11.3
 bus/4/send = "Master"
-bus/4/effect/0/effect = SubResource( 3 )
+bus/4/effect/0/effect = SubResource( 4 )
 bus/4/effect/0/enabled = true
-bus/4/effect/1/effect = SubResource( 4 )
+bus/4/effect/1/effect = SubResource( 5 )
 bus/4/effect/1/enabled = true
 bus/5/name = "Music"
 bus/5/solo = false
@@ -145,7 +145,7 @@ bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = -3.8
 bus/5/send = "Master"
-bus/5/effect/0/effect = SubResource( 5 )
+bus/5/effect/0/effect = SubResource( 6 )
 bus/5/effect/0/enabled = true
 bus/6/name = "DroneHum"
 bus/6/solo = false
@@ -153,7 +153,7 @@ bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = -7.6
 bus/6/send = "Master"
-bus/6/effect/0/effect = SubResource( 6 )
+bus/6/effect/0/effect = SubResource( 7 )
 bus/6/effect/0/enabled = true
 bus/7/name = "DroneSounds"
 bus/7/solo = false
@@ -167,7 +167,7 @@ bus/8/mute = false
 bus/8/bypass_fx = false
 bus/8/volume_db = 0.0
 bus/8/send = "Master"
-bus/8/effect/0/effect = SubResource( 7 )
+bus/8/effect/0/effect = SubResource( 8 )
 bus/8/effect/0/enabled = true
 bus/8/effect/1/effect = SubResource( 9 )
 bus/8/effect/1/enabled = true

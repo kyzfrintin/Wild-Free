@@ -11,7 +11,7 @@ radius = 18.3032
 
 [node name="health_up" type="Area2D"]
 
-scale = Vector2( 3, 3 )
+scale = Vector2( 5.5, 5.5 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 0.0

@@ -9,7 +9,7 @@ onready var att_snd = get_node("drone_attack")
 onready var hit_snd = get_node("drone_hit")
 onready var ding_snd = get_node("drone_ding")
 var home
-
+var trail
 var distance = 0.0
 var speed = 15
 var strength = 0
@@ -21,18 +21,10 @@ func _ready():
 	HP = HP*strength
 	scale = scale*strength
 	damage = 50*strength
+	trail.width = floor(20*strength)
 	#timer.start()
 	connect("body_entered", home, "drone_hit", [self])
 	approach()
-			
-#func retarget():
-#
-#	if distance > 1:
-#		tween.interpolate_property(self, 'position', position, player.pos, (distance/100)/speed, Tween.TRANS_LINEAR, Tween.EASE_IN)
-#		tween.start()
-#	else:
-#		tween.stop(self, 'position')
-#	timer.start()
 
 func approach():
 	var app_range = 1200
@@ -40,8 +32,6 @@ func approach():
 	look_at(app_vec)
 	app_tween.interpolate_property(self, 'position', position, app_vec, 3/strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
 	app_tween.start()
-	
-	
 	
 func attack():
 	att_snd.play()
@@ -67,6 +57,7 @@ func _on_attack_timer_timeout():
 	attack()
 	
 func die():
+	trail.queue_free()
 	queue_free()
 
 

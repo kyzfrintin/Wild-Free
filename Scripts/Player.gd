@@ -29,6 +29,7 @@ var acc = Vector2()
 var canfire = true
 var laser = false
 var HP = 100
+var las_dam = 25
 
 func _process(delta):
 
@@ -73,6 +74,7 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(1) && canfire:
 		var laser = bullet_res.instance()
 		laser.position = position
+		laser.damage = las_dam*(rand_range(0.5,2.5))
 		laser.targetx = get_global_mouse_position().x
 		laser.targety = get_global_mouse_position().y
 		get_parent().get_node("bullets").add_child(laser,true)
@@ -84,6 +86,7 @@ func _process(delta):
 	if Input.is_action_pressed("gp_pad_fire") && canfire:
 		var laser = bullet_res.instance()
 		laser.position = position
+		laser.damage = las_dam*(rand_range(0.5,2.5))
 		laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
 		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
 		get_parent().get_node("bullets").add_child(laser)

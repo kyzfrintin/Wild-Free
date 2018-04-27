@@ -3,7 +3,7 @@ extends KinematicBody2D
 const speed = 5000
 var targetx
 var targety
-var damage = 50
+var damage
 
 func _ready():
 	rotation = get_angle_to(Vector2(targetx, targety))

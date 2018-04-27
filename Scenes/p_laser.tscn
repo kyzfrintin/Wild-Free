@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/PlayerLaser.gd" type="Script" id=1]
 [ext_resource path="res://Textures/FX/laserRed01.png" type="Texture" id=2]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0.0627615, 0.142259, 0.573222, 0.861925, 1 )
 colors = PoolColorArray( 0.988281, 0.972839, 0.972839, 1, 0.992188, 0.104645, 0.104645, 1, 0.986328, 0.188947, 0.159893, 0.640902, 1, 0.0585938, 0, 0.502745, 0.960938, 0.0412903, 0.0412903, 0 )
@@ -11,7 +11,7 @@ colors = PoolColorArray( 0.988281, 0.972839, 0.972839, 1, 0.992188, 0.104645, 0.
 [sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 5 )
+gradient = SubResource( 1 )
 width = 64
 
 [sub_resource type="ParticlesMaterial" id=3]
@@ -54,7 +54,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Emission Shape", "Initial Velocity", "Spread" ]
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -94,7 +94,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Animation", "Color", "Emission Shape", "Initial Velocity", "Spread" ]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 7.47246
@@ -206,7 +206,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -223,7 +223,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="LaserBox" type="CollisionShape2D" parent="." index="5"]
 
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="." index="6"]

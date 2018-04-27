@@ -14,22 +14,22 @@
 custom_solver_bias = 0.0
 radius = 49.1357
 
-[sub_resource type="AudioStreamRandomPitch" id=3]
+[sub_resource type="AudioStreamRandomPitch" id=2]
 
 audio_stream = ExtResource( 5 )
 random_pitch = 1.2
 
-[sub_resource type="AudioStreamRandomPitch" id=4]
+[sub_resource type="AudioStreamRandomPitch" id=3]
 
 audio_stream = ExtResource( 6 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=2]
+[sub_resource type="AudioStreamRandomPitch" id=5]
 
 audio_stream = ExtResource( 7 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=5]
+[sub_resource type="AudioStreamRandomPitch" id=6]
 
 audio_stream = ExtResource( 8 )
 random_pitch = 1.2
@@ -108,7 +108,7 @@ area_mask = 1
 
 [node name="drone_attack" type="AudioStreamPlayer2D" parent="." index="7"]
 
-stream = SubResource( 3 )
+stream = SubResource( 2 )
 volume_db = -5.0
 autoplay = false
 max_distance = 4000.0
@@ -118,7 +118,7 @@ area_mask = 1
 
 [node name="drone_ding" type="AudioStreamPlayer2D" parent="." index="8"]
 
-stream = SubResource( 4 )
+stream = SubResource( 3 )
 volume_db = -10.0
 autoplay = false
 max_distance = 4000.0
@@ -128,7 +128,7 @@ area_mask = 1
 
 [node name="drone_hit" type="AudioStreamPlayer2D" parent="." index="9"]
 
-stream = SubResource( 2 )
+stream = SubResource( 5 )
 volume_db = -8.0
 autoplay = false
 max_distance = 4000.0
@@ -138,7 +138,7 @@ area_mask = 1
 
 [node name="drone_explode" type="AudioStreamPlayer2D" parent="." index="10"]
 
-stream = SubResource( 5 )
+stream = SubResource( 6 )
 volume_db = 0.0
 autoplay = false
 max_distance = 4000.0

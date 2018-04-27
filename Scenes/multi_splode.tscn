@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/multi_splode.gd" type="Script" id=1]
+
+[node name="multi_splode" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="countdown" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="dead_time" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="countdown" to="." method="_on_countdown_timeout"]
+
+[connection signal="timeout" from="dead_time" to="." method="_on_dead_time_timeout"]
+
+

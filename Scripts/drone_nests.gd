@@ -16,4 +16,10 @@ func _ready():
 		nest.rotation = rand_range(0,360)
 		add_child(nest)
 
-	
+func nest_hit(body, nest):
+	var hitname = body.get_name()
+	if "Laser" in hitname:
+		nest.HP -= body.damage
+		body.queue_free()
+		nest.hit_snd.play()
+		nest.ding_snd.play()

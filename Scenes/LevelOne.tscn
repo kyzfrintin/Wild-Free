@@ -152,8 +152,8 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="drone_nests" type="Node2D" parent="." index="4"]
 
 script = ExtResource( 6 )
-Max_Nests = 15
-Max_Drones = 50
+Max_Nests = 6
+Max_Drones = 20
 
 [node name="music_loop_a" parent="." index="5" instance=ExtResource( 7 )]
 
@@ -172,6 +172,6 @@ trans_time = 1
 [node name="powerups" type="Node2D" parent="." index="6"]
 
 script = ExtResource( 16 )
-Max_Pickups = 150
+Max_Pickups = 200
 
 
