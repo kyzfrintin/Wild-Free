@@ -66,4 +66,4 @@ limits/message_queue/max_size_kb=2048
 
 [rendering]
 
-environment/default_clear_color=Color( 0.818359, 0.487499, 0.487499, 1 )
+environment/default_clear_color=Color( 0, 0, 0, 1 )
