@@ -273,7 +273,6 @@ text = "DRONES"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="drone_nests" type="Node2D" parent="." index="4"]
 
