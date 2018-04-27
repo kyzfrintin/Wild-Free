@@ -14,6 +14,12 @@ config/name="Wild & Free"
 run/main_scene="res://Scenes/LevelOne.tscn"
 config/icon="res://Textures/Characters/playerShip2_red.png"
 
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+settings/stdout/verbose_stdout=true
+
 [display]
 
 window/size/width=1920
