@@ -34,7 +34,7 @@ func on_spawn():
 		var trail = trail_res.instance()
 		drone.position = Vector2(rand_range(position.x-spawn_range, position.x+spawn_range), 
 		rand_range(position.y-spawn_range, position.y+spawn_range))
-		drone.home = self
+		drone.home = get_parent()
 		drone.player = player
 		drone.trail = trail
 		trail.target = drone
@@ -45,23 +45,23 @@ func on_spawn():
 	spawner.wait_time = rand_range(4,10)
 	spawner.start()
 
-func drone_hit(body, drone):
-	var hitname = body.get_name()
-	if body == player:
-		body.hurt(10*drone.strength)
-	if "Laser" in hitname:
-		drone.hit_snd.play()
-		drone.ding_snd.play()
-		drone.damage(body.damage)
-		body.queue_free()
-		if drone.HP < 0:
-			get_parent().drones -= 1
-			var boom = drone_boom_res.instance()
-			boom.position = drone.position
-			boom.scale = drone.scale
-			player.shake = 60*drone.strength
-			get_parent().get_parent().add_child(boom)
-			drone.die()
+#func drone_hit(body, drone):
+#	var hitname = body.get_name()
+#	if body == player:
+#		body.hurt(10*drone.strength)
+#	if "Laser" in hitname:
+#		drone.hit_snd.play()
+#		drone.ding_snd.play()
+#		drone.damage(body.damage)
+#		body.queue_free()
+#		if drone.HP < 0:
+#			get_parent().drones -= 1
+#			var boom = drone_boom_res.instance()
+#			boom.position = drone.position
+#			boom.scale = drone.scale
+#			player.shake = 60*drone.strength
+#			get_parent().get_parent().add_child(boom)
+#			drone.die()
 		
 func explode():
 	var boom = multi_splode_res.instance()
