@@ -6,10 +6,11 @@ export var Max_Nests = 0
 export var Max_Drones = 0
 onready var player = get_parent().get_node("player")
 var drones = 0
+var nests
 
 func _ready():
 	var number = floor(rand_range(1, Max_Nests))
-	
+	nests = number
 	for i in range(number):
 		var num = floor(rand_range(0,7))
 		var nest = nest_res.instance()
