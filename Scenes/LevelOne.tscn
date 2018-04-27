@@ -210,7 +210,7 @@ _sections_unfolded = [ "Transform" ]
 
 script = ExtResource( 17 )
 Max_Nests = 40
-Max_Drones = 20
+Max_Drones = 25
 
 [node name="player" parent="." index="4" instance=ExtResource( 18 )]
 

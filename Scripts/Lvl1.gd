@@ -20,6 +20,7 @@ func _process(delta):
 	play_arrangement(intensity)
 	
 func _ready():
+	ResourcePreloader.add_resource()
 	music_a._start_muted()
 	
 	pass
