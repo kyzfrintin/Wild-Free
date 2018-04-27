@@ -70,4 +70,5 @@ func explode():
 	get_node("dead_timer").start()
 
 func _on_dead_timer_timeout():
+	get_parent().nests -= 1
 	queue_free()
