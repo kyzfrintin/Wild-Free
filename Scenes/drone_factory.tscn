@@ -28,8 +28,8 @@ width = 2048
 
 render_priority = 0
 trail_divisor = 1
-emission_shape = 2
-emission_box_extents = Vector3( 5, 1, 1 )
+emission_shape = 1
+emission_sphere_radius = 3.0
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
@@ -76,6 +76,7 @@ random_pitch = 1.1
 
 [node name="drone_factory" type="Area2D"]
 
+scale = Vector2( 1.5, 1.5 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 0.0
@@ -87,7 +88,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-spawn_range = 200
+spawn_range = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -112,11 +113,11 @@ _sections_unfolded = [ "Transform" ]
 [node name="Particles2D" type="Particles2D" parent="bot_base" index="0"]
 
 modulate = Color( 1, 1, 1, 0.309412 )
-position = Vector2( -45.8444, -5.42483e-07 )
+position = Vector2( -42.9032, 6.91431e-06 )
 rotation = -3.14159
 scale = Vector2( 0.7, 0.7 )
 emitting = true
-amount = 800
+amount = 2000
 lifetime = 6.0
 one_shot = false
 preprocess = 0.0

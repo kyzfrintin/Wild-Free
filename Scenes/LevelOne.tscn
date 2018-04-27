@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Lvl1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=2]
@@ -27,6 +27,34 @@ content_margin_left = -1.0
 content_margin_right = -1.0
 content_margin_top = -1.0
 content_margin_bottom = -1.0
+bg_color = Color( 0.6, 0.6, 0.6, 1 )
+draw_center = true
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
 bg_color = Color( 1, 1, 1, 1 )
 draw_center = true
 border_width_left = 0
@@ -50,7 +78,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width" ]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -79,7 +107,7 @@ anti_aliasing = true
 anti_aliasing_size = 1
 _sections_unfolded = [ "Border", "Border Width", "Expand Margin" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 
 size = 50
 use_mipmaps = true
@@ -89,7 +117,7 @@ extra_spacing_bottom = -60
 font_data = ExtResource( 20 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 
 size = 100
 use_mipmaps = false
@@ -97,7 +125,7 @@ use_filter = false
 font_data = ExtResource( 20 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 
 size = 80
 use_mipmaps = false
@@ -129,7 +157,6 @@ trans_time = 1
 
 [node name="bg_parallax" type="ParallaxBackground" parent="." index="1"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -152,7 +179,7 @@ _sections_unfolded = [ "Motion" ]
 [node name="star_gen" type="Node2D" parent="bg_parallax/star_far" index="0"]
 
 script = ExtResource( 15 )
-number = 2000
+number = 1000
 
 [node name="star_med" type="ParallaxLayer" parent="bg_parallax" index="1"]
 
@@ -165,7 +192,7 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="star_gen" type="Node2D" parent="bg_parallax/star_med" index="0"]
 
 script = ExtResource( 15 )
-number = 3000
+number = 1200
 
 [node name="star_close" type="ParallaxLayer" parent="bg_parallax" index="2"]
 
@@ -178,7 +205,7 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="star_gen" type="Node2D" parent="bg_parallax/star_close" index="0"]
 
 script = ExtResource( 15 )
-number = 4000
+number = 1500
 
 [node name="ast_far" type="ParallaxLayer" parent="bg_parallax" index="3"]
 
@@ -188,6 +215,8 @@ motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion" ]
 
 [node name="ast_generator" parent="bg_parallax/ast_far" index="0" instance=ExtResource( 16 )]
+
+number = 260
 
 [node name="ast_close" type="ParallaxLayer" parent="bg_parallax" index="4"]
 
@@ -200,7 +229,7 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="ast_generator" parent="bg_parallax/ast_close" index="0" instance=ExtResource( 16 )]
 
 _sections_unfolded = [ "Transform" ]
-number = 300
+number = 100
 
 [node name="bullets" type="Node2D" parent="." index="2"]
 
@@ -209,8 +238,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="drone_nests" type="Node2D" parent="." index="3"]
 
 script = ExtResource( 17 )
-Max_Nests = 40
-Max_Drones = 25
+Max_Nests = 6
+Max_Drones = 20
 
 [node name="player" parent="." index="4" instance=ExtResource( 18 )]
 
@@ -221,7 +250,7 @@ turn_spd = 8.0
 [node name="powerups" type="Node2D" parent="." index="5"]
 
 script = ExtResource( 19 )
-Max_Pickups = 200
+Max_Pickups = 100
 
 [node name="UI" type="CanvasLayer" parent="." index="6"]
 
@@ -231,16 +260,34 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="ProgressBar" type="ProgressBar" parent="UI" index="0"]
+[node name="Panel" type="Panel" parent="UI" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 46.0
-margin_top = 47.0
-margin_right = 458.0
-margin_bottom = 63.0
+margin_left = 29.0
+margin_top = 26.0
+margin_right = 494.0
+margin_bottom = 199.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panelf = SubResource( 1 )
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_top = 27.0
+margin_right = 437.0
+margin_bottom = 43.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 hint_tooltip = "Health"
@@ -248,9 +295,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -261,40 +308,16 @@ rounded = false
 percent_visible = false
 _sections_unfolded = [ "Percent", "custom_fonts" ]
 
-[node name="Label" type="Label" parent="UI" index="1"]
+[node name="Label" type="Label" parent="UI/Panel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 42.0
-margin_top = 72.0
-margin_right = 344.0
-margin_bottom = 202.0
-rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
-text = "NESTS:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-[node name="Label2" type="Label" parent="UI" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 41.0
-margin_top = 127.0
-margin_right = 343.0
-margin_bottom = 231.0
+margin_left = 21.0
+margin_top = 52.0
+margin_right = 323.0
+margin_bottom = 182.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -303,7 +326,72 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
+text = "NESTS:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Label2" type="Label" parent="UI/Panel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 107.0
+margin_right = 322.0
+margin_bottom = 211.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
 text = "DRONES"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Panel2" type="Panel" parent="UI" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 819.0
+margin_top = 46.0
+margin_right = 1185.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panelf = SubResource( 1 )
+
+[node name="Label3" type="Label" parent="UI/Panel2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 13.0
+margin_right = 635.0
+margin_bottom = 117.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 6 )
+text = "ARRANGEMENT 0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

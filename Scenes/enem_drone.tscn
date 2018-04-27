@@ -36,6 +36,7 @@ random_pitch = 1.2
 
 [node name="drone" type="Area2D"]
 
+scale = Vector2( 0.6, 0.6 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 0.0

@@ -66,6 +66,7 @@ func on_spawn():
 func explode():
 	var boom = multi_splode_res.instance()
 	boom.position = position
+	boom.scale *= 1.5
 	get_parent().get_parent().add_child(boom)
 	get_node("dead_timer").start()
 

@@ -17,7 +17,7 @@ var HP = 100
 var damage = 0
 
 func _ready():
-	strength = rand_range(0.5,2.8)
+	strength = rand_range(0.8,2.2)
 	HP = HP*strength
 	scale = scale*strength
 	damage = 50*strength
