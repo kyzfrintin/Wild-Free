@@ -75,7 +75,6 @@ limits/message_queue/max_size_kb=2048
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
-threads/thread_model=2
 quality/filters/use_nearest_mipmap_filter=true
 quality/filters/anisotropic_filter_level=6
 quality/directional_shadow/size=16
