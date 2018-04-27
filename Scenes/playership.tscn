@@ -20,13 +20,13 @@ radius = 50.666
 offsets = PoolRealArray( 0, 0.556485, 0.995816 )
 colors = PoolColorArray( 0.09375, 0.0904541, 0.0904541, 1, 0.341912, 0.3364, 0.3364, 0.348078, 0.367188, 0.36145, 0.36145, 0 )
 
-[sub_resource type="GradientTexture" id=16]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
 gradient = SubResource( 2 )
 width = 64
 
-[sub_resource type="ParticlesMaterial" id=17]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -56,7 +56,7 @@ angle = 360.0
 angle_random = 1.0
 scale = 75.0
 scale_random = 1.0
-color_ramp = SubResource( 16 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -71,13 +71,13 @@ _sections_unfolded = [ "Spread" ]
 offsets = PoolRealArray( 0, 0.0627615, 0.569038, 0.786611, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.957031, 0.921546, 0.0485992, 1, 0.90625, 0.47301, 0.0531006, 0.640902, 1, 0.210938, 0, 0.502745, 0.960938, 0.0412903, 0.0412903, 0 )
 
-[sub_resource type="GradientTexture" id=18]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
 gradient = SubResource( 5 )
 width = 64
 
-[sub_resource type="ParticlesMaterial" id=15]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -107,7 +107,7 @@ angle = 360.0
 angle_random = 1.0
 scale = 28.0
 scale_random = 1.0
-color_ramp = SubResource( 18 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -162,27 +162,27 @@ _sections_unfolded = [ "Color", "Emission Shape", "Initial Velocity", "Scale" ]
 audio_stream = ExtResource( 3 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=12]
+[sub_resource type="AudioStreamRandomPitch" id=10]
 
 audio_stream = ExtResource( 4 )
 random_pitch = 1.15
 
-[sub_resource type="AudioStreamRandomPitch" id=13]
+[sub_resource type="AudioStreamRandomPitch" id=11]
 
 audio_stream = ExtResource( 5 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=10]
+[sub_resource type="AudioStreamRandomPitch" id=12]
 
 audio_stream = ExtResource( 8 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=11]
+[sub_resource type="AudioStreamRandomPitch" id=13]
 
 audio_stream = ExtResource( 9 )
 random_pitch = 1.1
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -216,7 +216,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 17 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -241,7 +241,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 15 )
+process_material = SubResource( 7 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -316,7 +316,7 @@ bus = "Ship_Move"
 
 [node name="ship_hit" type="AudioStreamPlayer" parent="sounds" index="1"]
 
-stream = SubResource( 12 )
+stream = SubResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -324,7 +324,7 @@ bus = "ShipHits"
 
 [node name="ship_scrape" type="AudioStreamPlayer" parent="sounds" index="2"]
 
-stream = SubResource( 13 )
+stream = SubResource( 11 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -348,7 +348,7 @@ bus = "Ship_Move"
 
 [node name="boost" type="AudioStreamPlayer" parent="sounds" index="5"]
 
-stream = SubResource( 10 )
+stream = SubResource( 12 )
 volume_db = -5.0
 autoplay = false
 mix_target = 0
@@ -356,7 +356,7 @@ bus = "Ship_Boost"
 
 [node name="laser" type="AudioStreamPlayer" parent="sounds" index="6"]
 
-stream = SubResource( 11 )
+stream = SubResource( 13 )
 volume_db = -10.0
 autoplay = false
 mix_target = 0
@@ -367,7 +367,7 @@ bus = "PlayerLaser"
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 2.5, 2.5 )
+zoom = Vector2( 4, 4 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
