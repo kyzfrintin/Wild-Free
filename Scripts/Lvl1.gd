@@ -4,6 +4,7 @@ onready var player = get_node("player")
 onready var HPbar = get_node("UI/ProgressBar")
 onready var music_a = get_node("music_loop_a")
 onready var drone_nests = get_node("drone_nests")
+onready var nest_num = get_node("UI/Label")
 var intensity = 0.0
 var arr = 0
 
