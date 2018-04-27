@@ -7,10 +7,7 @@ path="res://.import/Mus_Loop_A_Piano_Melody.wav-70a000e2d87239a3381c2b0336c05373
 [deps]
 
 source_file="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav"
-source_md5="606020a34c01d749522a7a3e0165c03b"
-
 dest_files=[ "res://.import/Mus_Loop_A_Piano_Melody.wav-70a000e2d87239a3381c2b0336c05373.sample" ]
-dest_md5="079d8676c86d2a6ce9a9b975627679d4"
 
 [params]
 

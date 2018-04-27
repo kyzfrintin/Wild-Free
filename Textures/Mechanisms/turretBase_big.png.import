@@ -7,10 +7,7 @@ path="res://.import/turretBase_big.png-fd4a329b3b2596c93f7bc806415bd9ae.stex"
 [deps]
 
 source_file="res://Textures/Mechanisms/turretBase_big.png"
-source_md5="996bfb5738413867d04674fc912e83df"
-
 dest_files=[ "res://.import/turretBase_big.png-fd4a329b3b2596c93f7bc806415bd9ae.stex" ]
-dest_md5="28eec40e54aa2f047efb61bdca31c10c"
 
 [params]
 

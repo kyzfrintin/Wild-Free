@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var factory = preload("res://Scenes/ast_factory.tscn").instance()
+onready var factory = load("res://Scenes/ast_factory.tscn").instance()
 export var number = 0
 
 func _ready():

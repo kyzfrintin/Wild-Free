@@ -1,10 +1,10 @@
 extends Node2D
 
-onready var spawner = get_node("spawner")
 onready var drone_res = preload("res://Scenes/enem_drone.tscn")
-onready var drone_boom_res = preload("res://Scenes/explosion.tscn")
-onready var multi_splode_res = preload("res://Scenes/multi_splode.tscn")
-onready var trail_res = preload("res://scenes/trail.tscn")
+onready var spawner = get_node("spawner")
+onready var drone_boom_res = load("res://Scenes/explosion.tscn")
+onready var multi_splode_res = load("res://Scenes/multi_splode.tscn")
+onready var trail_res = load("res://scenes/trail.tscn")
 onready var hit_snd = get_node("hit_snd")
 onready var ding_snd = get_node("hit_snd2")
 export var spawn_range = 0

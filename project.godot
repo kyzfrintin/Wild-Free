@@ -12,12 +12,13 @@ config_version=3
 
 config/name="Wild & Free"
 run/main_scene="res://Scenes/LevelOne.tscn"
+run/disable_stdout=true
 config/icon="res://Textures/Characters/playerShip2_red.png"
 
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
+settings/stdout/print_fps=false
 settings/stdout/verbose_stdout=true
 
 [display]
@@ -28,10 +29,6 @@ window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "godot-git-control.funabab" )
 
 [gui]
 
@@ -64,6 +61,10 @@ gp_pad_fire=[ Object(InputEventJoypadButton,"resource_local_to_scene":false,"res
 ui_screenshot=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"unicode":0,"echo":false,"script":null)
  ]
 
+[logging]
+
+file_logging/enable_file_logging=true
+
 [memory]
 
 limits/message_queue/max_size_kb=2048
@@ -74,9 +75,10 @@ limits/message_queue/max_size_kb=2048
 
 [rendering]
 
-quality/intended_usage/framebuffer_allocation=0
-quality/filters/use_nearest_mipmap_filter=true
-quality/filters/anisotropic_filter_level=6
+quality/intended_usage/framebuffer_mode=0
+quality/intended_usage/framebuffer_allocation=1
+quality/2d/use_pixel_snap=true
+quality/filters/anisotropic_filter_level=12
 quality/directional_shadow/size=16
 quality/shadow_atlas/size=256
 quality/shadows/filter_mode=0
@@ -86,5 +88,4 @@ quality/shading/force_vertex_shading=true
 quality/subsurface_scattering/quality=2
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 quality/filters/msaa=2
-environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=true

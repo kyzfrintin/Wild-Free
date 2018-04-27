@@ -7,10 +7,7 @@ path="res://.import/shield_gold.png-91d85229d2e959933b0c995268a66de7.stex"
 [deps]
 
 source_file="res://Textures/Scenery/shield_gold.png"
-source_md5="ccd06dcc660ffb71e9411922fc0835d9"
-
 dest_files=[ "res://.import/shield_gold.png-91d85229d2e959933b0c995268a66de7.stex" ]
-dest_md5="848b1056b89db4a7173a1642b03e175d"
 
 [params]
 

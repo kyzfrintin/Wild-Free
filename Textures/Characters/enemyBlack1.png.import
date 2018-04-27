@@ -7,10 +7,7 @@ path="res://.import/enemyBlack1.png-d888b9b23ffbddcb934f7b21f805af54.stex"
 [deps]
 
 source_file="res://Textures/Characters/enemyBlack1.png"
-source_md5="7d7300c0a5a59378e449f7ca6672f4eb"
-
 dest_files=[ "res://.import/enemyBlack1.png-d888b9b23ffbddcb934f7b21f805af54.stex" ]
-dest_md5="f7c5a974fadd0c3c0e90e67026ea167f"
 
 [params]
 

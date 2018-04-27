@@ -7,10 +7,7 @@ path="res://.import/bolt_bronze.png-db43c52be85ef0704cb5d1922bf838cb.stex"
 [deps]
 
 source_file="res://Textures/Scenery/bolt_bronze.png"
-source_md5="5d05fbae1aa45438bc0915d50982eb41"
-
 dest_files=[ "res://.import/bolt_bronze.png-db43c52be85ef0704cb5d1922bf838cb.stex" ]
-dest_md5="24a1111676136803734ba507923bb5d1"
 
 [params]
 

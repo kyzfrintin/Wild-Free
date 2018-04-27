@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var star_res = preload("res://Scenes/star.tscn")
+onready var star_res = load("res://Scenes/star.tscn")
 export var number = 1
 
 func _ready():

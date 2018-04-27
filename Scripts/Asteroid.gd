@@ -1,6 +1,6 @@
 extends Sprite
 
-onready var ast_res = preload("res://Scenes/SmallAst.tscn")
+onready var ast_res = load("res://Scenes/SmallAst.tscn")
 
 var max_small = 60
 var scaler = 0.0

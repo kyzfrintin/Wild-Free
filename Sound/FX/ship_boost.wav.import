@@ -7,10 +7,7 @@ path="res://.import/ship_boost.wav-e5544df415f1f1e7390271d66ab2a9cd.sample"
 [deps]
 
 source_file="res://Sound/FX/ship_boost.wav"
-source_md5="ef6372f047d7f06712f0b3c40e62db12"
-
 dest_files=[ "res://.import/ship_boost.wav-e5544df415f1f1e7390271d66ab2a9cd.sample" ]
-dest_md5="430297243bd8f5947b4bd35832da02f1"
 
 [params]
 

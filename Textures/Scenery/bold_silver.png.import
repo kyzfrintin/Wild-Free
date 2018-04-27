@@ -7,10 +7,7 @@ path="res://.import/bold_silver.png-e71b323577d684e3e5c4296baa018a89.stex"
 [deps]
 
 source_file="res://Textures/Scenery/bold_silver.png"
-source_md5="8ea803d0f96032f1bc7ccab4d878b700"
-
 dest_files=[ "res://.import/bold_silver.png-e71b323577d684e3e5c4296baa018a89.stex" ]
-dest_md5="d22fc66a244c178d40a7f09fc3012be5"
 
 [params]
 

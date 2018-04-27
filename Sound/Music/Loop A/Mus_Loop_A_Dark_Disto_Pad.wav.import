@@ -7,10 +7,7 @@ path="res://.import/Mus_Loop_A_Dark_Disto_Pad.wav-600dce2e10f273716418e4407d8b42
 [deps]
 
 source_file="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav"
-source_md5="3df762eec01a89bce81186de011fa780"
-
 dest_files=[ "res://.import/Mus_Loop_A_Dark_Disto_Pad.wav-600dce2e10f273716418e4407d8b42ec.sample" ]
-dest_md5="104eb7fd2ae4e09d42ed26713e6d8d85"
 
 [params]
 

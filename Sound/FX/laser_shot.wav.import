@@ -7,10 +7,7 @@ path="res://.import/laser_shot.wav-0cff35fb53c8ce8078b25e07177cbffd.sample"
 [deps]
 
 source_file="res://Sound/FX/laser_shot.wav"
-source_md5="7accfd554ba17a83ece63ae661e5b077"
-
 dest_files=[ "res://.import/laser_shot.wav-0cff35fb53c8ce8078b25e07177cbffd.sample" ]
-dest_md5="479e1943d2f27fdfcda8ac2e0b0e8f0b"
 
 [params]
 

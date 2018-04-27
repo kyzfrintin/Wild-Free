@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var nest_res = preload("res://Scenes/drone_factory.tscn")
-onready var drone_boom_res = preload("res://Scenes/explosion.tscn")
+onready var drone_boom_res = load("res://Scenes/explosion.tscn")
 export var Max_Nests = 0
 export var Max_Drones = 0
 onready var player = get_parent().get_node("player")
@@ -9,7 +9,7 @@ var drones = 0
 var nests
 
 func _ready():
-	var number = floor(rand_range(1, Max_Nests))
+	var number = floor(rand_range(Max_Nests/2, Max_Nests))
 	nests = number
 	for i in range(number):
 		var num = floor(rand_range(0,7))

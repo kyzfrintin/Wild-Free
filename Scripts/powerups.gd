@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var health_up_res = preload("res://Scenes/health_up.tscn")
+onready var health_up_res = load("res://Scenes/health_up.tscn")
 export var Max_Pickups = 0
 
 func pickup(body, pickup):

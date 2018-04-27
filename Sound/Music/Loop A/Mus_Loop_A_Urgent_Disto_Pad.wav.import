@@ -7,10 +7,7 @@ path="res://.import/Mus_Loop_A_Urgent_Disto_Pad.wav-afc3ee2d0827401088be884ae4cc
 [deps]
 
 source_file="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav"
-source_md5="7398a75dcf4ce9745d6a87caad2a6380"
-
 dest_files=[ "res://.import/Mus_Loop_A_Urgent_Disto_Pad.wav-afc3ee2d0827401088be884ae4ccc29c.sample" ]
-dest_md5="12ae9c6b554403f8cf4ea621c3c64f16"
 
 [params]
 

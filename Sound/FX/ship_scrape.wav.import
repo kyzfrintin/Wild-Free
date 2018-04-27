@@ -7,10 +7,7 @@ path="res://.import/ship_scrape.wav-fe1e9fa2405075060ea6fdbaed3247c6.sample"
 [deps]
 
 source_file="res://Sound/FX/ship_scrape.wav"
-source_md5="ee633db191a18b15389f260c308d10d1"
-
 dest_files=[ "res://.import/ship_scrape.wav-fe1e9fa2405075060ea6fdbaed3247c6.sample" ]
-dest_md5="833f0267aa9715c6c8a3075fa1a55aa8"
 
 [params]
 

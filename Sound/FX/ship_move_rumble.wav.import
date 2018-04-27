@@ -7,10 +7,7 @@ path="res://.import/ship_move_rumble.wav-e819d86f1e13878eeac7bac8dc4fc016.sample
 [deps]
 
 source_file="res://Sound/FX/ship_move_rumble.wav"
-source_md5="3c1036c5e6952843a0c178e6c5bd052c"
-
 dest_files=[ "res://.import/ship_move_rumble.wav-e819d86f1e13878eeac7bac8dc4fc016.sample" ]
-dest_md5="02ff7a052b4ccc5e828c8a68d6995d74"
 
 [params]
 

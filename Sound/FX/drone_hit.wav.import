@@ -7,10 +7,7 @@ path="res://.import/drone_hit.wav-6171eee627d6b435408e810f078a2f85.sample"
 [deps]
 
 source_file="res://Sound/FX/drone_hit.wav"
-source_md5="2f0c652399a0bfdaf49e45934ca36c36"
-
 dest_files=[ "res://.import/drone_hit.wav-6171eee627d6b435408e810f078a2f85.sample" ]
-dest_md5="601e0771f6f75fb5a63ec527de95e35c"
 
 [params]
 
