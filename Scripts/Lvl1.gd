@@ -5,6 +5,7 @@ onready var HPbar = get_node("UI/ProgressBar")
 onready var music_a = get_node("music_loop_a")
 onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Label")
+onready var drone_num = get_node("UI/Label2")
 var intensity = 0.0
 var arr = 0
 
@@ -13,6 +14,7 @@ func _process(delta):
 		get_tree().quit()
 	HPbar.value = player.HP
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
+	drone_num.text = str("DRONES: " + str(drone_nests.drones))
 	intensity = (float(drone_nests.drones)/drone_nests.Max_Drones*2)*4
 	intensity = floor(intensity)+1
 	play_arrangement(intensity)
