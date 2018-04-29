@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Lvl1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/enem_drone.tscn" type="PackedScene" id=2]
@@ -8,112 +8,12 @@
 [ext_resource path="res://Scenes/multi_splode.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/trail.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/you_died.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Warm_Pad.wav" type="AudioStream" id=11]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Sparse.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Bassline.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav" type="AudioStream" id=14]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Chords.wav" type="AudioStream" id=15]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav" type="AudioStream" id=16]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Light.wav" type="AudioStream" id=17]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody.wav" type="AudioStream" id=18]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=19]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=20]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=21]
-[ext_resource path="res://Scripts/star_gen.gd" type="Script" id=22]
-[ext_resource path="res://Scenes/ast_gen.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scripts/drone_nests.gd" type="Script" id=24]
-[ext_resource path="res://Scenes/playership.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scripts/powerups.gd" type="Script" id=26]
-[ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=27]
-[ext_resource path="res://Textures/uifont.tres" type="DynamicFont" id=28]
-
-[sub_resource type="Curve" id=7]
-
-min_value = 0.0
-max_value = 1.0
-bake_resolution = 100
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=8]
-
-flags = 4
-width = 32
-curve = SubResource( 7 )
-
-[sub_resource type="ParticlesMaterial" id=9]
-
-render_priority = 0
-trail_divisor = 1
-trail_size_modifier = SubResource( 8 )
-emission_shape = 1
-emission_sphere_radius = 6.0
-flag_align_y = false
-flag_rotate_y = false
-flag_disable_z = false
-spread = 45.0
-flatness = 0.0
-gravity = Vector3( 0, -9.8, 0 )
-initial_velocity = 1.0
-initial_velocity_random = 0.0
-angular_velocity = 0.0
-angular_velocity_random = 0.0
-linear_accel = 0.0
-linear_accel_random = 0.0
-radial_accel = 0.0
-radial_accel_random = 0.0
-tangential_accel = 0.0
-tangential_accel_random = 0.0
-damping = 0.0
-damping_random = 0.0
-angle = 0.0
-angle_random = 0.0
-scale = 1.0
-scale_random = 0.0
-color = Color( 1, 1, 1, 1 )
-hue_variation = 0.0
-hue_variation_random = 0.0
-anim_speed = 0.0
-anim_speed_random = 0.0
-anim_offset = 0.0
-anim_offset_random = 0.0
-anim_loop = false
-
-[sub_resource type="CanvasItemMaterial" id=6]
-
-render_priority = 0
-next_pass = SubResource( 9 )
-blend_mode = 4
-light_mode = 1
-
-[sub_resource type="StyleBoxFlat" id=1]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-draw_center = true
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 1, 1, 1, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
+[ext_resource path="res://Scenes/parallax_space.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/drone_nests.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/playership.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/powerups.gd" type="Script" id=12]
+[ext_resource path="res://Textures/UIPanel.tres" type="StyleBox" id=13]
+[ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="StyleBoxFlat" id=2]
 
@@ -180,7 +80,7 @@ use_mipmaps = true
 use_filter = false
 extra_spacing_top = -60
 extra_spacing_bottom = -60
-font_data = ExtResource( 27 )
+font_data = ExtResource( 14 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -188,7 +88,51 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 100
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 27 )
+font_data = ExtResource( 14 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=12]
+
+size = 90
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 14 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="StyleBoxFlat" id=11]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 0, 0, 0, 0.245216 )
+draw_center = true
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+
+[sub_resource type="DynamicFont" id=13]
+
+size = 80
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 14 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="LevelOne" type="Node2D" index="0"]
@@ -199,129 +143,31 @@ script = ExtResource( 1 )
 
 resources = [ PoolStringArray( "drone", "drone_factory", "explosion", "health_up", "multi_splode", "trail", "you_died" ), [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ] ]
 
-[node name="music_loop_a" parent="." index="1" instance=ExtResource( 9 )]
+[node name="bg_parallax" parent="." index="1" instance=ExtResource( 9 )]
 
-layer1 = ExtResource( 10 )
-layer2 = ExtResource( 11 )
-layer3 = ExtResource( 12 )
-layer4 = ExtResource( 13 )
-layer5 = ExtResource( 14 )
-layer6 = ExtResource( 15 )
-layer7 = ExtResource( 16 )
-layer8 = ExtResource( 17 )
-layer9 = ExtResource( 18 )
-layer10 = ExtResource( 19 )
-layer11 = ExtResource( 20 )
-layer12 = ExtResource( 21 )
-tempo = 90
-bars = 16
-trans_time = 1
-
-[node name="bg_parallax" type="ParallaxBackground" parent="." index="2"]
-
-editor/display_folded = true
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-scroll_offset = Vector2( 0, 0 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
-scroll_ignore_camera_zoom = false
-
-[node name="star_far" type="ParallaxLayer" parent="bg_parallax" index="0"]
-
-motion_scale = Vector2( 0.01, 0.01 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
-
-[node name="star_gen" type="Node2D" parent="bg_parallax/star_far" index="0"]
-
-script = ExtResource( 22 )
-number = 1000
-
-[node name="star_med" type="ParallaxLayer" parent="bg_parallax" index="1"]
-
-scale = Vector2( 2, 2 )
-motion_scale = Vector2( 0.04, 0.04 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion", "Transform" ]
-
-[node name="star_gen" type="Node2D" parent="bg_parallax/star_med" index="0"]
-
-script = ExtResource( 22 )
-number = 1200
-
-[node name="star_close" type="ParallaxLayer" parent="bg_parallax" index="2"]
-
-scale = Vector2( 3.5, 3.5 )
-motion_scale = Vector2( 0.09, 0.09 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion", "Transform" ]
-
-[node name="star_gen" type="Node2D" parent="bg_parallax/star_close" index="0"]
-
-script = ExtResource( 22 )
-number = 1500
-
-[node name="ast_far" type="ParallaxLayer" parent="bg_parallax" index="3"]
-
-motion_scale = Vector2( 0.12, 0.12 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
-
-[node name="ast_generator" parent="bg_parallax/ast_far" index="0" instance=ExtResource( 23 )]
-
-number = 260
-
-[node name="ast_close" type="ParallaxLayer" parent="bg_parallax" index="4"]
-
-scale = Vector2( 3, 3 )
-motion_scale = Vector2( 0.17, 0.17 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion", "Transform" ]
-
-[node name="ast_generator" parent="bg_parallax/ast_close" index="0" instance=ExtResource( 23 )]
-
-_sections_unfolded = [ "Transform" ]
-number = 100
-
-[node name="bullets" type="Node2D" parent="." index="3"]
+[node name="bullets" type="Node2D" parent="." index="2"]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="drone_nests" type="Node2D" parent="." index="4"]
+[node name="drone_nests" type="Node2D" parent="." index="3"]
 
-script = ExtResource( 24 )
-Max_Nests = 8
-Max_Drones = 40
+script = ExtResource( 10 )
 
-[node name="player" parent="." index="5" instance=ExtResource( 25 )]
+[node name="player" parent="." index="4" instance=ExtResource( 11 )]
 
 thrust = 600
 max_spd = 3
 turn_spd = 8.0
 
-[node name="FX" type="Node2D" parent="." index="6"]
+[node name="FX" type="Node2D" parent="." index="5"]
 
-material = SubResource( 6 )
+[node name="powerups" type="Node2D" parent="." index="6"]
 
-[node name="powerups" type="Node2D" parent="." index="7"]
-
-script = ExtResource( 26 )
+script = ExtResource( 12 )
 Max_Pickups = 100
 
-[node name="UI" type="CanvasLayer" parent="." index="8"]
+[node name="UI" type="CanvasLayer" parent="." index="7"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -334,17 +180,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 29.0
-margin_top = 26.0
-margin_right = 494.0
-margin_bottom = 199.0
+margin_left = 32.0
+margin_top = 28.0
+margin_right = 497.0
+margin_bottom = 201.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panelf = SubResource( 1 )
+custom_styles/panel = ExtResource( 13 )
 
 [node name="ProgressBar" type="ProgressBar" parent="UI/Panel" index="0"]
 
@@ -408,8 +254,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 107.0
-margin_right = 322.0
-margin_bottom = 211.0
+margin_right = 638.0
+margin_bottom = 341.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -417,7 +263,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 28 )
+custom_fonts/font = SubResource( 12 )
 text = "DRONES"
 percent_visible = 1.0
 lines_skipped = 0
@@ -430,27 +276,27 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 819.0
-margin_top = 76.0
+margin_top = 66.0
 margin_right = 1185.0
-margin_bottom = 122.0
+margin_bottom = 126.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panelf = SubResource( 1 )
+custom_styles/panel = SubResource( 11 )
 
-[node name="Label3" type="Label" parent="UI/Panel2" index="0"]
+[node name="Label3" type="Label" parent="UI" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = -1.0
-margin_right = 615.0
-margin_bottom = 103.0
+margin_left = 839.0
+margin_top = 72.0
+margin_right = 1522.0
+margin_bottom = 306.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -458,7 +304,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 28 )
+custom_fonts/font = SubResource( 13 )
 text = "SCORE: 0"
 percent_visible = 1.0
 lines_skipped = 0

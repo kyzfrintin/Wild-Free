@@ -1,105 +1,37 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/MusicPlayer.gd" type="Script" id=1]
-
-[sub_resource type="AudioStreamSample" id=1]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=2]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=3]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=4]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=5]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=6]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=7]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
-
-[sub_resource type="AudioStreamSample" id=8]
-
-format = 0
-loop_mode = 0
-loop_begin = 0
-loop_end = 0
-mix_rate = 44100
-stereo = false
-data = PoolByteArray(  )
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Warm_Pad.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Sparse.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Bassline.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Chords.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Light.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=13]
 
 [node name="MusicPlayer" type="Node2D"]
 
 script = ExtResource( 1 )
-layer1 = SubResource( 1 )
-layer2 = SubResource( 2 )
-layer3 = SubResource( 3 )
-layer4 = SubResource( 4 )
-layer5 = SubResource( 5 )
-layer6 = SubResource( 6 )
-layer7 = SubResource( 7 )
-layer8 = SubResource( 8 )
-layer9 = null
-layer10 = null
-layer11 = null
-layer12 = null
-tempo = 0
-bars = 0
-trans_time = 4
+layer1 = ExtResource( 2 )
+layer2 = ExtResource( 3 )
+layer3 = ExtResource( 4 )
+layer4 = ExtResource( 5 )
+layer5 = ExtResource( 6 )
+layer6 = ExtResource( 7 )
+layer7 = ExtResource( 8 )
+layer8 = ExtResource( 9 )
+layer9 = ExtResource( 10 )
+layer10 = ExtResource( 11 )
+layer11 = ExtResource( 12 )
+layer12 = ExtResource( 13 )
+tempo = 90
+bars = 16
+trans_time = 1
 
 [node name="Tween" type="Tween" parent="." index="0"]
 

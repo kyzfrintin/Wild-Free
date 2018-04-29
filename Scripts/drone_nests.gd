@@ -5,8 +5,8 @@ onready var FX_LAYER = get_parent().get_node("FX")
 onready var nest_res = res_pool.get_resource("drone_factory")
 onready var drone_boom_res = res_pool.get_resource("explosion")
 onready var level = get_parent()
-export var Max_Nests = 0
-export var Max_Drones = 0
+var Max_Nests = CustCarrier.nests
+var Max_Drones = CustCarrier.drones
 onready var player = get_parent().get_node("player")
 var drones = []
 var nests
@@ -42,7 +42,7 @@ func drone_hit(body, drone):
 		if drone.HP < 0:
 			var droneid = drones.find(drone,0)
 			drones.remove(droneid)
-			level.score += 50*drone.distance
+			level.score += floor(500 + drone.distance/20)
 			var boom = drone_boom_res.instance()
 			boom.position = drone.position
 			boom.scale = drone.scale

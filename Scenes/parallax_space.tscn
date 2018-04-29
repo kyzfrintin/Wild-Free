@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/star_gen.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/ast_gen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/asteroids.gd" type="Script" id=3]
+
+[node name="bg_parallax" type="ParallaxBackground"]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+
+[node name="star_far" type="ParallaxLayer" parent="." index="0"]
+
+motion_scale = Vector2( 0.01, 0.01 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="star_gen" type="Node2D" parent="star_far" index="0"]
+
+script = ExtResource( 1 )
+number = 1000
+
+[node name="star_med" type="ParallaxLayer" parent="." index="1"]
+
+scale = Vector2( 2, 2 )
+motion_scale = Vector2( 0.04, 0.04 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="star_gen" type="Node2D" parent="star_med" index="0"]
+
+script = ExtResource( 1 )
+number = 1200
+
+[node name="star_close" type="ParallaxLayer" parent="." index="2"]
+
+scale = Vector2( 3.5, 3.5 )
+motion_scale = Vector2( 0.09, 0.09 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="star_gen" type="Node2D" parent="star_close" index="0"]
+
+script = ExtResource( 1 )
+number = 1500
+
+[node name="ast_far" type="ParallaxLayer" parent="." index="3"]
+
+motion_scale = Vector2( 0.12, 0.12 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="ast_generator" type="Node2D" parent="ast_far" index="0" instance=ExtResource( 2 )]
+
+script = ExtResource( 3 )
+number = 260
+
+[node name="ast_close" type="ParallaxLayer" parent="." index="4"]
+
+scale = Vector2( 3, 3 )
+motion_scale = Vector2( 0.17, 0.17 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="ast_generator" type="Node2D" parent="ast_close" index="0" instance=ExtResource( 2 )]
+
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+number = 100
+
+

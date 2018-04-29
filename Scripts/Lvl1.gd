@@ -6,11 +6,11 @@ onready var death_screen = res_pool.get_resource("you_died")
 onready var player = get_node("player")
 onready var FX_LAYER = get_node("FX")
 onready var HPbar = get_node("UI/Panel/ProgressBar")
-onready var music_a = get_node("music_loop_a")
+onready var music_a = MusicPlayer
 onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Panel/Label")
 onready var drone_num = get_node("UI/Panel/Label2")
-onready var score_bar = get_node("UI/Panel2/Label3")
+onready var score_bar = get_node("UI/Label3")
 var player_dead = false
 var intensity = 0.0
 var arr = 0
@@ -39,7 +39,8 @@ func player_died():
 	player.queue_free()
 
 func _ready():
-	music_a._start_muted()
+	if !music_a.playing:
+		music_a._start_muted()
 	
 	pass
 	

@@ -138,6 +138,7 @@ _sections_unfolded = [ "Process Material", "Time", "Transform", "Visibility" ]
 
 [node name="greeb1" type="Sprite" parent="bot_base" index="1"]
 
+modulate = Color( 0.214844, 0.138054, 0.138054, 1 )
 position = Vector2( 15.1667, 6.62957e-07 )
 rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
@@ -146,6 +147,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="greeb3" type="Sprite" parent="bot_base" index="2"]
 
+modulate = Color( 0.0761719, 0.0648651, 0.0648651, 1 )
 position = Vector2( -30, 0 )
 rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
@@ -154,6 +156,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="greeb2" type="Sprite" parent="bot_base" index="3"]
 
+modulate = Color( 0.28125, 0.197205, 0.197205, 1 )
 position = Vector2( -17.1111, 1.26278e-07 )
 rotation = 1.5708
 scale = Vector2( 0.7, 0.7 )
@@ -162,16 +165,16 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="mid" type="Sprite" parent="." index="3"]
 
+modulate = Color( 0.60149, 0.917345, 0.990234, 1 )
 scale = Vector2( 7, 7 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="top_base" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
-
 [node name="greeb4" type="Sprite" parent="top_base" index="0"]
 
+modulate = Color( 0.944147, 0.951172, 0.0520172, 1 )
 position = Vector2( 0, -60 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )
@@ -180,6 +183,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="greeb5" type="Sprite" parent="top_base" index="1"]
 
+modulate = Color( 0.0421143, 0.898438, 0.135775, 1 )
 position = Vector2( 0, 60 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )
@@ -188,6 +192,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="greeb6" type="Sprite" parent="top_base" index="2"]
 
+modulate = Color( 0.0407867, 0.0443353, 0.949219, 1 )
 position = Vector2( -60, 0 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )
@@ -196,6 +201,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="greeb7" type="Sprite" parent="top_base" index="3"]
 
+modulate = Color( 0.982422, 0.0211067, 0.0211067, 1 )
 position = Vector2( 60, 0 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )

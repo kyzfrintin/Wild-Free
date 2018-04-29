@@ -1,17 +1,44 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/death_screen.gd" type="Script" id=1]
-[ext_resource path="res://Textures/uifont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Textures/UIPanel.tres" type="StyleBox" id=3]
 
-[sub_resource type="InputEventAction" id=2]
+[sub_resource type="DynamicFont" id=1]
 
-device = 0
-action = "ui_enter"
-pressed = true
+size = 150
+use_mipmaps = false
+use_filter = false
+extra_spacing_top = -20
+extra_spacing_char = 20
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="ShortCut" id=3]
+[sub_resource type="DynamicFont" id=2]
 
-shortcut = SubResource( 2 )
+size = 120
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 351.808, 123.043 )
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 120
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 400.339, 118.434 )
 
 [node name="you_died" type="Container"]
 
@@ -23,7 +50,7 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -58,22 +85,24 @@ editor_draw_drag_margin = false
 
 [node name="text" type="Label" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = 810.0
-margin_top = 490.0
-margin_right = 1123.0
-margin_bottom = 594.0
+margin_left = 83.0
+margin_top = -684.0
+margin_right = -1106.0
+margin_bottom = -508.0
 rect_scale = Vector2( 4, 4 )
 rect_pivot_offset = Vector2( 150, 50 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "YOU DIED"
 align = 1
 valign = 1
@@ -81,32 +110,132 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Button" type="Button" parent="text" index="0"]
+[node name="hover" type="Area2D" parent="text" index="0"]
+
+position = Vector2( 120.581, 221.809 )
+scale = Vector2( 0.7, 0.7 )
+input_pickable = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+priority = 30.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="retry_but" type="Panel" parent="text/hover" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -54.0
-margin_top = 124.0
-margin_right = 383.0
-margin_bottom = 240.0
+margin_right = 165.0
+margin_bottom = 51.0
+rect_scale = Vector2( 4, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = SubResource( 3 )
-group = null
-text = "TRY AGAIN?"
-flat = false
-align = 1
+custom_styles/panel = ExtResource( 3 )
 
-[connection signal="pressed" from="text/Button" to="." method="_on_Button_pressed"]
+[node name="Label" type="Label" parent="text/hover/retry_but" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 161.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "TRY AGAIN?"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="text/hover" index="1"]
+
+position = Vector2( 327.725, 101.334 )
+shape = SubResource( 3 )
+
+[node name="hover2" type="Area2D" parent="text" index="1"]
+
+position = Vector2( 80, 550 )
+scale = Vector2( 0.7, 0.7 )
+input_pickable = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+priority = 30.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="menu_but" type="Panel" parent="text/hover2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 196.0
+margin_bottom = 51.0
+rect_scale = Vector2( 4, 4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="text/hover2/menu_but" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 8.0
+margin_right = 728.0
+margin_bottom = 164.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "EXIT TO MENU"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="text/hover2" index="1"]
+
+position = Vector2( 389.297, 103.104 )
+shape = SubResource( 5 )
+
+[connection signal="mouse_entered" from="text/hover" to="." method="retry_enter"]
+
+[connection signal="mouse_exited" from="text/hover" to="." method="_on_hover_mouse_exited"]
+
+[connection signal="mouse_entered" from="text/hover2" to="." method="menu_but_mouse_entered"]
+
+[connection signal="mouse_exited" from="text/hover2" to="." method="_on_hover2_mouse_exited"]
 
 
