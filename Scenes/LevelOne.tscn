@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scripts/Lvl1.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/enem_drone.tscn" type="PackedScene" id=2]
@@ -29,9 +29,61 @@
 [ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=27]
 [ext_resource path="res://Textures/uifont.tres" type="DynamicFont" id=28]
 
+[sub_resource type="Curve" id=7]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 32
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+trail_size_modifier = SubResource( 8 )
+emission_shape = 1
+emission_sphere_radius = 6.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -9.8, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
 [sub_resource type="CanvasItemMaterial" id=6]
 
 render_priority = 0
+next_pass = SubResource( 9 )
 blend_mode = 4
 light_mode = 1
 
@@ -139,7 +191,7 @@ use_filter = false
 font_data = ExtResource( 27 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -249,8 +301,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="drone_nests" type="Node2D" parent="." index="4"]
 
 script = ExtResource( 24 )
-Max_Nests = 6
-Max_Drones = 20
+Max_Nests = 8
+Max_Drones = 40
 
 [node name="player" parent="." index="5" instance=ExtResource( 25 )]
 
