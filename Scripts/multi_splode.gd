@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var explosion = load("res://Scenes/explosion.tscn")
+
 onready var countdown = get_node("countdown")
 onready var dead_time = get_node("dead_time")
 var num = 0

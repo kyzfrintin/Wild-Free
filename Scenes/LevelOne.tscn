@@ -1,25 +1,39 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Lvl1.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=3]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Warm_Pad.wav" type="AudioStream" id=4]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Sparse.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Bassline.wav" type="AudioStream" id=6]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav" type="AudioStream" id=7]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Chords.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Light.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody.wav" type="AudioStream" id=11]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=14]
-[ext_resource path="res://Scripts/star_gen.gd" type="Script" id=15]
-[ext_resource path="res://Scenes/ast_gen.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scripts/drone_nests.gd" type="Script" id=17]
-[ext_resource path="res://Scenes/playership.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scripts/powerups.gd" type="Script" id=19]
-[ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://Scenes/enem_drone.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/drone_factory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/explosion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/health_up.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/multi_splode.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/trail.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/you_died.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Warm_Pad.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Sparse.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Bassline.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Melody_Chords.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Dark_Disto_Pad.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Light.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=21]
+[ext_resource path="res://Scripts/star_gen.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/ast_gen.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scripts/drone_nests.gd" type="Script" id=24]
+[ext_resource path="res://Scenes/playership.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scripts/powerups.gd" type="Script" id=26]
+[ext_resource path="res://Textures/UI.ttf" type="DynamicFontData" id=27]
+[ext_resource path="res://Textures/uifont.tres" type="DynamicFont" id=28]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+render_priority = 0
+blend_mode = 4
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -114,7 +128,7 @@ use_mipmaps = true
 use_filter = false
 extra_spacing_top = -60
 extra_spacing_bottom = -60
-font_data = ExtResource( 20 )
+font_data = ExtResource( 27 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=5]
@@ -122,41 +136,38 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 100
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 20 )
+font_data = ExtResource( 27 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=6]
-
-size = 80
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 20 )
-_sections_unfolded = [ "Font", "Settings" ]
-
-[node name="LevelOne" type="Node2D" index="0"]
+[node name="LevelOne" type="Node2D"]
 
 script = ExtResource( 1 )
 
-[node name="music_loop_a" parent="." index="0" instance=ExtResource( 2 )]
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." index="0"]
 
-layer1 = ExtResource( 3 )
-layer2 = ExtResource( 4 )
-layer3 = ExtResource( 5 )
-layer4 = ExtResource( 6 )
-layer5 = ExtResource( 7 )
-layer6 = ExtResource( 8 )
-layer7 = ExtResource( 9 )
-layer8 = ExtResource( 10 )
-layer9 = ExtResource( 11 )
-layer10 = ExtResource( 12 )
-layer11 = ExtResource( 13 )
-layer12 = ExtResource( 14 )
+resources = [ PoolStringArray( "drone", "drone_factory", "explosion", "health_up", "multi_splode", "trail", "you_died" ), [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ] ]
+
+[node name="music_loop_a" parent="." index="1" instance=ExtResource( 9 )]
+
+layer1 = ExtResource( 10 )
+layer2 = ExtResource( 11 )
+layer3 = ExtResource( 12 )
+layer4 = ExtResource( 13 )
+layer5 = ExtResource( 14 )
+layer6 = ExtResource( 15 )
+layer7 = ExtResource( 16 )
+layer8 = ExtResource( 17 )
+layer9 = ExtResource( 18 )
+layer10 = ExtResource( 19 )
+layer11 = ExtResource( 20 )
+layer12 = ExtResource( 21 )
 tempo = 90
 bars = 16
 trans_time = 1
 
-[node name="bg_parallax" type="ParallaxBackground" parent="." index="1"]
+[node name="bg_parallax" type="ParallaxBackground" parent="." index="2"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -178,7 +189,7 @@ _sections_unfolded = [ "Motion" ]
 
 [node name="star_gen" type="Node2D" parent="bg_parallax/star_far" index="0"]
 
-script = ExtResource( 15 )
+script = ExtResource( 22 )
 number = 1000
 
 [node name="star_med" type="ParallaxLayer" parent="bg_parallax" index="1"]
@@ -191,7 +202,7 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="star_gen" type="Node2D" parent="bg_parallax/star_med" index="0"]
 
-script = ExtResource( 15 )
+script = ExtResource( 22 )
 number = 1200
 
 [node name="star_close" type="ParallaxLayer" parent="bg_parallax" index="2"]
@@ -204,7 +215,7 @@ _sections_unfolded = [ "Motion", "Transform" ]
 
 [node name="star_gen" type="Node2D" parent="bg_parallax/star_close" index="0"]
 
-script = ExtResource( 15 )
+script = ExtResource( 22 )
 number = 1500
 
 [node name="ast_far" type="ParallaxLayer" parent="bg_parallax" index="3"]
@@ -214,7 +225,7 @@ motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion" ]
 
-[node name="ast_generator" parent="bg_parallax/ast_far" index="0" instance=ExtResource( 16 )]
+[node name="ast_generator" parent="bg_parallax/ast_far" index="0" instance=ExtResource( 23 )]
 
 number = 260
 
@@ -226,34 +237,39 @@ motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="ast_generator" parent="bg_parallax/ast_close" index="0" instance=ExtResource( 16 )]
+[node name="ast_generator" parent="bg_parallax/ast_close" index="0" instance=ExtResource( 23 )]
 
 _sections_unfolded = [ "Transform" ]
 number = 100
 
-[node name="bullets" type="Node2D" parent="." index="2"]
+[node name="bullets" type="Node2D" parent="." index="3"]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="drone_nests" type="Node2D" parent="." index="3"]
+[node name="drone_nests" type="Node2D" parent="." index="4"]
 
-script = ExtResource( 17 )
+script = ExtResource( 24 )
 Max_Nests = 6
 Max_Drones = 20
 
-[node name="player" parent="." index="4" instance=ExtResource( 18 )]
+[node name="player" parent="." index="5" instance=ExtResource( 25 )]
 
 thrust = 600
 max_spd = 3
 turn_spd = 8.0
 
-[node name="powerups" type="Node2D" parent="." index="5"]
+[node name="FX" type="Node2D" parent="." index="6"]
 
-script = ExtResource( 19 )
+material = SubResource( 6 )
+
+[node name="powerups" type="Node2D" parent="." index="7"]
+
+script = ExtResource( 26 )
 Max_Pickups = 100
 
-[node name="UI" type="CanvasLayer" parent="." index="6"]
+[node name="UI" type="CanvasLayer" parent="." index="8"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -349,7 +365,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = ExtResource( 28 )
 text = "DRONES"
 percent_visible = 1.0
 lines_skipped = 0
@@ -362,7 +378,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 819.0
-margin_top = 46.0
+margin_top = 76.0
 margin_right = 1185.0
 margin_bottom = 122.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -379,10 +395,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 40.0
-margin_top = 13.0
-margin_right = 635.0
-margin_bottom = 117.0
+margin_left = 20.0
+margin_top = -1.0
+margin_right = 615.0
+margin_bottom = 103.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -390,8 +406,8 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
-text = "ARRANGEMENT 0"
+custom_fonts/font = ExtResource( 28 )
+text = "SCORE: 0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

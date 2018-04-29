@@ -1,11 +1,14 @@
 extends Node2D
 
-onready var nest_res = preload("res://Scenes/drone_factory.tscn")
-onready var drone_boom_res = load("res://Scenes/explosion.tscn")
+onready var res_pool = get_parent().get_node("ResourcePreloader")
+onready var FX_LAYER = get_parent().get_node("FX")
+onready var nest_res = res_pool.get_resource("drone_factory")
+onready var drone_boom_res = res_pool.get_resource("explosion")
+onready var level = get_parent()
 export var Max_Nests = 0
 export var Max_Drones = 0
 onready var player = get_parent().get_node("player")
-var drones = 0
+var drones = []
 var nests
 
 func _ready():
@@ -14,6 +17,7 @@ func _ready():
 	for i in range(number):
 		var num = floor(rand_range(0,7))
 		var nest = nest_res.instance()
+		nest.level = level
 		nest.position = Vector2(rand_range(-1920*7, 1920*7), rand_range(-1080*7, 1080*7))
 		nest.rotation = rand_range(0,360)
 		add_child(nest)
@@ -36,10 +40,12 @@ func drone_hit(body, drone):
 		drone.damage(body.damage)
 		body.queue_free()
 		if drone.HP < 0:
-			drones -= 1
+			var droneid = drones.find(drone,0)
+			drones.remove(droneid)
+			level.score += 50*drone.distance
 			var boom = drone_boom_res.instance()
 			boom.position = drone.position
 			boom.scale = drone.scale
 			player.shake = 60*drone.strength
-			get_parent().add_child(boom)
+			FX_LAYER.add_child(boom)
 			drone.die()

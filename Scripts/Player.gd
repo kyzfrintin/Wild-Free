@@ -9,6 +9,7 @@ onready var view_size = get_viewport_rect().size
 onready var tween = get_node("Tween")
 onready var cam = get_node("Camera2D")
 onready var cast = get_node("RayCast2D")
+onready var res_pool = get_parent().get_node("ResourcePreloader")
 onready var bullet_res = load("res://Scenes/p_laser.tscn")
 onready var boostemit = get_node("boost")
 onready var thrust_start = get_node("sounds/thrust_off")
@@ -18,6 +19,8 @@ onready var boost_sound = get_node("sounds/boost")
 onready var laser_sound = get_node("sounds/laser")
 onready var scrape_sound = get_node("sounds/ship_scrape")
 onready var hit_sound = get_node("sounds/ship_hit")
+onready var FX_LAYER = get_parent().get_node("FX")
+onready var explosion = res_pool.get_resource("multi_splode")
 
 const MAX_HP = 100
 
@@ -30,6 +33,11 @@ var canfire = true
 var laser = false
 var HP = 100
 var las_dam = 25
+
+signal death
+
+func _ready():
+	connect("death", get_parent(), "player_died")
 
 func _process(delta):
 
@@ -97,6 +105,7 @@ func _process(delta):
 		
 	if HP < 0:
 		die()
+		HP = 0
 		
 	if shake > 0:
 		cam_shake(30)
@@ -123,5 +132,10 @@ func fire_cooldown():
 	canfire = true
 	
 func die():
-	get_tree().reload_current_scene()
+	var boom = explosion.instance()
+	boom.position = global_position
+	FX_LAYER.add_child(boom)
+	get_node("Timer2").start()
 
+func death_timer():
+	emit_signal("death")

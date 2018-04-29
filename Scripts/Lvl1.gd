@@ -1,26 +1,43 @@
 extends Node2D
 
+onready var res_pool = get_node("ResourcePreloader")
+onready var explosion = res_pool.get_resource("multi_splode")
+onready var death_screen = res_pool.get_resource("you_died")
 onready var player = get_node("player")
+onready var FX_LAYER = get_node("FX")
 onready var HPbar = get_node("UI/Panel/ProgressBar")
 onready var music_a = get_node("music_loop_a")
 onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Panel/Label")
 onready var drone_num = get_node("UI/Panel/Label2")
-onready var intense = get_node("UI/Panel2/Label3")
+onready var score_bar = get_node("UI/Panel2/Label3")
+var player_dead = false
 var intensity = 0.0
 var arr = 0
+var score = 0
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-	HPbar.value = player.HP
+	if Input.is_action_just_pressed("ui_down") and !player_dead:
+		player.hurt(40)
+	if !player_dead:
+		HPbar.value = player.HP
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
-	drone_num.text = str("DRONES: " + str(drone_nests.drones))
-	intensity = (float(drone_nests.drones)/drone_nests.Max_Drones)*4
+	drone_num.text = str("DRONES: " + str(drone_nests.drones.size()))
+	intensity = (float(drone_nests.drones.size())/drone_nests.Max_Drones)*4
 	intensity = floor(intensity)+1
-	intense.text = str("ARRANGEMENT " + str(intensity))
+	score_bar.text = str("SCORE: " + str(floor(score)))
 	play_arrangement(intensity)
-	
+
+func player_died():
+	player_dead = true
+	var you_died = death_screen.instance()
+	add_child(you_died)
+	for i in drone_nests.drones:
+		i.idle = true
+	player.queue_free()
+
 func _ready():
 	music_a._start_muted()
 	
