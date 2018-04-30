@@ -1,13 +1,15 @@
 extends Container
 
 onready var level_one = preload("res://Scenes/LevelOne.tscn")
-onready var scaler = get_node("scaler")
+onready var TITLE = get_node("TITLE")
+onready var scaler = get_node("TITLE/scaler")
 onready var play_but = get_node("TITLE/hover/play_but/Label")
 onready var exit_but = get_node("TITLE/hover2/exit_but/Label")
-onready var highlight = get_node("highlight")
+onready var highlight = get_node("TITLE/Camera2D/highlight")
 var index = 0
 
 func _ready():
+	CustCarrier.score = 0
 	margin_right = get_viewport_rect().size.x
 	margin_bottom = get_viewport_rect().size.y
 	if !MusicPlayer.playing:
@@ -16,11 +18,12 @@ func _ready():
 	MusicPlayer._unMute(1)
 	
 func _process(delta):
+	get_node("TITLE").rect_position += Vector2(12,4)
 	index = floor(clamp(index,0,2))
 	if !scaler.active:
-		highlight.rect_position = Vector2(-1100, 758)
-		highlight.rect_size = Vector2(2233,1848)
-		
+		get_node("TITLE/but_highlight").visible = true
+		get_node("TITLE/nest_highlight").visible = false
+		get_node("TITLE/drone_highlight").visible = false
 		if Input.is_action_just_pressed("ui_down"):
 			index += 1
 			
@@ -44,11 +47,13 @@ func _process(delta):
 		scaler.active = false
 		
 	if scaler.active:
+		get_node("TITLE/but_highlight").visible = false
 		if scaler.index == 1:
-			highlight.rect_position = Vector2(1825,1320)
+			get_node("TITLE/nest_highlight").visible = true
+			get_node("TITLE/drone_highlight").visible = false
 		elif scaler.index == 2:
-			highlight.rect_position = Vector2(1825,2000)
-		highlight.rect_size = Vector2(1791,450)
+			get_node("TITLE/drone_highlight").visible = true
+			get_node("TITLE/nest_highlight").visible = false
 	
 	if index == 1:
 		play_but.modulate.b = 0

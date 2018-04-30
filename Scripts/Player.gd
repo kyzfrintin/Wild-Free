@@ -33,14 +33,18 @@ var canfire = true
 var laser = false
 var HP = 100
 var las_dam = 25
+var vul = true
 
 signal death
 
 func _ready():
 	connect("death", get_parent(), "player_died")
+	
 
 func _process(delta):
-
+	if Input.is_action_just_pressed("cheat_god_mode"):
+		vul = false
+	
 	if Input.is_action_pressed("gp_turn_left"):
 		rot -= turn_spd * delta
 		
@@ -123,7 +127,8 @@ func cam_shake(intensity):
 	shake -= 1
 	
 func hurt(amnt):
-	HP -= amnt
+	if vul:
+		HP -= amnt
 	shake = 30
 	hit_sound.play()
 	scrape_sound.play()

@@ -10,6 +10,9 @@ var Max_Drones = CustCarrier.drones
 onready var player = get_parent().get_node("player")
 var drones = []
 var nests
+var clear = false
+
+signal clear
 
 func _ready():
 	var number = floor(rand_range(Max_Nests/2, Max_Nests))
@@ -21,6 +24,12 @@ func _ready():
 		nest.position = Vector2(rand_range(-1920*7, 1920*7), rand_range(-1080*7, 1080*7))
 		nest.rotation = rand_range(0,360)
 		add_child(nest)
+	connect("clear", level, "on_clear")
+
+func _process(delta):
+	if (nests == 0) and (drones.size() == 0) and !clear:
+		clear = true
+		emit_signal("clear")
 
 func nest_hit(body, nest):
 	var hitname = body.get_name()
@@ -46,6 +55,7 @@ func drone_hit(body, drone):
 			var boom = drone_boom_res.instance()
 			boom.position = drone.position
 			boom.scale = drone.scale
-			player.shake = 60*drone.strength
+			if !level.player_dead:
+				player.shake = 60*drone.strength
 			FX_LAYER.add_child(boom)
 			drone.die()

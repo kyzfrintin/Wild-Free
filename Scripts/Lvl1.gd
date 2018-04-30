@@ -3,6 +3,7 @@ extends Node2D
 onready var res_pool = get_node("ResourcePreloader")
 onready var explosion = res_pool.get_resource("multi_splode")
 onready var death_screen = res_pool.get_resource("you_died")
+onready var level_clear = res_pool.get_resource("level_clear")
 onready var player = get_node("player")
 onready var FX_LAYER = get_node("FX")
 onready var HPbar = get_node("UI/Panel/ProgressBar")
@@ -14,7 +15,7 @@ onready var score_bar = get_node("UI/Label3")
 var player_dead = false
 var intensity = 0.0
 var arr = 0
-var score = 0
+var score
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -32,17 +33,25 @@ func _process(delta):
 
 func player_died():
 	player_dead = true
-	var you_died = death_screen.instance()
-	add_child(you_died)
 	for i in drone_nests.drones:
 		i.idle = true
 	player.queue_free()
+	get_node("dead_timer").start()
+
 
 func _ready():
+	score = CustCarrier.score
 	if !music_a.playing:
 		music_a._start_muted()
 	
-	pass
+func on_clear():
+	player.cam.current = false
+	player.tween.interpolate_property(player, 'vel', player.vel, player.cast.cast_to.rotated(player.rot)*8, 0.5, Tween.TRANS_BACK, Tween.EASE_OUT)
+	player.tween.start()
+	player.boostemit.emitting = true
+	player.boost_sound.play()
+	player_dead = true
+	get_node("clear_timer").start()
 	
 func play_arrangement(num):
 	if num == 1 && arr != 1:
@@ -109,4 +118,12 @@ func play_arrangement(num):
 		music_a._fadeIn(10)
 		music_a._fadeIn(11)
 		##--FADE-OUTS--##
-	
+
+func _on_clear_timer_timeout():
+	var clear = level_clear.instance()
+	player.queue_free()
+	add_child(clear)
+
+func _on_dead_timer_timeout():
+	var you_died = death_screen.instance()
+	add_child(you_died)

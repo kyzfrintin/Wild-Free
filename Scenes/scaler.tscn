@@ -4,7 +4,7 @@
 [ext_resource path="res://Textures/UIPanel.tres" type="StyleBox" id=2]
 [ext_resource path="res://Textures/uifont.tres" type="DynamicFont" id=3]
 
-[node name="scaler" type="Container" index="0"]
+[node name="scaler" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -229,9 +229,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 215.0
-margin_top = -235.0
+margin_top = -254.0
 margin_right = 1265.0
-margin_bottom = 25.0
+margin_bottom = 6.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2

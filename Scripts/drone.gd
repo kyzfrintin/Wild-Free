@@ -25,7 +25,6 @@ func _ready():
 		scale = scale*strength
 		damage = 50*strength
 		trail.width = floor(20*strength)
-		#timer.start()
 		connect("body_entered", home, "drone_hit", [self])
 		approach()
 

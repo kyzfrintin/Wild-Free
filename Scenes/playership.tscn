@@ -304,8 +304,6 @@ collision_mask = 1
 
 [node name="sounds" type="Node2D" parent="." index="8"]
 
-editor/display_folded = true
-
 [node name="thrust_off" type="AudioStreamPlayer" parent="sounds" index="0"]
 
 stream = SubResource( 9 )

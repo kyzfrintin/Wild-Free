@@ -59,6 +59,7 @@ func explode():
 	var boom = multi_splode_res.instance()
 	boom.position = position
 	boom.scale *= 1.5
+	level.score += 2500
 	get_parent().FX_LAYER.add_child(boom)
 	get_node("dead_timer").start()
 
