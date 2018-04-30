@@ -2,8 +2,8 @@ extends Container
 
 onready var text = get_node("text")
 onready var menu = preload("res://Scenes/main_menu.tscn")
-onready var retry_text = get_node("text/hover/retry_but/Label")
-onready var menu_text = get_node("text/hover2/menu_but/Label")
+onready var retry_text = get_node("text/hover/retry_but")
+onready var menu_text = get_node("text/hover2/menu_but")
 
 var index = 0
 

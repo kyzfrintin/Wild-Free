@@ -8,7 +8,7 @@ func _ready():
 		gold = true
 	elif decider < 0.7:
 		gold = false
-	connect("body_entered", get_parent(), "pickup", [self])
+	connect("body_entered", get_parent(), "health_pickup", [self])
 	if gold:
 		get_node("gold").show()
 	else:

@@ -92,6 +92,7 @@ spawn_range = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
+visible = false
 position = Vector2( -79, 0 )
 scale = Vector2( 9, 9 )
 shape = SubResource( 1 )
@@ -106,6 +107,7 @@ autostart = false
 
 [node name="bot_base" type="Sprite" parent="." index="2"]
 
+editor/display_folded = true
 scale = Vector2( 9, 9 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
@@ -171,6 +173,8 @@ texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="top_base" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="greeb4" type="Sprite" parent="top_base" index="0"]
 

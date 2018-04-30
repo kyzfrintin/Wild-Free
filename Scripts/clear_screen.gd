@@ -2,8 +2,9 @@ extends Container
 
 onready var text = get_node("text")
 onready var menu = preload("res://Scenes/main_menu.tscn")
-onready var cont_text = get_node("text/hover/cont_but/Label")
-onready var menu_text = get_node("text/hover2/menu_but/Label")
+onready var cont_text = get_node("text/hover/cont_but")
+onready var menu_text = get_node("text/hover2/menu_but")
+onready var player = get_parent().get_node("player")
 
 var index = 0
 
@@ -22,10 +23,11 @@ func _process(delta):
 		index -= 1
 	if Input.is_action_pressed("ui_accept"):
 		if index == 1:
-			CustCarrier.nests *= 1.3
-			CustCarrier.drones *= 1.2
+			CustCarrier.nests *= 1.5
+			CustCarrier.drones *= 1.1
 			CustCarrier.score = get_parent().score
 			CustCarrier.lvl += 1
+			CustCarrier.las_mult = player.las_mult
 			get_tree().reload_current_scene()
 		if index == 2:
 			get_tree().change_scene_to(menu)

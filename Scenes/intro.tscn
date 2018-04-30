@@ -28,7 +28,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 audio_stream = ExtResource( 3 )
 random_pitch = 1.1
 
-[node name="intro" type="Container" index="0"]
+[node name="intro" type="Container"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -89,18 +89,18 @@ max_lines_visible = -1
 [node name="boom" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = SubResource( 3 )
-volume_db = -5.0
+volume_db = -10.0
 autoplay = false
-mix_target = 0
-bus = "Explosions"
+mix_target = 2
+bus = "IntroSound"
 
 [node name="up" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 4 )
-volume_db = -8.0
+volume_db = -10.0
 autoplay = true
 mix_target = 0
-bus = "Explosions"
+bus = "IntroSound"
 
 [node name="Timer" type="Timer" parent="." index="4"]
 

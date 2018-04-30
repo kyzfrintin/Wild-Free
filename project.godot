@@ -33,6 +33,8 @@ settings/stdout/verbose_stdout=true
 
 window/size/width=1920
 window/size/height=1080
+window/size/resizable=false
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
 
@@ -54,13 +56,13 @@ ui_focus_next=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_n
 ui_focus_prev=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
  ]
-gp_forwards=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+gp_thrust_rot=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":6,"pressure":0.0,"pressed":false,"script":null)
  ]
-gp_turn_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+gp_left=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
  ]
-gp_turn_right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+gp_right=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
  ]
 gp_boost=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
@@ -76,9 +78,13 @@ gp_stick_down=[ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"r
  ]
 gp_pad_fire=[ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":7,"pressure":0.0,"pressed":false,"script":null)
  ]
-ui_screenshot=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777255,"unicode":0,"echo":false,"script":null)
- ]
 cheat_god_mode=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":67,"unicode":0,"echo":false,"script":null)
+ ]
+gp_down=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
+ ]
+gp_up_dir=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
  ]
 
 [logging]
@@ -95,18 +101,19 @@ limits/message_queue/max_size_kb=2048
 
 [rendering]
 
-quality/intended_usage/framebuffer_mode=0
-quality/intended_usage/framebuffer_allocation=1
-quality/2d/use_pixel_snap=true
-quality/filters/anisotropic_filter_level=12
-quality/directional_shadow/size=16
+quality/intended_usage/framebuffer_mode=16
+quality/intended_usage/framebuffer_allocation=0
+quality/filters/use_nearest_mipmap_filter=true
+quality/filters/anisotropic_filter_level=6
+quality/directional_shadow/size=0
 quality/shadow_atlas/size=256
 quality/shadows/filter_mode=0
 quality/reflections/texture_array_reflections=false
 quality/reflections/high_quality_ggx=false
-quality/shading/force_vertex_shading=true
-quality/subsurface_scattering/quality=2
+quality/depth_prepass/enable=false
+quality/voxel_cone_tracing/high_quality=false
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 quality/filters/msaa=2
+quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"
 quality/dynamic_fonts/use_oversampling=true

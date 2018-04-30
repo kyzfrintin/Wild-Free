@@ -31,7 +31,7 @@ layer11 = ExtResource( 12 )
 layer12 = ExtResource( 13 )
 tempo = 90
 bars = 16
-trans_time = 1
+trans_time = 0.2
 
 [node name="Tween" type="Tween" parent="." index="0"]
 

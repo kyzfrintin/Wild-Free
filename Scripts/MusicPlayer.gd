@@ -15,7 +15,7 @@ export(AudioStreamSample) var layer12
 
 export var tempo = 0
 export var bars = 0
-export var trans_time = 0
+export var trans_time = 0.0
 
 onready var tweens = [get_node("Tween"), get_node("Tween2"), get_node("Tween3"), get_node("Tween4"),
 get_node("Tween5"), get_node("Tween6"), get_node("Tween7"), get_node("Tween8"), get_node("Tween9"),
@@ -67,10 +67,17 @@ func _process(delta):
 	beat = floor(beat)
 	bar = floor(beat/4) + 1
 
-func _start_muted():
+func _startAlone(layer):
 	for i in players:
 		i.set_volume_db(-60.0)
+	players[layer].set_volume_db(0)
 	_play()
+	
+func _muteAboveLayer(layer):
+	for i in range(layer):
+        _fadeIn(i)
+	for i in range(layer + 1, layers.size()):
+        _fadeOut(i)
 
 func _play():
 	if !playing:

@@ -3,23 +3,22 @@ extends Container
 onready var level_one = preload("res://Scenes/LevelOne.tscn")
 onready var TITLE = get_node("TITLE")
 onready var scaler = get_node("TITLE/scaler")
-onready var play_but = get_node("TITLE/hover/play_but/Label")
-onready var exit_but = get_node("TITLE/hover2/exit_but/Label")
-onready var highlight = get_node("TITLE/Camera2D/highlight")
+onready var play_but = get_node("TITLE/hover/play_but")
+onready var exit_but = get_node("TITLE/hover2/exit_but")
+onready var rot_but = get_node("TITLE/hover3/rot_but")
+onready var dir_but = get_node("TITLE/hover4/dir_but")
 var index = 0
 
 func _ready():
 	CustCarrier.score = 0
+	CustCarrier.las_mult = 1
 	margin_right = get_viewport_rect().size.x
 	margin_bottom = get_viewport_rect().size.y
-	if !MusicPlayer.playing:
-		MusicPlayer._start_muted()
-	MusicPlayer._unMute(0)
-	MusicPlayer._unMute(1)
+	MusicPlayer._startAlone(0)
 	
 func _process(delta):
 	get_node("TITLE").rect_position += Vector2(12,4)
-	index = floor(clamp(index,0,2))
+	index = floor(clamp(index,0,4))
 	if !scaler.active:
 		get_node("TITLE/but_highlight").visible = true
 		get_node("TITLE/nest_highlight").visible = false
@@ -37,6 +36,10 @@ func _process(delta):
 				get_tree().change_scene_to(level_one)
 			if index == 2:
 				get_tree().quit()
+			if index == 3:
+				CustCarrier.cont = "rot"
+			if index == 4:
+				CustCarrier.cont = "dir"
 				
 	if Input.is_action_just_pressed("ui_focus_next"):
 		index = 0
@@ -64,6 +67,16 @@ func _process(delta):
 		exit_but.modulate.b = 0
 	else:
 		exit_but.modulate.b = 255
+		
+	if index == 3:
+		rot_but.modulate.b = 0
+	else:
+		rot_but.modulate.b = 255
+	
+	if index == 4:
+		dir_but.modulate.b = 0
+	else:
+		dir_but.modulate.b = 255
 
 func play_entered():
 	index = 1
@@ -75,4 +88,16 @@ func play_leave():
 	index = 0
 
 func exit_leave():
+	index = 0
+
+func rot_entered():
+	index = 3
+
+func dir_entered():
+	index = 4
+
+func rot_leave():
+	index = 0
+
+func dir_leave():
 	index = 0

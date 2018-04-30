@@ -7,7 +7,10 @@ path="res://.import/ship_move.wav-552f280c81d79801fc742361d8a92fa4.sample"
 [deps]
 
 source_file="res://Sound/FX/ship_move.wav"
+source_md5="954321822d9ecaf4cd3f4aec8b59b36a"
+
 dest_files=[ "res://.import/ship_move.wav-552f280c81d79801fc742361d8a92fa4.sample" ]
+dest_md5="c3d4913533caf957dd0d4fb39b871682"
 
 [params]
 
@@ -15,7 +18,7 @@ force/8_bit=false
 force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
-edit/trim=false
+edit/trim=true
 edit/normalize=false
 edit/loop=false
 compress/mode=0

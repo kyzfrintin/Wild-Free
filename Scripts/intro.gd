@@ -12,6 +12,10 @@ func _ready():
 	margin_bottom = get_viewport_rect().size.y
 	timer.start()
 	
+func scottify(estimate):
+	estimate *= 4
+	return estimate
+	
 func _process(delta):
 	if Input.is_action_just_pressed("gp_boost"):
 		get_tree().change_scene_to(menu)

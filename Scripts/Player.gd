@@ -30,14 +30,16 @@ var rot = 0
 var pos = Vector2()
 var acc = Vector2()
 var canfire = true
-var laser = false
 var HP = 100
 var las_dam = 25
+var laser_speed = 3000
+var las_mult
 var vul = true
 
 signal death
 
 func _ready():
+	las_mult = CustCarrier.las_mult
 	connect("death", get_parent(), "player_died")
 	
 
@@ -45,14 +47,14 @@ func _process(delta):
 	if Input.is_action_just_pressed("cheat_god_mode"):
 		vul = false
 	
-	if Input.is_action_pressed("gp_turn_left"):
+	if Input.is_action_pressed("gp_left"):
 		rot -= turn_spd * delta
 		
-	if Input.is_action_pressed("gp_turn_right"):
+	if Input.is_action_pressed("gp_right"):
 		rot += turn_spd * delta
 	
 		
-	if Input.is_action_pressed("gp_forwards"):
+	if Input.is_action_pressed("gp_thrust_rot"):
 		acc = Vector2(thrust, 0).rotated(rot)
 		for i in emitters:
 			i.emitting = true
@@ -68,7 +70,7 @@ func _process(delta):
 		boostemit.emitting = true
 		shake = 10
 	
-	if Input.is_action_just_pressed("gp_forwards"):
+	if Input.is_action_just_pressed("gp_thrust_rot"):
 		if !thrust_start.playing:
 			thrust_start.play()
 		if !thrust_loop.playing:
@@ -77,7 +79,7 @@ func _process(delta):
 			thrust_rumble.play()
 		pass
 	
-	if Input.is_action_just_released("gp_forwards"):
+	if Input.is_action_just_released("gp_thrust_rot"):
 		if thrust_start.playing:
 			thrust_start.stop()
 		if thrust_loop.playing:
@@ -86,11 +88,13 @@ func _process(delta):
 	if Input.is_mouse_button_pressed(1) && canfire:
 		var laser = bullet_res.instance()
 		laser.position = position
-		laser.damage = las_dam*(rand_range(0.5,2.5))
+		laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
+		laser.speed = laser_speed*las_mult
 		laser.targetx = get_global_mouse_position().x
 		laser.targety = get_global_mouse_position().y
 		get_parent().get_node("bullets").add_child(laser,true)
 		canfire = false
+		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/las_mult
 		get_node("Timer").start()
 		laser_sound.play()
 		shake = 5
@@ -98,21 +102,24 @@ func _process(delta):
 	if Input.is_action_pressed("gp_pad_fire") && canfire:
 		var laser = bullet_res.instance()
 		laser.position = position
-		laser.damage = las_dam*(rand_range(0.5,2.5))
+		laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
+		laser.speed = laser_speed*las_mult
 		laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
 		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
 		get_parent().get_node("bullets").add_child(laser)
 		canfire = false
+		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/las_mult
 		get_node("Timer").start()
 		laser_sound.play()
 		shake = 5
-		
+	
+	HP = clamp(HP,-1,100)
 	if HP < 0:
 		die()
 		HP = 0
 		
 	if shake > 0:
-		cam_shake(30)
+		cam_shake(10)
 	else:
 		cam.offset = Vector2(0,0)
 	

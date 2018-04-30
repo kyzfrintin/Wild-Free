@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=11 format=2]
+[gd_resource type="AudioBusLayout" load_steps=13 format=2]
 
 [sub_resource type="AudioEffectReverb" id=1]
 
@@ -54,7 +54,7 @@ post_gain = 0.0
 
 resource_name = "Compressor"
 threshold = -1.0
-ratio = 10.0
+ratio = 15.0
 gain = 0.0
 attack_us = 20.0
 release_ms = 250.0
@@ -96,6 +96,20 @@ attack_us = 20.0
 release_ms = 250.0
 mix = 1.0
 sidechain = ""
+
+[sub_resource type="AudioEffectPhaser" id=11]
+
+resource_name = "Phaser"
+range_min_hz = 80.0
+range_max_hz = 150.0
+rate_hz = 0.5
+feedback = 0.6
+depth = 1.0
+
+[sub_resource type="AudioEffectPitchShift" id=12]
+
+resource_name = "PitchShift"
+pitch_scale = 0.5
 
 [resource]
 
@@ -143,7 +157,7 @@ bus/5/name = "Music"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = 0.0
+bus/5/volume_db = 6.3
 bus/5/send = "Master"
 bus/5/effect/0/effect = SubResource( 6 )
 bus/5/effect/0/enabled = true
@@ -173,4 +187,14 @@ bus/8/effect/1/effect = SubResource( 9 )
 bus/8/effect/1/enabled = true
 bus/8/effect/2/effect = SubResource( 10 )
 bus/8/effect/2/enabled = true
+bus/9/name = "IntroSound"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = "Master"
+bus/9/effect/0/effect = SubResource( 11 )
+bus/9/effect/0/enabled = true
+bus/9/effect/1/effect = SubResource( 12 )
+bus/9/effect/1/enabled = true
 

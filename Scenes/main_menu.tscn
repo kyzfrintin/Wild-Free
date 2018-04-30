@@ -6,7 +6,7 @@
 [ext_resource path="res://Textures/UIPanel.tres" type="StyleBox" id=4]
 [ext_resource path="res://Scenes/scaler.tscn" type="PackedScene" id=5]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 
 size = 600
 use_mipmaps = false
@@ -15,7 +15,7 @@ extra_spacing_char = 40
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 size = 120
 use_mipmaps = false
@@ -23,7 +23,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 367.978, 128.17 )
@@ -62,7 +62,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "AI: WILD & FREE"
 percent_visible = 1.0
 lines_skipped = 0
@@ -89,7 +89,6 @@ invert_border = 100.0
 
 [node name="hover" type="Area2D" parent="TITLE" index="1"]
 
-editor/display_folded = true
 position = Vector2( -251.5, 1056.68 )
 scale = Vector2( 2.625, 2.625 )
 input_pickable = true
@@ -112,7 +111,7 @@ margin_bottom = 51.0
 rect_scale = Vector2( 4, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -135,7 +134,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "BEGIN"
 align = 1
 percent_visible = 1.0
@@ -145,7 +144,7 @@ max_lines_visible = -1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TITLE/hover" index="1"]
 
 position = Vector2( 327.725, 101.334 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="hover2" type="Area2D" parent="TITLE" index="2"]
 
@@ -171,7 +170,7 @@ margin_bottom = 51.0
 rect_scale = Vector2( 4, 4 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
@@ -194,7 +193,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "EXIT"
 align = 1
 percent_visible = 1.0
@@ -204,11 +203,131 @@ max_lines_visible = -1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TITLE/hover2" index="1"]
 
 position = Vector2( 327.725, 101.334 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="TITLE" index="3"]
+[node name="hover3" type="Area2D" parent="TITLE" index="3"]
 
-offset = Vector2( 2000, 1200 )
+position = Vector2( 495.313, 2897.62 )
+scale = Vector2( 2.625, 2.625 )
+input_pickable = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+priority = 30.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="rot_but" type="Panel" parent="TITLE/hover3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 87.0
+margin_bottom = 51.0
+rect_scale = Vector2( 4, 4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="TITLE/hover3/rot_but" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 307.0
+margin_bottom = 164.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "ROT"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TITLE/hover3" index="1"]
+
+position = Vector2( 170.242, 101.334 )
+scale = Vector2( 0.575493, 1 )
+shape = SubResource( 3 )
+
+[node name="hover4" type="Area2D" parent="TITLE" index="4"]
+
+position = Vector2( 2500, 2897.62 )
+scale = Vector2( 2.625, 2.625 )
+input_pickable = true
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+priority = 30.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="dir_but" type="Panel" parent="TITLE/hover4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 87.0
+margin_bottom = 51.0
+rect_scale = Vector2( 4, 4 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="TITLE/hover4/dir_but" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 6.0
+margin_top = 8.0
+margin_right = 307.0
+margin_bottom = 164.0
+rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "DIR"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TITLE/hover4" index="1"]
+
+position = Vector2( 170.242, 101.334 )
+scale = Vector2( 0.575493, 1 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="TITLE" index="5"]
+
+offset = Vector2( 2100, 1600 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -224,15 +343,15 @@ smoothing_enabled = false
 smoothing_speed = 5.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.01
-drag_margin_top = 0.01
-drag_margin_right = 0.01
-drag_margin_bottom = 0.01
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="nest_highlight" type="Polygon2D" parent="TITLE" index="4"]
+[node name="nest_highlight" type="Polygon2D" parent="TITLE" index="6"]
 
 position = Vector2( 3595.94, 1711.09 )
 scale = Vector2( 0.435631, 0.112162 )
@@ -249,7 +368,7 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="drone_highlight" type="Polygon2D" parent="TITLE" index="5"]
+[node name="drone_highlight" type="Polygon2D" parent="TITLE" index="7"]
 
 position = Vector2( 3595.94, 2390 )
 scale = Vector2( 0.435631, 0.112162 )
@@ -266,7 +385,7 @@ texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
 
-[node name="scaler" parent="TITLE" index="6" instance=ExtResource( 5 )]
+[node name="scaler" parent="TITLE" index="8" instance=ExtResource( 5 )]
 
 anchor_left = 1.0
 anchor_top = 1.0
@@ -284,5 +403,13 @@ margin_bottom = 2258.0
 [connection signal="mouse_entered" from="TITLE/hover2" to="." method="exit_entered"]
 
 [connection signal="mouse_exited" from="TITLE/hover2" to="." method="exit_leave"]
+
+[connection signal="mouse_entered" from="TITLE/hover3" to="." method="rot_entered"]
+
+[connection signal="mouse_exited" from="TITLE/hover3" to="." method="rot_leave"]
+
+[connection signal="mouse_entered" from="TITLE/hover4" to="." method="dir_entered"]
+
+[connection signal="mouse_exited" from="TITLE/hover4" to="." method="dir_leave"]
 
 
