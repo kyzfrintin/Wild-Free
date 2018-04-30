@@ -27,7 +27,6 @@ func _process(delta):
 			CustCarrier.drones *= 1.1
 			CustCarrier.score = get_parent().score
 			CustCarrier.lvl += 1
-			CustCarrier.las_mult = player.las_mult
 			get_tree().reload_current_scene()
 		if index == 2:
 			get_tree().change_scene_to(menu)

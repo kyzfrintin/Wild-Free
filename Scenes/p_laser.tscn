@@ -27,6 +27,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="LaserBox" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 rotation = 1.5708
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]

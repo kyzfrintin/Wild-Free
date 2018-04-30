@@ -32,7 +32,7 @@ var acc = Vector2()
 var canfire = true
 var HP = 100
 var las_dam = 25
-var laser_speed = 3000
+var laser_speed = 4500
 var las_mult
 var vul = true
 
@@ -90,11 +90,16 @@ func _process(delta):
 		laser.position = position
 		laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
 		laser.speed = laser_speed*las_mult
+		laser.scale *= las_mult
+		laser.modulate.a = 0
+		if las_mult > 1:
+			laser.modulate.g -= las_mult/10
+			laser.modulate.r -= las_mult/5
 		laser.targetx = get_global_mouse_position().x
 		laser.targety = get_global_mouse_position().y
 		get_parent().get_node("bullets").add_child(laser,true)
 		canfire = false
-		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/las_mult
+		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/(las_mult*0.2)
 		get_node("Timer").start()
 		laser_sound.play()
 		shake = 5
@@ -104,11 +109,16 @@ func _process(delta):
 		laser.position = position
 		laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
 		laser.speed = laser_speed*las_mult
+		laser.scale *= las_mult
+		laser.modulate.a = 0
+		if las_mult > 1:
+			laser.modulate.g -= las_mult/10
+			laser.modulate.r -= las_mult/5
 		laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
 		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
 		get_parent().get_node("bullets").add_child(laser)
 		canfire = false
-		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/las_mult
+		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/(las_mult*0.2)
 		get_node("Timer").start()
 		laser_sound.play()
 		shake = 5

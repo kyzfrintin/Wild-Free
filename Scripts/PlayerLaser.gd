@@ -12,6 +12,7 @@ func _ready():
 	
 func _physics_process(delta):
 	move_and_slide(Vector2(speed, 0).rotated(rotation), Vector2(0,0), 5, 1, 45)
+	modulate.a+= 0.2
 
 func _on_Timer_timeout():
 	queue_free()

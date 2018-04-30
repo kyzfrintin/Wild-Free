@@ -63,6 +63,7 @@ func on_clear():
 	player.boostemit.emitting = true
 	player.boost_sound.play()
 	player_dead = true
+	CustCarrier.las_mult = player.las_mult
 	get_node("clear_timer").start()
 
 func _on_clear_timer_timeout():
