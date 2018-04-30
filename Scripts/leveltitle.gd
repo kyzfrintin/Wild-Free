@@ -13,7 +13,6 @@ func _ready():
 	var dest = Vector2(width,height*0.4)
 	tween.interpolate_property(self, 'rect_position', rect_position, dest, 1.6, Tween.TRANS_CUBIC, Tween.EASE_OUT_IN)
 	tween.start()
-	print(str(get_viewport_rect().size.x))
 	pass
 
 func _on_Tween_tween_completed(object, key):

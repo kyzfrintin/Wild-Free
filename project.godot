@@ -14,12 +14,14 @@ config/name="Wild & Free"
 run/main_scene="res://Scenes/intro.tscn"
 run/disable_stdout=true
 run/low_processor_mode=true
+boot_splash/image="res://Textures/splash.png"
 config/icon="res://Textures/Characters/playerShip2_red.png"
 
 [autoload]
 
 MusicPlayer="*res://Scenes/MusicPlayer.tscn"
 CustCarrier="*res://Scenes/cust_carrier.tscn"
+highscore="*res://Scripts/highscore.gd"
 
 [debug]
 

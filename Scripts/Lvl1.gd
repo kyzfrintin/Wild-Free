@@ -11,7 +11,7 @@ onready var music_a = MusicPlayer
 onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Panel/Label")
 onready var drone_num = get_node("UI/Panel/Label2")
-onready var score_bar = get_node("UI/Label3")
+onready var score_bar = get_node("UI/score_panel/score_text")
 var player_dead = false
 var intensity = 0.0
 var arr = 0
@@ -40,6 +40,7 @@ func player_died():
 
 
 func _ready():
+	get_node("UI/best_panel/best_text").text = str("BEST: " + str(highscore.bestscore))
 	score = CustCarrier.score
 	if !music_a.playing:
 		music_a._start_muted()
@@ -126,4 +127,6 @@ func _on_clear_timer_timeout():
 
 func _on_dead_timer_timeout():
 	var you_died = death_screen.instance()
+	if score > highscore.bestscore:
+		highscore.set_bestscore(score)
 	add_child(you_died)

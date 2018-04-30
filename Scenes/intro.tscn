@@ -89,7 +89,7 @@ max_lines_visible = -1
 [node name="boom" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = SubResource( 3 )
-volume_db = -5.0
+volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Explosions"
@@ -97,7 +97,7 @@ bus = "Explosions"
 [node name="up" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 4 )
-volume_db = -15.0
+volume_db = -5.0
 autoplay = true
 mix_target = 0
 bus = "Explosions"

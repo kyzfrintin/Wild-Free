@@ -182,9 +182,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 32.0
+margin_left = 50.0
 margin_top = 28.0
-margin_right = 497.0
+margin_right = 515.0
 margin_bottom = 201.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -271,16 +271,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Panel2" type="Panel" parent="UI" index="1"]
+[node name="score_panel" type="Panel" parent="UI" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 819.0
-margin_top = 66.0
-margin_right = 1185.0
-margin_bottom = 126.0
+margin_left = 760.0
+margin_top = 28.0
+margin_right = 1126.0
+margin_bottom = 88.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -289,16 +289,56 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_styles/panel = SubResource( 6 )
 
-[node name="Label3" type="Label" parent="UI" index="2"]
+[node name="score_text" type="Label" parent="UI/score_panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 839.0
-margin_top = 72.0
-margin_right = 1522.0
-margin_bottom = 306.0
+margin_left = 20.0
+margin_top = 6.0
+margin_right = 703.0
+margin_bottom = 240.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 7 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="best_panel" type="Panel" parent="UI" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1400.0
+margin_top = 28.0
+margin_right = 1766.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 6 )
+
+[node name="best_text" type="Label" parent="UI/best_panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 7.0
+margin_right = 703.0
+margin_bottom = 241.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
