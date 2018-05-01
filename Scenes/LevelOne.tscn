@@ -175,6 +175,7 @@ Max_LP = 40
 
 [node name="UI" type="CanvasLayer" parent="." index="8"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

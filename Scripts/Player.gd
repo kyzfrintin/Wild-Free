@@ -99,7 +99,7 @@ func _process(delta):
 		laser.targety = get_global_mouse_position().y
 		get_parent().get_node("bullets").add_child(laser,true)
 		canfire = false
-		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/(las_mult*0.2)
+		get_node("Timer").wait_time =  las_mult/3
 		get_node("Timer").start()
 		laser_sound.play()
 		shake = 5
@@ -118,7 +118,7 @@ func _process(delta):
 		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
 		get_parent().get_node("bullets").add_child(laser)
 		canfire = false
-		get_node("Timer").wait_time =  (get_node("Timer").wait_time)/(las_mult*0.2)
+		get_node("Timer").wait_time =  las_mult/3
 		get_node("Timer").start()
 		laser_sound.play()
 		shake = 5

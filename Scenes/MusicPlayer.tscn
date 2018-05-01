@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/MusicPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sound/Music/pulse.wav" type="AudioStream" id=14]
 
 [node name="MusicPlayer" type="Node2D"]
 
@@ -31,7 +32,8 @@ layer11 = ExtResource( 12 )
 layer12 = ExtResource( 13 )
 tempo = 90
 bars = 16
-trans_time = 0.2
+beats_in_bar = 4.0
+transition_beats = 4.0
 
 [node name="Tween" type="Tween" parent="." index="0"]
 
@@ -43,114 +45,38 @@ playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "Pause", "playback" ]
 
-[node name="Tween2" type="Tween" parent="." index="1"]
+[node name="beat" type="Timer" parent="." index="1"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
+process_mode = 0
+wait_time = 0.67
+one_shot = false
+autostart = false
 
-[node name="Tween3" type="Tween" parent="." index="2"]
+[node name="bar" type="Timer" parent="." index="2"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
-[node name="Tween4" type="Tween" parent="." index="3"]
+[node name="bar_tone" type="AudioStreamPlayer" parent="." index="3"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
-[node name="Tween5" type="Tween" parent="." index="4"]
+[node name="beat_tone" type="AudioStreamPlayer" parent="." index="4"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
+stream = ExtResource( 14 )
+volume_db = 0.0
+autoplay = false
+mix_target = 2
+bus = "Metronome"
 
-[node name="Tween6" type="Tween" parent="." index="5"]
+[connection signal="timeout" from="beat" to="." method="beat"]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
-
-[node name="Tween7" type="Tween" parent="." index="6"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
-
-[node name="Tween8" type="Tween" parent="." index="7"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
-
-[node name="Tween9" type="Tween" parent="." index="8"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
-
-[node name="Tween10" type="Tween" parent="." index="9"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
-
-[node name="Tween11" type="Tween" parent="." index="10"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
-
-[node name="Tween12" type="Tween" parent="." index="11"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-_sections_unfolded = [ "Pause", "playback" ]
+[connection signal="timeout" from="bar" to="." method="bar"]
 
 

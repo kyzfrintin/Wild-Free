@@ -8,13 +8,7 @@ onready var menu = load("res://Scenes/main_menu.tscn")
 var stage = 1
 
 func _ready():
-	margin_right = get_viewport_rect().size.x
-	margin_bottom = get_viewport_rect().size.y
 	timer.start()
-	
-func scottify(estimate):
-	estimate *= 4
-	return estimate
 	
 func _process(delta):
 	if Input.is_action_just_pressed("gp_boost"):

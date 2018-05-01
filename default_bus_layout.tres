@@ -197,4 +197,10 @@ bus/9/effect/0/effect = SubResource( 11 )
 bus/9/effect/0/enabled = true
 bus/9/effect/1/effect = SubResource( 12 )
 bus/9/effect/1/enabled = true
+bus/10/name = "Metronome"
+bus/10/solo = false
+bus/10/mute = false
+bus/10/bypass_fx = false
+bus/10/volume_db = -17.8
+bus/10/send = "Master"
 

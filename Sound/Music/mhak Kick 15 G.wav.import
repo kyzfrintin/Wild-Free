@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mhak Kick 15 G.wav-1f54a3b9f9528c3bac1ca3e725c413e1.sample"
+
+[deps]
+
+source_file="res://Sound/Music/mhak Kick 15 G.wav"
+source_md5="f29e6209049584d7d7febcfb54bda545"
+
+dest_files=[ "res://.import/mhak Kick 15 G.wav-1f54a3b9f9528c3bac1ca3e725c413e1.sample" ]
+dest_md5="5a903c691f3efaa09ef779e68610a596"
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
