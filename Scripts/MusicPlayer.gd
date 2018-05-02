@@ -19,8 +19,6 @@ export var beats_in_bar = 4.0
 export var transition_beats = 4.0
 
 onready var tweens = [get_node("Tween")] 
-onready var beat_timer = get_node("beat")
-onready var bar_timer = get_node("bar")
 onready var met = get_node("beat_tone")
 onready var layers = [layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8, layer9, layer10, layer11, layer12]
 onready var audioplayer = preload("res://Scenes/Layer.tscn")
@@ -28,10 +26,10 @@ onready var audioplayer = preload("res://Scenes/Layer.tscn")
 var players = []
 var num = 0
 var time = 0.0
-var beat = 0 setget beat_set
-var bar = 0 setget bar_set
+var beat = 0.0
+var bar = 0.0
 var beats_in_sec = 0.0
-var on_beat = true
+var can_beat = true
 var playing = false
 var beat_tran = false
 var bar_tran = false
@@ -44,9 +42,7 @@ signal bar
 
 func _ready():
 	beats_in_sec = 60000.0/tempo
-	beat_timer.wait_time = beats_in_sec
-	bar_timer.wait_time = beats_in_sec * beats_in_bar
-	transition_beats = (transition_beats/60000)*beats_in_sec
+	transition_beats = (transition_beats/60)*beats_in_sec
 	
 	for i in layers:
 		var player = audioplayer.instance()
@@ -62,21 +58,20 @@ func _ready():
 		num += 1
 		add_child(player)
 		add_child(tween)
-
-func beat_set():
-	pass
 	
-func bar_set():
-	pass
 func _process(delta):
 	time = players[0].get_playback_position()
-	beat = (time/beats_in_sec)*1000.0
-	if fmod(beat, 1.0) > 0.95 or fmod(beat, 1.0) < 0.05:
-		self.beat = floor(beat)
+	beat = ((time/beats_in_sec) * 1000.0) + 1.0
+	bar = beat/beats_in_bar
 	
-	if time < beats_in_sec:
-		self.beat = 1
-		self.bar = 1
+	if playing:
+		if fmod(beat, 1.0) < 0.1:
+			beat = floor(beat)
+			_beat()
+			
+			if fmod(bar, 1.0) < 0.3:
+				bar = floor(bar)
+				_bar()
 
 func _startAlone(layer):
 	for i in players:
@@ -89,8 +84,8 @@ func _play():
 		playing = true
 		for i in players:
 			i.play()
-			
-	bar_timer.start()
+	_beat()
+	_bar()
 
 func _muteAboveLayer(layer):
 	for i in range(layer):
@@ -138,19 +133,25 @@ func _stop():
 		for i in players:
 			i.stop()
 
-func bar():
-	bar += 1
-	if bar_tran:
-		for i in fadeins:
-			_fadeIn(i)
-			fadeins.remove(i)
-	bar_tran = false
+func _bar():
+	if can_beat:
+		met.play()
+		if bar_tran:
+			for i in fadeins:
+				_fadeIn(i)
+				fadeins.remove(i)
+			bar_tran = false
+		can_beat = false
 
-func beat():
-	met.play()
-	beat += 1
-	if beat_tran:
-		for i in fadeins:
-			_fadeIn(i)
-			fadeins.remove(i)
-	beat_tran = false
+func _beat():
+	if can_beat:
+		if beat_tran:
+			for i in fadeins:
+				_fadeIn(i)
+				fadeins.remove(i)
+			beat_tran = false
+		can_beat = false
+		get_node("kill_beat").start()
+
+func _reenableBeat():
+	can_beat = true

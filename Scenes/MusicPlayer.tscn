@@ -15,7 +15,7 @@
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sound/Music/pulse.wav" type="AudioStream" id=14]
 
-[node name="MusicPlayer" type="Node2D"]
+[node name="MusicPlayer" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 layer1 = ExtResource( 2 )
@@ -45,21 +45,7 @@ playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "Pause", "playback" ]
 
-[node name="beat" type="Timer" parent="." index="1"]
-
-process_mode = 0
-wait_time = 0.67
-one_shot = false
-autostart = false
-
-[node name="bar" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-
-[node name="bar_tone" type="AudioStreamPlayer" parent="." index="3"]
+[node name="bar_tone" type="AudioStreamPlayer" parent="." index="1"]
 
 stream = null
 volume_db = 0.0
@@ -67,7 +53,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="beat_tone" type="AudioStreamPlayer" parent="." index="4"]
+[node name="beat_tone" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 14 )
 volume_db = 0.0
@@ -75,8 +61,13 @@ autoplay = false
 mix_target = 2
 bus = "Metronome"
 
-[connection signal="timeout" from="beat" to="." method="beat"]
+[node name="kill_beat" type="Timer" parent="." index="3"]
 
-[connection signal="timeout" from="bar" to="." method="bar"]
+process_mode = 1
+wait_time = 0.1
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="kill_beat" to="." method="_reenableBeat"]
 
 
