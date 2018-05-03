@@ -35,10 +35,10 @@ settings/stdout/verbose_stdout=true
 window/size/width=1920
 window/size/height=1080
 window/size/borderless=true
-window/dpi/allow_hidpi=true
 window/vsync/use_vsync=false
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/energy_saving/keep_screen_on=false
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 
