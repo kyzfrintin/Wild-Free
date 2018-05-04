@@ -7,6 +7,7 @@ onready var play_but = get_node("TITLE/hover/play_but")
 onready var exit_but = get_node("TITLE/hover2/exit_but")
 onready var rot_but = get_node("TITLE/hover3/rot_but")
 onready var dir_but = get_node("TITLE/hover4/dir_but")
+onready var rd_sel = get_node("TITLE/rot_dir_select")
 var index = 0
 
 func _ready():
@@ -36,6 +37,7 @@ func _process(delta):
 				get_tree().change_scene_to(level_one)
 			if index == 2:
 				get_tree().quit()
+				return
 			if index == 3:
 				CustCarrier.cont = "rot"
 			if index == 4:
@@ -57,6 +59,11 @@ func _process(delta):
 		elif scaler.index == 2:
 			get_node("TITLE/drone_highlight").visible = true
 			get_node("TITLE/nest_highlight").visible = false
+	
+	if CustCarrier.cont == "dir":
+		rd_sel.rect_position = Vector2(2715,2770)
+	else:
+		rd_sel.rect_position = Vector2(700,2770)
 	
 	if index == 1:
 		play_but.modulate.b = 0

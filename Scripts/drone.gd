@@ -4,10 +4,13 @@ var player
 onready var app_tween = get_node("approach_tween")
 onready var att_tween = get_node("attack_tween")
 onready var timer = get_node("attack_timer")
+onready var sprite = get_node("Sprite")
 onready var att_ray = get_node("attack_vec")
 onready var att_snd = get_node("drone_attack")
 onready var hit_snd = get_node("drone_hit")
 onready var ding_snd = get_node("drone_ding")
+onready var hit_timer = get_node("Timer")
+onready var hit_part = get_node("hit_part")
 var home
 var level
 var idle = false
@@ -67,7 +70,11 @@ func die():
 	trail.queue_free()
 	queue_free()
 
-
 func _on_attack_finish(object, key):
 	if !level.player_dead:
 		approach()
+
+func flash_timer():
+	sprite.modulate.r = 1
+	sprite.modulate.g = 1
+	sprite.modulate.b = 3

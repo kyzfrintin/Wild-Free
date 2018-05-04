@@ -46,6 +46,11 @@ func drone_hit(body, drone):
 	if "Laser" in hitname:
 		drone.hit_snd.play()
 		drone.ding_snd.play()
+		drone.sprite.modulate.r = 4
+		drone.sprite.modulate.g = 6
+		drone.sprite.modulate.b = 2
+		drone.hit_timer.start()
+		drone.hit_part.emitting = true
 		drone.damage(body.damage)
 		body.queue_free()
 		if drone.HP < 0:

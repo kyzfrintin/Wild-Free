@@ -28,7 +28,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 audio_stream = ExtResource( 3 )
 random_pitch = 1.1
 
-[node name="intro" type="Container" index="0"]
+[node name="intro" type="Container"]
 
 anchor_left = 0.5
 anchor_top = 0.5

@@ -1,19 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/trail.gd" type="Script" id=1]
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="CanvasItemMaterial" id=2]
+
+render_priority = 0
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id=3]
 
 offsets = PoolRealArray( 0, 0.686192, 1 )
 colors = PoolColorArray( 0.994209, 0.994148, 0.996094, 0, 0.075326, 0.0886172, 0.951608, 0.557574, 1, 1, 1, 0.878588 )
 
 [node name="trail" type="Line2D"]
 
+modulate = Color( 1, 1, 1, 0.735725 )
+material = SubResource( 2 )
 rotation = -1.5708
 points = PoolVector2Array(  )
 width = 60.0
 default_color = Color( 1, 0.4, 0.617969, 1 )
-gradient = SubResource( 1 )
+gradient = SubResource( 3 )
+texture_mode = 1392508929
 joint_mode = 1
 begin_cap_mode = 1
 end_cap_mode = 2
