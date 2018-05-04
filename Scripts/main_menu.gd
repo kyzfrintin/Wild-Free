@@ -36,8 +36,8 @@ func _process(delta):
 				CustCarrier.drones = scaler.drone_count
 				get_tree().change_scene_to(level_one)
 			if index == 2:
+				MusicPlayer._stop()
 				get_tree().quit()
-				return
 			if index == 3:
 				CustCarrier.cont = "rot"
 			if index == 4:

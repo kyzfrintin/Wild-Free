@@ -7,7 +7,7 @@ func _ready():
 	get_node("boom").play()
 
 func _process(delta):
-	get_node("flash").modulate.a -= 0.05
+	get_node("flash").modulate.a -= 0.045
 
 func _on_Timer_timeout():
 	queue_free()

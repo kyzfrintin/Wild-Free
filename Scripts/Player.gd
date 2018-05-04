@@ -19,6 +19,7 @@ onready var boost_sound = get_node("sounds/boost")
 onready var laser_sound = get_node("sounds/laser")
 onready var scrape_sound = get_node("sounds/ship_scrape")
 onready var hit_sound = get_node("sounds/ship_hit")
+onready var level = get_parent()
 onready var FX_LAYER = get_parent().get_node("FX")
 onready var explosion = res_pool.get_resource("multi_splode")
 
@@ -44,100 +45,101 @@ func _ready():
 	
 
 func _process(delta):
-	if Input.is_action_just_pressed("cheat_god_mode"):
-		vul = false
-	
-	if Input.is_action_pressed("gp_left"):
-		rot -= turn_spd * delta
+	if !level.player_dead:
+		if Input.is_action_just_pressed("cheat_god_mode"):
+			vul = false
 		
-	if Input.is_action_pressed("gp_right"):
-		rot += turn_spd * delta
-	
+		if Input.is_action_pressed("gp_left"):
+			rot -= turn_spd * delta
+			
+		if Input.is_action_pressed("gp_right"):
+			rot += turn_spd * delta
 		
-	if Input.is_action_pressed("gp_thrust_rot"):
-		acc = Vector2(thrust, 0).rotated(rot)
-		for i in emitters:
-			i.emitting = true
-	else:
-		acc = Vector2(0,0)
-		for i in emitters:
-			i.emitting = false
-	
-	if Input.is_action_just_pressed("gp_boost"):
-		tween.interpolate_property(self, 'vel', vel, cast.cast_to.rotated(rot)*5, 1.6, Tween.TRANS_BACK, Tween.EASE_OUT)
-		tween.start()
-		boost_sound.play()
-		boostemit.emitting = true
-		shake = 10
-	
-	if Input.is_action_just_pressed("gp_thrust_rot"):
-		if !thrust_start.playing:
-			thrust_start.play()
-		if !thrust_loop.playing:
-			thrust_loop.play()
-		if !thrust_rumble.playing:
-			thrust_rumble.play()
-		pass
-	
-	if Input.is_action_just_released("gp_thrust_rot"):
-		if thrust_start.playing:
-			thrust_start.stop()
-		if thrust_loop.playing:
-			thrust_loop.stop()
+			
+		if Input.is_action_pressed("gp_thrust_rot"):
+			acc = Vector2(thrust, 0).rotated(rot)
+			for i in emitters:
+				i.emitting = true
+		else:
+			acc = Vector2(0,0)
+			for i in emitters:
+				i.emitting = false
 		
-	if Input.is_mouse_button_pressed(1) && canfire:
-		var laser = bullet_res.instance()
-		laser.position = position
-		laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
-		laser.speed = laser_speed*las_mult
-		laser.scale *= las_mult
-		laser.modulate.a = 0
-		if las_mult > 1:
-			laser.modulate.g -= las_mult/10
-			laser.modulate.r -= las_mult/5
-		laser.targetx = get_global_mouse_position().x
-		laser.targety = get_global_mouse_position().y
-		get_parent().get_node("bullets").add_child(laser,true)
-		canfire = false
-		get_node("Timer").wait_time =  1/(las_mult*7.5)
-		get_node("Timer").start()
-		laser_sound.play()
-		shake = 5
+		if Input.is_action_just_pressed("gp_boost"):
+			tween.interpolate_property(self, 'vel', vel, cast.cast_to.rotated(rot)*5, 1.6, Tween.TRANS_BACK, Tween.EASE_OUT)
+			tween.start()
+			boost_sound.play()
+			boostemit.emitting = true
+			shake = 10
 		
-	if Input.is_action_pressed("gp_pad_fire") && canfire:
-		var laser = bullet_res.instance()
-		laser.position = position
-		laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
-		laser.speed = laser_speed*las_mult
-		laser.scale *= las_mult
-		laser.modulate.a = 0
-		if las_mult > 1:
-			laser.modulate.g -= las_mult/10
-			laser.modulate.r -= las_mult/5
-		laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
-		laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
-		get_parent().get_node("bullets").add_child(laser)
-		canfire = false
-		get_node("Timer").wait_time =  1/(las_mult*7.5)
-		get_node("Timer").start()
-		laser_sound.play()
-		shake = 5
-	
-	HP = clamp(HP,-1,100)
-	if HP < 0:
-		die()
-		HP = 0
+		if Input.is_action_just_pressed("gp_thrust_rot"):
+			if !thrust_start.playing:
+				thrust_start.play()
+			if !thrust_loop.playing:
+				thrust_loop.play()
+			if !thrust_rumble.playing:
+				thrust_rumble.play()
+			pass
 		
-	if shake > 0:
-		cam_shake(10)
-	else:
-		cam.offset = Vector2(0,0)
-	
-	
-	rotation = rot
-	vel += acc * delta
-	pos += vel * delta
-	position = pos
+		if Input.is_action_just_released("gp_thrust_rot"):
+			if thrust_start.playing:
+				thrust_start.stop()
+			if thrust_loop.playing:
+				thrust_loop.stop()
+			
+		if Input.is_mouse_button_pressed(1) && canfire:
+			var laser = bullet_res.instance()
+			laser.position = position
+			laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
+			laser.speed = laser_speed*las_mult
+			laser.scale *= las_mult
+			laser.modulate.a = 0
+			if las_mult > 1:
+				laser.modulate.g -= las_mult/10
+				laser.modulate.r -= las_mult/5
+			laser.targetx = get_global_mouse_position().x
+			laser.targety = get_global_mouse_position().y
+			get_parent().get_node("bullets").add_child(laser,true)
+			canfire = false
+			get_node("Timer").wait_time =  1/(las_mult*7.5)
+			get_node("Timer").start()
+			laser_sound.play()
+			shake = 5
+			
+		if Input.is_action_pressed("gp_pad_fire") && canfire:
+			var laser = bullet_res.instance()
+			laser.position = position
+			laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
+			laser.speed = laser_speed*las_mult
+			laser.scale *= las_mult
+			laser.modulate.a = 0
+			if las_mult > 1:
+				laser.modulate.g -= las_mult/10
+				laser.modulate.r -= las_mult/5
+			laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
+			laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
+			get_parent().get_node("bullets").add_child(laser)
+			canfire = false
+			get_node("Timer").wait_time =  1/(las_mult*7.5)
+			get_node("Timer").start()
+			laser_sound.play()
+			shake = 5
+		
+		HP = clamp(HP,-1,100)
+		if HP < 0:
+			die()
+			HP = 0
+			
+		if shake > 0:
+			cam_shake(10)
+		else:
+			cam.offset = Vector2(0,0)
+		
+		
+		rotation = rot
+		vel += acc * delta
+		pos += vel * delta
+		position = pos
 	
 func cam_shake(intensity):
 	cam.offset = Vector2(rand_range(-intensity, intensity), rand_range(-intensity, intensity))

@@ -26,10 +26,11 @@ onready var audioplayer = preload("res://Scenes/Layer.tscn")
 var players = []
 var num = 0
 var time = 0.0
-var beat = 0.0
-var bar = 0.0
+var beat = 1.0
+var bar = 1.0
 var beats_in_sec = 0.0
 var can_beat = true
+var can_bar = true
 var playing = false
 var beat_tran = false
 var bar_tran = false
@@ -42,8 +43,7 @@ signal bar
 
 func _ready():
 	beats_in_sec = 60000.0/tempo
-	transition_beats = (transition_beats/60)*beats_in_sec
-	
+	transition_beats *= beats_in_sec/1000
 	for i in layers:
 		var player = audioplayer.instance()
 		var bus = AudioServer.get_bus_count()
@@ -58,20 +58,21 @@ func _ready():
 		num += 1
 		add_child(player)
 		add_child(tween)
-	
+
 func _process(delta):
 	time = players[0].get_playback_position()
 	beat = ((time/beats_in_sec) * 1000.0) + 1.0
-	bar = beat/beats_in_bar
+	bar = beat/beats_in_bar + 0.75
 	
 	if playing:
 		if fmod(beat, 1.0) < 0.1:
-			beat = floor(beat)
-			_beat()
 			
-			if fmod(bar, 1.0) < 0.3:
+			if fmod(bar, 1.0) < 0.24:
 				bar = floor(bar)
 				_bar()
+			
+			beat = floor(beat)
+			_beat()
 
 func _startAlone(layer):
 	for i in players:
@@ -88,13 +89,13 @@ func _play():
 	_bar()
 
 func _muteAboveLayer(layer):
-	for i in range(layer):
+	for i in range(0, layer):
         _fadeIn(i)
 	for i in range(layer + 1, layers.size()):
         _fadeOut(i)
 
 func _muteBelowLayer(layer):
-	for i in range(layer):
+	for i in range(layer, layers.size()):
         _fadeIn(i)
 	for i in range(0, layer - 1):
         _fadeOut(i)
@@ -114,7 +115,7 @@ func _fadeIn(layer):
 func _fadeOut(layer):
 	var target = players[layer]
 	var in_from = target.get_volume_db()
-	tweens[layer].interpolate_property(target, 'volume_db', in_from, -60.0, transition_beats*1.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	tweens[layer].interpolate_property(target, 'volume_db', in_from, -60.0, transition_beats, Tween.TRANS_SINE, Tween.EASE_IN)
 	tweens[layer].start()
 
 func _queueBarTransition(faders):
@@ -134,17 +135,18 @@ func _stop():
 			i.stop()
 
 func _bar():
-	if can_beat:
-		met.play()
+	if can_bar:
 		if bar_tran:
 			for i in fadeins:
 				_fadeIn(i)
 				fadeins.remove(i)
 			bar_tran = false
-		can_beat = false
+		can_bar = false
+		get_node("kill_bar").start()
 
 func _beat():
 	if can_beat:
+		met.play()
 		if beat_tran:
 			for i in fadeins:
 				_fadeIn(i)
@@ -155,3 +157,6 @@ func _beat():
 
 func _reenableBeat():
 	can_beat = true
+
+func _reenableBar():
+	can_bar = true

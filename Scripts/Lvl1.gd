@@ -34,19 +34,20 @@ func _process(delta):
 		player.hurt(40)
 	if !player_dead:
 		HPbar.value = player.HP
-		get_node("UI/Panel/Label3").text = str(player.las_mult)
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
 	drone_num.text = str("DRONES: " + str(drone_nests.drones.size()))
 	intensity = (float(drone_nests.drones.size())/drone_nests.Max_Drones)*12
 	intensity = floor(intensity)
 	score_bar.text = str("SCORE: " + str(floor(score)))
+	get_node("UI/Panel/Label3").text = str(intensity)
 	music_a._muteAboveLayer(intensity)
 
 func player_died():
 	player_dead = true
 	for i in drone_nests.drones:
 		i.idle = true
-	player.queue_free()
+	player.visible = false
+	
 	get_node("dead_timer").start()
 
 
@@ -58,7 +59,7 @@ func _ready():
 	
 func on_clear():
 	player.cam.current = false
-	player.tween.interpolate_property(player, 'vel', player.vel, player.cast.cast_to.rotated(player.rot)*8, 0.5, Tween.TRANS_BACK, Tween.EASE_OUT)
+	player.tween.interpolate_property(player, 'vel', player.vel, player.cast.cast_to.rotated(player.rotation)*8, 0.5, Tween.TRANS_BACK, Tween.EASE_OUT)
 	player.tween.start()
 	player.boostemit.emitting = true
 	player.boost_sound.play()

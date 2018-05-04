@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/drone.gd" type="Script" id=1]
 [ext_resource path="res://Textures/Characters/enemyBlack1.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Sound/FX/drone_attack.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sound/FX/drone_ding.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sound/FX/drone_hit.wav" type="AudioStream" id=7]
-[ext_resource path="res://Sound/FX/drone_explode.wav" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -28,11 +27,6 @@ random_pitch = 1.1
 
 audio_stream = ExtResource( 7 )
 random_pitch = 1.1
-
-[sub_resource type="AudioStreamRandomPitch" id=6]
-
-audio_stream = ExtResource( 8 )
-random_pitch = 1.2
 
 [sub_resource type="Gradient" id=7]
 
@@ -85,7 +79,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Initial Velocity", "Radial Accel", "Spread", "Tangential Accel" ]
 
-[node name="drone" type="Area2D" index="0"]
+[node name="drone" type="Area2D"]
 
 scale = Vector2( 0.6, 0.6 )
 input_pickable = true
@@ -189,31 +183,21 @@ attenuation = 2.0
 bus = "DroneSounds"
 area_mask = 1
 
-[node name="drone_explode" type="AudioStreamPlayer2D" parent="." index="10"]
-
-stream = SubResource( 6 )
-volume_db = 0.0
-autoplay = false
-max_distance = 4000.0
-attenuation = 2.0
-bus = "Explosions"
-area_mask = 1
-
-[node name="attack_vec" type="RayCast2D" parent="." index="11"]
+[node name="attack_vec" type="RayCast2D" parent="." index="10"]
 
 enabled = false
 exclude_parent = true
 cast_to = Vector2( 2000, 0 )
 collision_mask = 16
 
-[node name="Timer" type="Timer" parent="." index="12"]
+[node name="Timer" type="Timer" parent="." index="11"]
 
 process_mode = 1
 wait_time = 0.08
 one_shot = true
 autostart = false
 
-[node name="hit_part" type="Particles2D" parent="." index="13"]
+[node name="hit_part" type="Particles2D" parent="." index="12"]
 
 emitting = false
 amount = 50
