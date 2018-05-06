@@ -94,7 +94,7 @@ use_filter = false
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=5]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -122,7 +122,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=6]
 
 size = 15
 use_mipmaps = true
@@ -131,7 +131,7 @@ extra_spacing_char = 5
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 
 size = 90
 use_mipmaps = false
@@ -139,7 +139,7 @@ use_filter = false
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=8]
 
 content_margin_left = -1.0
 content_margin_right = -1.0
@@ -167,7 +167,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=9]
 
 size = 80
 use_mipmaps = false
@@ -175,7 +175,7 @@ use_filter = false
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -220,7 +220,6 @@ modulate = Color( 1, 0.9, 0.9, 0.56 )
 
 [node name="UI" type="CanvasLayer" parent="." index="8"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -316,7 +315,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 5 )
 
 [node name="HPLabel" type="Label" parent="UI/Panel" index="3"]
 
@@ -324,9 +323,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 26.0
+margin_left = 33.0
 margin_top = 24.0
-margin_right = 130.0
+margin_right = 137.0
 margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -334,7 +333,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "20 / 100"
 valign = 1
@@ -385,7 +384,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "DRONES"
 percent_visible = 1.0
 lines_skipped = 0
@@ -407,7 +406,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="score_text" type="Label" parent="UI/score_panel" index="0"]
 
@@ -426,7 +425,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -447,7 +446,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="best_text" type="Label" parent="UI/best_panel" index="0"]
 
@@ -466,7 +465,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
