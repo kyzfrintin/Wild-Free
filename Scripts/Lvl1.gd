@@ -12,10 +12,12 @@ onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Panel/Label")
 onready var drone_num = get_node("UI/Panel/Label2")
 onready var score_bar = get_node("UI/score_panel/score_text")
+onready var HPtext = get_node("UI/Panel/HPLabel")
 var player_dead = false
 var intensity = 0.0
 var arr = 0
 var score
+var death_pos = Vector2(0,0)
 
 func _enter_tree():
 	if CustCarrier.cont == "dir":
@@ -33,13 +35,15 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_down") and !player_dead:
 		player.hurt(40)
 	if !player_dead:
+		HPbar.max_value = player.MaxHP
 		HPbar.value = player.HP
+		HPtext.text = str(str(floor(HPbar.value)) + " / " + str(HPbar.max_value))
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
 	drone_num.text = str("DRONES: " + str(drone_nests.drones.size()))
 	intensity = (float(drone_nests.drones.size())/drone_nests.Max_Drones)*12
 	intensity = floor(intensity)
 	score_bar.text = str("SCORE: " + str(floor(score)))
-	get_node("UI/Panel/Label3").text = str(intensity)
+#	get_node("UI/Panel/Label3").text = str(intensity)
 	music_a._muteAboveLayer(intensity)
 
 func player_died():
@@ -65,6 +69,8 @@ func on_clear():
 	player.boost_sound.play()
 	player_dead = true
 	CustCarrier.las_mult = player.las_mult
+	CustCarrier.HP = player.HP
+	CustCarrier.MaxHP = player.MaxHP
 	get_node("clear_timer").start()
 
 func _on_clear_timer_timeout():

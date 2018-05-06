@@ -13,6 +13,8 @@ var index = 0
 func _ready():
 	CustCarrier.score = 0
 	CustCarrier.las_mult = 1
+	CustCarrier.MaxHP = 100
+	CustCarrier.HP = 100
 	margin_right = get_viewport_rect().size.x
 	margin_bottom = get_viewport_rect().size.y
 	MusicPlayer._startAlone(0)

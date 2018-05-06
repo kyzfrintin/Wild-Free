@@ -5,8 +5,8 @@ onready var FX_LAYER = get_parent().get_node("FX")
 onready var nest_res = res_pool.get_resource("drone_factory")
 onready var drone_boom_res = res_pool.get_resource("explosion")
 onready var level = get_parent()
-var Max_Nests = CustCarrier.nests
-var Max_Drones = CustCarrier.drones
+var Max_Nests = floor(CustCarrier.nests)
+var Max_Drones = floor(CustCarrier.drones)
 onready var player = get_parent().get_node("player")
 var drones = []
 var nests
@@ -42,7 +42,7 @@ func nest_hit(body, nest):
 func drone_hit(body, drone):
 	var hitname = body.get_name()
 	if body == player:
-		body.hurt(10*drone.strength)
+		body.hurt(7.5*drone.strength)
 	if "Laser" in hitname:
 		drone.hit_snd.play()
 		drone.ding_snd.play()

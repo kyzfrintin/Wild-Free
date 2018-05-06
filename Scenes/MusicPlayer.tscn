@@ -15,7 +15,7 @@
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sound/Music/pulse.wav" type="AudioStream" id=14]
 
-[node name="MusicPlayer" type="Node2D" index="0"]
+[node name="MusicPlayer" type="Node2D"]
 
 script = ExtResource( 1 )
 layer1 = ExtResource( 2 )
@@ -31,7 +31,7 @@ layer10 = ExtResource( 11 )
 layer11 = ExtResource( 12 )
 layer12 = ExtResource( 13 )
 tempo = 90
-bars = 64
+bars = 8
 beats_in_bar = 4.0
 transition_beats = 4.0
 

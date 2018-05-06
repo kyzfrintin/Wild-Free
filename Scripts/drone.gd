@@ -23,7 +23,7 @@ var damage = 0
 
 func _ready():
 	if !level.player_dead:
-		strength = rand_range(0.8,2.2)
+		strength = rand_range(0.8,CustCarrier.drones/7)
 		HP = HP*strength
 		scale = scale*strength
 		damage = 50*strength

@@ -13,33 +13,33 @@
 custom_solver_bias = 0.0
 radius = 49.1357
 
-[sub_resource type="AudioStreamRandomPitch" id=3]
+[sub_resource type="AudioStreamRandomPitch" id=2]
 
 audio_stream = ExtResource( 5 )
 random_pitch = 1.2
 
-[sub_resource type="AudioStreamRandomPitch" id=4]
+[sub_resource type="AudioStreamRandomPitch" id=3]
 
 audio_stream = ExtResource( 6 )
 random_pitch = 1.1
 
-[sub_resource type="AudioStreamRandomPitch" id=5]
+[sub_resource type="AudioStreamRandomPitch" id=4]
 
 audio_stream = ExtResource( 7 )
 random_pitch = 1.1
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( 0, 0.203593, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.0485992, 0.93574, 0.957031, 1, 0.971386, 0.973414, 0.998708, 0 )
 
-[sub_resource type="GradientTexture" id=8]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
-gradient = SubResource( 7 )
+gradient = SubResource( 5 )
 width = 64
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -69,7 +69,7 @@ angle = 360.0
 angle_random = 1.0
 scale = 12.0
 scale_random = 1.0
-color_ramp = SubResource( 8 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -79,9 +79,9 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Initial Velocity", "Radial Accel", "Spread", "Tangential Accel" ]
 
-[node name="drone" type="Area2D"]
+[node name="drone" type="Area2D" index="0"]
 
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.7, 0.7 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 0.0
@@ -155,7 +155,7 @@ area_mask = 1
 
 [node name="drone_attack" type="AudioStreamPlayer2D" parent="." index="7"]
 
-stream = SubResource( 3 )
+stream = SubResource( 2 )
 volume_db = -5.0
 autoplay = false
 max_distance = 4000.0
@@ -165,7 +165,7 @@ area_mask = 1
 
 [node name="drone_ding" type="AudioStreamPlayer2D" parent="." index="8"]
 
-stream = SubResource( 4 )
+stream = SubResource( 3 )
 volume_db = -15.0
 autoplay = false
 max_distance = 4000.0
@@ -175,7 +175,7 @@ area_mask = 1
 
 [node name="drone_hit" type="AudioStreamPlayer2D" parent="." index="9"]
 
-stream = SubResource( 5 )
+stream = SubResource( 4 )
 volume_db = -12.0
 autoplay = false
 max_distance = 4000.0
@@ -212,7 +212,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 9 )
+process_material = SubResource( 7 )
 texture = null
 normal_map = null
 h_frames = 1

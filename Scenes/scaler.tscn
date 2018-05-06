@@ -4,7 +4,7 @@
 [ext_resource path="res://Textures/UIPanel.tres" type="StyleBox" id=2]
 [ext_resource path="res://Textures/uifont.tres" type="DynamicFont" id=3]
 
-[node name="scaler" type="Container"]
+[node name="scaler" type="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

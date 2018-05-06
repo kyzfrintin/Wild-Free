@@ -2,6 +2,7 @@ extends Container
 
 onready var text = get_node("text")
 onready var menu = preload("res://Scenes/main_menu.tscn")
+onready var level = get_parent()
 onready var retry_text = get_node("text/hover/retry_but")
 onready var menu_text = get_node("text/hover2/menu_but")
 
@@ -10,8 +11,7 @@ var index = 0
 func _ready():
 	margin_right = get_viewport_rect().size.x
 	margin_bottom = get_viewport_rect().size.y
-	rect_position.x -= get_viewport_rect().size.x/2
-	rect_position.y -= get_viewport_rect().size.y/2
+	rect_position = level.death_pos
 	
 func _process(delta):
 	index = clamp(index,0,2)

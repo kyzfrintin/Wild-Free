@@ -4,7 +4,6 @@
 [ext_resource path="res://Textures/Scenery/Pickups/shield_silver.png" type="Texture" id=2]
 [ext_resource path="res://Textures/Scenery/Pickups/shield_gold.png" type="Texture" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -25,7 +24,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 0, -2 )
+position = Vector2( 0, -3.09091 )
 shape = SubResource( 1 )
 
 [node name="silver" type="Sprite" parent="." index="1"]

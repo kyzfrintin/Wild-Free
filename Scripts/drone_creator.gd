@@ -17,10 +17,16 @@ var HP = 1000
 var dead = false
 var pos
 var level
+var scaled_num = CustCarrier.drones/CustCarrier.nests
 
 func _process(delta):
 	get_node("bot_base").rotation += 0.001*rot1
 	get_node("top_base").rotation += 0.01*rot2
+	
+	if get_parent().nests > 0:
+		scaled_num = (CustCarrier.drones/2)/(get_parent().nests*1.5)
+		if scaled_num < 1:
+			scaled_num = 1
 	if HP < 1 && !dead:
 		dead = true
 		explode()
@@ -32,8 +38,8 @@ func _ready():
 	
 func on_spawn():
 	var number = 0
-	if get_parent().drones.size() < get_parent().Max_Drones - 4:
-		number = floor(rand_range(0, 4))
+	if get_parent().drones.size() < get_parent().Max_Drones - scaled_num:
+		number = floor(rand_range(0, (scaled_num)))
 	for i in range(number):
 		var drone = drone_res.instance()
 		var trail = trail_res.instance()

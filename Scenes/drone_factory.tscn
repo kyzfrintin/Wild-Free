@@ -88,7 +88,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-spawn_range = 400
+spawn_range = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 

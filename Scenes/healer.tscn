@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/healer.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Scenery/Pickups/things_silver.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Scenery/Pickups/things_gold.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 18.3032
+
+[node name="healer" type="Area2D"]
+
+scale = Vector2( 5.5, 5.5 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 0.0
+linear_damp = 0.0
+angular_damp = 0.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0, -1.09091 )
+shape = SubResource( 1 )
+
+[node name="silver" type="Sprite" parent="." index="1"]
+
+visible = false
+texture = ExtResource( 2 )
+
+[node name="gold" type="Sprite" parent="." index="2"]
+
+visible = false
+texture = ExtResource( 3 )
+
+

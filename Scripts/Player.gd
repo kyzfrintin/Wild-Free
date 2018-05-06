@@ -23,8 +23,6 @@ onready var level = get_parent()
 onready var FX_LAYER = get_parent().get_node("FX")
 onready var explosion = res_pool.get_resource("multi_splode")
 
-const MAX_HP = 100
-
 var shake = 0
 var vel = Vector2()
 var rot = 0
@@ -32,7 +30,10 @@ var pos = Vector2()
 var acc = Vector2()
 var canfire = true
 var HP = 100
+var MaxHP = 100
 var las_dam = 25
+var cannons = 1
+var bullets = []
 var laser_speed = 4500
 var las_mult
 var vul = true
@@ -40,6 +41,8 @@ var vul = true
 signal death
 
 func _ready():
+	MaxHP = CustCarrier.MaxHP
+	HP = CustCarrier.HP
 	las_mult = CustCarrier.las_mult
 	connect("death", get_parent(), "player_died")
 	
@@ -88,18 +91,28 @@ func _process(delta):
 				thrust_loop.stop()
 			
 		if Input.is_mouse_button_pressed(1) && canfire:
-			var laser = bullet_res.instance()
-			laser.position = position
-			laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
-			laser.speed = laser_speed*las_mult
-			laser.scale *= las_mult
-			laser.modulate.a = 0
-			if las_mult > 1:
-				laser.modulate.g -= las_mult/10
-				laser.modulate.r -= las_mult/5
-			laser.targetx = get_global_mouse_position().x
-			laser.targety = get_global_mouse_position().y
-			get_parent().get_node("bullets").add_child(laser,true)
+			for i in range(1,cannons):
+				var laser = bullet_res.instance()
+				laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
+				laser.speed = laser_speed*las_mult
+				laser.position = position
+				laser.scale *= las_mult
+				laser.modulate.a = 0
+				if las_mult > 1:
+					laser.modulate.g -= las_mult/10
+					laser.modulate.r -= las_mult/5
+					laser.modulate.b += las_mult/12
+				laser.targetx = get_global_mouse_position().x
+				laser.targety = get_global_mouse_position().y
+				get_parent().get_node("bullets").add_child(laser,true)
+				bullets.append(laser)
+			if bullets.size() == 2:
+				bullets[0].position += Vector2(0, -20)
+				bullets[1].position += Vector2(0, 20)
+			if bullets.size() == 3:
+				bullets[1].position += Vector2(0, -30)
+				bullets[2].position += Vector2(0, 30)
+			bullets.clear()
 			canfire = false
 			get_node("Timer").wait_time =  1/(las_mult*7.5)
 			get_node("Timer").start()
@@ -107,25 +120,36 @@ func _process(delta):
 			shake = 5
 			
 		if Input.is_action_pressed("gp_pad_fire") && canfire:
-			var laser = bullet_res.instance()
-			laser.position = position
-			laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
-			laser.speed = laser_speed*las_mult
-			laser.scale *= las_mult
-			laser.modulate.a = 0
-			if las_mult > 1:
-				laser.modulate.g -= las_mult/10
-				laser.modulate.r -= las_mult/5
-			laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
-			laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
-			get_parent().get_node("bullets").add_child(laser)
+			for i in range (1, cannons):
+				var laser = bullet_res.instance()
+				laser.position = position
+				laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
+				laser.speed = laser_speed*las_mult
+				laser.position = position
+				laser.scale *= las_mult
+				laser.modulate.a = 0
+				if las_mult > 1:
+					laser.modulate.g -= las_mult/10
+					laser.modulate.r -= las_mult/5
+					laser.modulate.b += las_mult/12
+				laser.targetx = (position.x + (Input.get_joy_axis(0, 2))*4)
+				laser.targety = (position.y + (Input.get_joy_axis(0, 3))*4)
+				get_parent().get_node("bullets").add_child(laser)
+				bullets.append(laser)
+			if bullets.size() == 2:
+				bullets[0].position += Vector2(0, -20)
+				bullets[1].position += Vector2(0, 20)
+			if bullets.size() == 3:
+				bullets[1].position += Vector2(0, -30)
+				bullets[2].position += Vector2(0, 30)
+			bullets.clear()
 			canfire = false
 			get_node("Timer").wait_time =  1/(las_mult*7.5)
 			get_node("Timer").start()
 			laser_sound.play()
 			shake = 5
 		
-		HP = clamp(HP,-1,100)
+		HP = clamp(HP,-1,MaxHP)
 		if HP < 0:
 			die()
 			HP = 0
@@ -140,6 +164,8 @@ func _process(delta):
 		vel += acc * delta
 		pos += vel * delta
 		position = pos
+		if get_node("SpriteFlash").modulate.a > 0:
+			get_node("SpriteFlash").modulate.a -= 0.025
 	
 func cam_shake(intensity):
 	cam.offset = Vector2(rand_range(-intensity, intensity), rand_range(-intensity, intensity))
@@ -148,14 +174,19 @@ func cam_shake(intensity):
 func hurt(amnt):
 	if vul:
 		HP -= amnt
-	shake = 30
-	hit_sound.play()
-	scrape_sound.play()
+		vul = false
+		shake = 30
+		hit_sound.play()
+		get_node("SpriteFlash").modulate.a = 2
+		get_node("Spark").emitting = true
+		get_node("Timer3").start()
+		scrape_sound.play()
 
 func fire_cooldown():
 	canfire = true
 	
 func die():
+	level.death_pos = global_position
 	var boom = explosion.instance()
 	boom.position = global_position
 	FX_LAYER.add_child(boom)
@@ -163,3 +194,7 @@ func die():
 
 func death_timer():
 	emit_signal("death")
+
+func hurt_timer_out():
+	vul = true
+	get_node("Spark").emitting = false
