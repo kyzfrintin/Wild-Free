@@ -17,13 +17,13 @@ var trail
 var distance = 0.0
 var speed = 15
 var strength = 0
-var HP = 100
+var HP = 0
 var damage = 0
 
 func _ready():
 	if !level.player_dead:
 		strength = rand_range(0.8,3+(CustCarrier.lvl/2))
-		HP = HP*strength
+		HP = 50*strength
 		scale = scale*strength
 		damage = 4*strength
 		trail.width = floor(20*strength)

@@ -63,6 +63,6 @@ func drone_hit(body, drone):
 			boom.position = drone.position
 			boom.scale = drone.scale*1.8
 			if !level.player_dead:
-				player.shake = 60*drone.strength
+				player.shake(20)
 			FX_LAYER.add_child(boom)
 			drone.die()

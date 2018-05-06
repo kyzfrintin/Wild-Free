@@ -25,7 +25,9 @@ onready var explosion = res_pool.get_resource("multi_splode")
 
 var x_axis
 var y_axis
-var shake = 0
+var shake = false
+var shake_num = 0
+var shake_amnt = 40
 var vel = Vector2()
 var rot = 0
 var pos = Vector2()
@@ -101,7 +103,7 @@ func _process(delta):
 			tween.start()
 			boost_sound.play()
 			boostemit.emitting = true
-			shake = 10
+			shake(30)
 		
 		if Input.is_mouse_button_pressed(1) && canfire:
 			for i in range(0, cannons):
@@ -130,7 +132,7 @@ func _process(delta):
 			get_node("Timer").wait_time = 1/(las_mult*7.5)
 			get_node("Timer").start()
 			laser_sound.play()
-			shake = 5
+			shake(15)
 			
 		if Input.is_action_pressed("gp_pad_fire") && canfire:
 			for i in range(1, cannons):
@@ -159,15 +161,16 @@ func _process(delta):
 			get_node("Timer").wait_time = 1/(las_mult*7.5)
 			get_node("Timer").start()
 			laser_sound.play()
-			shake = 5
+			shake(15)
 		
 		HP = clamp(HP,-1,MaxHP)
 		if HP < 0:
 			die()
 			HP = 0
 			
-		if shake > 0:
-			cam_shake(10)
+		if shake && shake_num > 0:
+			shake_num -= 1
+			cam.offset = Vector2(rand_range(-shake_amnt, shake_amnt), rand_range(-shake_amnt, shake_amnt))
 		else:
 			cam.offset = Vector2(0,0)
 		
@@ -178,14 +181,15 @@ func _process(delta):
 		if get_node("SpriteFlash").modulate.a > 0:
 			get_node("SpriteFlash").modulate.a -= 0.025
 	
-func cam_shake(intensity):
-	cam.offset = Vector2(rand_range(-intensity, intensity), rand_range(-intensity, intensity))
-	shake -= 1
+func shake(intensity):
+	shake = true
+	shake_num = 20
+	shake_amnt = intensity
 	
 func hurt(amnt):
 	if vul:
 		HP -= amnt
-		shake = 30
+		shake(50)
 		get_node("SpriteFlash").modulate.a = 2
 		get_node("Spark").emitting = true
 		get_node("Timer3").start()

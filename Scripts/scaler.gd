@@ -5,8 +5,8 @@ onready var nest_slider = get_node("nest_panel/HSlider")
 onready var drone_counter = get_node("drone_panel/title")
 onready var drone_slider = get_node("drone_panel/HSlider")
 
-var nest_count = 5.0
-var drone_count = 20.0
+var nest_count = 20
+var drone_count = 100
 var active = false
 var index = 1
 

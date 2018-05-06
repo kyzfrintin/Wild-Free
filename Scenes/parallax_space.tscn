@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/star_gen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ast_gen.tscn" type="PackedScene" id=2]
 
-[node name="bg_parallax" type="ParallaxBackground" index="0"]
+[node name="bg_parallax" type="ParallaxBackground"]
 
 layer = -1
 offset = Vector2( 0, 0 )
@@ -57,7 +57,7 @@ number = 3400
 
 [node name="ast_far" type="ParallaxLayer" parent="." index="3"]
 
-scale = Vector2( 6, 6 )
+scale = Vector2( 8, 8 )
 motion_scale = Vector2( 0.12, 0.12 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
@@ -69,7 +69,7 @@ number = 140
 
 [node name="ast_close" type="ParallaxLayer" parent="." index="4"]
 
-scale = Vector2( 4, 4 )
+scale = Vector2( 5, 5 )
 motion_scale = Vector2( 0.17, 0.17 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
@@ -78,6 +78,6 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="ast_generator" parent="ast_close" index="0" instance=ExtResource( 2 )]
 
 _sections_unfolded = [ "Transform" ]
-number = 50
+number = 170
 
 

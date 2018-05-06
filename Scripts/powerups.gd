@@ -8,9 +8,9 @@ onready var multicannon_res = load("res://Scenes/multicannon.tscn")
 onready var text_res = load("res://Scenes/pickup_text.tscn")
 onready var can_timer = get_node("multicannon_timer")
 var Max_HPU = floor(CustCarrier.drones*0.8)
-var Max_LP = floor(CustCarrier.nests * 4)
-var Max_HU = floor(CustCarrier.drones * 5)
-var Max_MC = floor(CustCarrier.nests * 5)
+var Max_LP = floor(CustCarrier.nests * 2)
+var Max_HU = floor(CustCarrier.drones * 2)
+var Max_MC = floor(CustCarrier.nests * 3)
 
 func max_health_pickup(body, pickup):
 	var hitname = body.get_name()

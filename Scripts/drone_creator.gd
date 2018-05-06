@@ -24,7 +24,7 @@ func _process(delta):
 	get_node("top_base").rotation += 0.01*rot2
 	
 	if get_parent().nests > 0:
-		scaled_num = (CustCarrier.drones/2.5)/(get_parent().nests*1.5)
+		scaled_num = (CustCarrier.drones/2.5)/(get_parent().nests)
 		if scaled_num < 1:
 			scaled_num = 2
 	if HP < 1 && !dead:
@@ -34,12 +34,13 @@ func _process(delta):
 func _ready():
 	pos = position
 	connect("body_entered", get_parent(), "nest_hit", [self])
+	spawner.wait_time = rand_range(5,10+(CustCarrier.drones/2))
 	spawner.start()
 	
 func on_spawn():
 	var number = 0
 	if get_parent().drones < get_parent().Max_Drones - scaled_num:
-		number = floor(rand_range(1, (scaled_num)))
+		number = floor(rand_range(0, (scaled_num)))
 	for i in range(number):
 		var drone = drone_res.instance()
 		var trail = trail_res.instance()
@@ -57,7 +58,7 @@ func on_spawn():
 		get_parent().add_child(trail)
 		get_parent().add_child(drone)
 		get_parent().drones += 1
-	spawner.wait_time = rand_range(4,8+(CustCarrier.drones/3))
+	spawner.wait_time = rand_range(5,10+(CustCarrier.drones/2))
 	spawner.start()
 
 
@@ -65,7 +66,7 @@ func explode():
 	var boom = multi_splode_res.instance()
 	boom.position = position
 	boom.scale *= 1.5
-	level.score += 2500
+	level.score += 2500*(CustCarrier.nests/10)
 	get_parent().FX_LAYER.add_child(boom)
 	get_node("dead_timer").start()
 

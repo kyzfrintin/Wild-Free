@@ -234,7 +234,7 @@ autostart = false
 
 [node name="FX" type="Node2D" parent="." index="7"]
 
-modulate = Color( 1, 0.9, 0.9, 0.56 )
+modulate = Color( 1.7, 1.3, 0.9, 0.366667 )
 
 [node name="UI" type="CanvasLayer" parent="." index="8"]
 

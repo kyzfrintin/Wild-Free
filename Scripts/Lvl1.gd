@@ -44,9 +44,8 @@ func _process(delta):
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
 	drone_num.text = str("DRONES: " + str(drone_nests.drones))
 	intensity = (drone_nests.drones/drone_nests.Max_Drones)*12
-	intensity = floor(intensity)
+	intensity = clamp(floor(intensity*1.75),0,11)
 	score_bar.text = str("SCORE: " + str(floor(score)))
-#	get_node("UI/Panel/Label3").text = str(intensity)
 	music_a._muteAboveLayer(intensity)
 	if barshake:
 		HPbar.rect_position = Vector2(rand_range(22,28),rand_range(22,28))
