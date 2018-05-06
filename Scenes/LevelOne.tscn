@@ -181,7 +181,7 @@ use_filter = false
 font_data = ExtResource( 16 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelOne" type="Node2D" index="0"]
+[node name="LevelOne" type="Node2D"]
 
 script = ExtResource( 1 )
 

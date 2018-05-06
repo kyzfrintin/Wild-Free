@@ -28,6 +28,7 @@ func _ready():
 		damage = 10*strength
 		trail.width = floor(20*strength)
 		connect("body_entered", home, "drone_hit", [self])
+		get_node("Timer2").start()
 		approach()
 
 func approach():
@@ -78,6 +79,15 @@ func flash_timer():
 	sprite.modulate.g = 1
 	sprite.modulate.b = 3
 
-
 func _on_attack_tween_tween_step(object, key, elapsed, value):
 	look_at(player.position)
+
+
+func boop_timeout():
+	var chooser = rand_range(0,1)
+	if chooser >= 0.5:
+		get_node("drone_boop1").play()
+	else:
+		get_node("drone_boop2").play()
+	get_node("Timer2").wait_time = chooser*5
+	get_node("Timer2").start()
