@@ -36,7 +36,7 @@ func approach():
 		var app_range = 800
 		var app_vec = Vector2(player.global_position.x+rand_range(-app_range,app_range), player.global_position.y+rand_range(-app_range,app_range))
 		look_at(app_vec)
-		app_tween.interpolate_property(self, 'global_position', global_position, app_vec, 1*strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		app_tween.interpolate_property(self, 'global_position', global_position, app_vec, 1.5*strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
 		app_tween.start()
 	
 func attack():
@@ -45,7 +45,7 @@ func attack():
 		look_at(player.position)
 		var att_vec = player.position+player.vel
 		att_vec += Vector2(rand_range(-500,500),rand_range(-500,500))
-		att_tween.interpolate_property(self, 'global_position', global_position, att_vec, 0.5*strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		att_tween.interpolate_property(self, 'global_position', global_position, att_vec, 0.8*strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
 		att_tween.start()
 		pass
 

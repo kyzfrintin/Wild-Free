@@ -24,7 +24,7 @@ func _process(delta):
 	get_node("top_base").rotation += 0.01*rot2
 	
 	if get_parent().nests > 0:
-		scaled_num = (CustCarrier.drones/2.5)/(get_parent().nests)
+		scaled_num = (CustCarrier.drones*0.7)/(get_parent().nests)
 		if scaled_num < 1:
 			scaled_num = 2
 	if HP < 1 && !dead:

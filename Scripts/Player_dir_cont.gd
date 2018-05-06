@@ -135,7 +135,7 @@ func _process(delta):
 			shake(15)
 			
 		if Input.is_action_pressed("gp_pad_fire") && canfire:
-			for i in range(1, cannons):
+			for i in range(0, cannons):
 				var laser = bullet_res.instance()
 				laser.damage = (las_dam*las_mult)*(rand_range(0.5*las_mult,2.5*las_mult))
 				laser.speed = laser_speed*las_mult

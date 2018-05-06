@@ -23,8 +23,8 @@ func _process(delta):
 		index -= 1
 	if Input.is_action_pressed("ui_accept"):
 		if index == 1:
-			CustCarrier.nests = floor(CustCarrier.nests * 1.5)
-			CustCarrier.drones = floor(CustCarrier.drones * 1.1)
+			CustCarrier.nests = floor(CustCarrier.nests * 1.2)
+			CustCarrier.drones = floor(CustCarrier.drones * 1.6)
 			CustCarrier.score = get_parent().score
 			CustCarrier.lvl += 1
 			get_tree().reload_current_scene()

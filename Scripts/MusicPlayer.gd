@@ -115,7 +115,7 @@ func _fadeIn(layer):
 func _fadeOut(layer):
 	var target = players[layer]
 	var in_from = target.get_volume_db()
-	tweens[layer].interpolate_property(target, 'volume_db', in_from, -60.0, transition_beats, Tween.TRANS_SINE, Tween.EASE_OUT)
+	tweens[layer].interpolate_property(target, 'volume_db', in_from, -70.0, transition_beats, Tween.TRANS_SINE, Tween.EASE_IN)
 	tweens[layer].start()
 
 func _queueBarTransition(faders):

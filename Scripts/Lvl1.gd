@@ -4,6 +4,7 @@ onready var res_pool = get_node("ResourcePreloader")
 onready var explosion = res_pool.get_resource("multi_splode")
 onready var death_screen = res_pool.get_resource("you_died")
 onready var level_clear = res_pool.get_resource("level_clear")
+onready var bullets = get_node("bullets")
 onready var player
 onready var FX_LAYER = get_node("FX")
 onready var HPbar = get_node("UI/Panel/ProgressBar")
@@ -11,6 +12,7 @@ onready var music_a = MusicPlayer
 onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Panel/Label")
 onready var drone_num = get_node("UI/Panel/Label2")
+onready var debug_text = get_node("UI/Panel/debugtext")
 onready var score_bar = get_node("UI/score_panel/score_text")
 onready var HPtext = get_node("UI/Panel/ProgressBar/HPLabel")
 onready var hurt_timer = get_node("hurt_timer")
@@ -42,11 +44,9 @@ func _process(delta):
 		HPbar.value = player.HP
 		HPtext.text = str(str(floor(HPbar.value)) + " / " + str(HPbar.max_value))
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
-	drone_num.text = str("DRONES: " + str(drone_nests.drones))
-	intensity = (drone_nests.drones/drone_nests.Max_Drones)*12
-	intensity = clamp(floor(intensity*1.75),0,11)
 	score_bar.text = str("SCORE: " + str(floor(score)))
-	music_a._muteAboveLayer(intensity)
+	drone_num.text = str("DRONES: " + str(drone_nests.drones))
+	debug_text.text = str(intensity)
 	if barshake:
 		HPbar.rect_position = Vector2(rand_range(22,28),rand_range(22,28))
 	else:
@@ -70,6 +70,7 @@ func player_hit():
 func _ready():
 	get_node("UI/best_panel/best_text").text = str("BEST: " + str(highscore.bestscore))
 	score = CustCarrier.score
+	get_node("music_timer").start()
 	if !music_a.playing:
 		music_a._startAlone(0)
 	
@@ -100,3 +101,9 @@ func _on_dead_timer_timeout():
 func _on_hurt_timer_timeout():
 	redbar.modulate.a = 0
 	barshake = false
+
+func _on_music_timer_timeout():
+	intensity = ((drone_nests.drones+bullets.get_child_count()+FX_LAYER.get_child_count())/(drone_nests.Max_Drones*0.4))*12
+	intensity = clamp(floor(intensity), 0, 11)
+	music_a._muteAboveLayer(intensity)
+	get_node("music_timer").start()
