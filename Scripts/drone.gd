@@ -33,8 +33,8 @@ func _ready():
 
 func approach():
 	if !level.player_dead:
-		var app_range = 1200
-		var app_vec = Vector2(player.pos.x+rand_range(-app_range,app_range), player.pos.y+rand_range(-app_range,app_range))
+		var app_range = 800
+		var app_vec = Vector2(player.global_position.x+rand_range(-app_range,app_range), player.global_position.y+rand_range(-app_range,app_range))
 		app_vec += player.vel
 		look_at(app_vec)
 		app_tween.interpolate_property(self, 'position', position, app_vec, 3/strength, Tween.TRANS_EXPO, Tween.EASE_OUT)
@@ -43,8 +43,8 @@ func approach():
 func attack():
 	if !level.player_dead:
 		att_snd.play()
+		look_at(player.global_position)
 		var att_vec = att_ray.cast_to.rotated(rotation)
-		look_at(player.pos)
 		att_tween.interpolate_property(self, 'position', position, att_vec, 0.95/strength, Tween.TRANS_EXPO, Tween.EASE_IN)
 		att_tween.start()
 		pass
@@ -54,11 +54,11 @@ func damage(amnt):
 
 func _on_end_approach(object, key):
 	if !level.player_dead:
-		distance = position.distance_to(player.pos)
+		distance = position.distance_to(player.global_position)
 		if distance > 1900 :
 			approach()
 		else:
-			look_at(player.pos)
+			look_at(player.global_position)
 			timer.wait_time = 2/strength
 			timer.start()
 
