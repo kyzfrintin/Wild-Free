@@ -79,7 +79,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Initial Velocity", "Radial Accel", "Spread", "Tangential Accel" ]
 
-[node name="drone" type="Area2D" index="0"]
+[node name="drone" type="Area2D"]
 
 scale = Vector2( 0.7, 0.7 )
 input_pickable = true
@@ -183,21 +183,14 @@ attenuation = 2.0
 bus = "DroneSounds"
 area_mask = 1
 
-[node name="attack_vec" type="RayCast2D" parent="." index="10"]
-
-enabled = false
-exclude_parent = true
-cast_to = Vector2( 2000, 0 )
-collision_mask = 16
-
-[node name="Timer" type="Timer" parent="." index="11"]
+[node name="Timer" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 0.08
 one_shot = true
 autostart = false
 
-[node name="hit_part" type="Particles2D" parent="." index="12"]
+[node name="hit_part" type="Particles2D" parent="." index="11"]
 
 emitting = false
 amount = 50
@@ -221,6 +214,8 @@ v_frames = 1
 [connection signal="tween_completed" from="approach_tween" to="." method="_on_end_approach"]
 
 [connection signal="tween_completed" from="attack_tween" to="." method="_on_attack_finish"]
+
+[connection signal="tween_step" from="attack_tween" to="." method="_on_attack_tween_tween_step"]
 
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 

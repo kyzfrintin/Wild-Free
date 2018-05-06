@@ -41,17 +41,22 @@ var las_mult = 1
 var vul = true
 
 signal death
+signal hurt
 
 func _ready():
 	MaxHP = CustCarrier.MaxHP
 	HP = CustCarrier.HP
 	las_mult = CustCarrier.las_mult
 	connect("death", get_parent(), "player_died")
+	connect("hurt", get_parent(), "player_hit")
 	
 func _process(delta):
 	if !level.player_dead:
 		if Input.is_action_just_pressed("cheat_god_mode"):
-			vul = false
+			if vul:
+				vul = false
+			else:
+				vul = true
 		
 		x_axis = Input.get_joy_axis(0,0)
 		y_axis = Input.get_joy_axis(0,1)
@@ -186,6 +191,7 @@ func hurt(amnt):
 		get_node("Timer3").start()
 		hit_sound.play()
 		scrape_sound.play()
+		emit_signal("hurt")
 
 func fire_cooldown():
 	canfire = true

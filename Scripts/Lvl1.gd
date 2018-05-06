@@ -12,9 +12,12 @@ onready var drone_nests = get_node("drone_nests")
 onready var nest_num = get_node("UI/Panel/Label")
 onready var drone_num = get_node("UI/Panel/Label2")
 onready var score_bar = get_node("UI/score_panel/score_text")
-onready var HPtext = get_node("UI/Panel/HPLabel")
+onready var HPtext = get_node("UI/Panel/ProgressBar/HPLabel")
+onready var hurt_timer = get_node("hurt_timer")
+onready var redbar = get_node("UI/Panel/ProgressBar/redbar")
 var player_dead = false
 var intensity = 0.0
+var barshake = 0
 var arr = 0
 var score
 var death_pos = Vector2(0,0)
@@ -45,15 +48,27 @@ func _process(delta):
 	score_bar.text = str("SCORE: " + str(floor(score)))
 #	get_node("UI/Panel/Label3").text = str(intensity)
 	music_a._muteAboveLayer(intensity)
+	if barshake:
+		HPbar.rect_position = Vector2(rand_range(22,28),rand_range(22,28))
+	else:
+		HPbar.rect_position = Vector2(25,27)
 
 func player_died():
 	player_dead = true
 	for i in drone_nests.drones:
 		i.idle = true
 	player.visible = false
-	
+	if player.thrust_loop.playing  == true:
+		player.thrust_loop.stop()
+		player.thrust_start.stop()
+		player.thrust_rumble.stop()
 	get_node("dead_timer").start()
-
+	
+func player_hit():
+	hurt_timer.start()
+	barshake = true
+	redbar.modulate.a = 1
+	hurt_timer.start()
 
 func _ready():
 	get_node("UI/best_panel/best_text").text = str("BEST: " + str(highscore.bestscore))
@@ -83,3 +98,8 @@ func _on_dead_timer_timeout():
 	if score > highscore.bestscore:
 		highscore.set_bestscore(score)
 	add_child(you_died)
+
+
+func _on_hurt_timer_timeout():
+	redbar.modulate.a = 0
+	barshake = false

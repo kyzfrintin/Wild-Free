@@ -39,18 +39,23 @@ var las_mult
 var vul = true
 
 signal death
+signal hurt
 
 func _ready():
 	MaxHP = CustCarrier.MaxHP
 	HP = CustCarrier.HP
 	las_mult = CustCarrier.las_mult
 	connect("death", get_parent(), "player_died")
+	connect("hurt", get_parent(), "player_hit")
 	
 
 func _process(delta):
 	if !level.player_dead:
 		if Input.is_action_just_pressed("cheat_god_mode"):
-			vul = false
+			if vul:
+				vul = false
+			else:
+				vul = true
 		
 		if Input.is_action_pressed("gp_left"):
 			rot -= turn_spd * delta

@@ -42,7 +42,7 @@ func nest_hit(body, nest):
 func drone_hit(body, drone):
 	var hitname = body.get_name()
 	if body == player:
-		body.hurt(7.5*drone.strength)
+		body.hurt(drone.damage)
 	if "Laser" in hitname:
 		drone.hit_snd.play()
 		drone.ding_snd.play()
@@ -54,8 +54,11 @@ func drone_hit(body, drone):
 		drone.damage(body.damage)
 		body.queue_free()
 		if drone.HP < 0:
-			var droneid = drones.find(drone,0)
-			drones.remove(droneid)
+			if drones.size() > 1:
+				var droneid = drones.find(drone,0)
+				drones.remove(droneid)
+			else: 
+				drones.clear()
 			level.score += floor(500 + drone.distance/20)
 			var boom = drone_boom_res.instance()
 			boom.position = drone.position

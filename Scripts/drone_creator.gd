@@ -24,9 +24,9 @@ func _process(delta):
 	get_node("top_base").rotation += 0.01*rot2
 	
 	if get_parent().nests > 0:
-		scaled_num = (CustCarrier.drones/2)/(get_parent().nests*1.5)
+		scaled_num = (CustCarrier.drones/2.5)/(get_parent().nests*1.5)
 		if scaled_num < 1:
-			scaled_num = 1
+			scaled_num = 2
 	if HP < 1 && !dead:
 		dead = true
 		explode()
@@ -57,7 +57,7 @@ func on_spawn():
 		get_parent().add_child(trail)
 		get_parent().add_child(drone)
 		get_parent().drones.append(drone)
-	spawner.wait_time = rand_range(4,10)
+	spawner.wait_time = rand_range(4,10+(CustCarrier.drones/3))
 	spawner.start()
 
 
