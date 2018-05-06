@@ -17,7 +17,7 @@ var HP = 1000
 var dead = false
 var pos
 var level
-var scaled_num = CustCarrier.drones/CustCarrier.nests
+var scaled_num = 1
 
 func _process(delta):
 	get_node("bot_base").rotation += 0.001*rot1
@@ -38,8 +38,8 @@ func _ready():
 	
 func on_spawn():
 	var number = 0
-	if get_parent().drones.size() < get_parent().Max_Drones - scaled_num:
-		number = floor(rand_range(0, (scaled_num)))
+	if get_parent().drones < get_parent().Max_Drones - scaled_num:
+		number = floor(rand_range(1, (scaled_num)))
 	for i in range(number):
 		var drone = drone_res.instance()
 		var trail = trail_res.instance()
@@ -56,8 +56,8 @@ func on_spawn():
 		trail.position = drone.position
 		get_parent().add_child(trail)
 		get_parent().add_child(drone)
-		get_parent().drones.append(drone)
-	spawner.wait_time = rand_range(4,10+(CustCarrier.drones/3))
+		get_parent().drones += 1
+	spawner.wait_time = rand_range(4,8+(CustCarrier.drones/3))
 	spawner.start()
 
 

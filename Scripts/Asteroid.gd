@@ -2,7 +2,7 @@ extends Sprite
 
 onready var ast_res = load("res://Scenes/SmallAst.tscn")
 
-var max_small = 60
+var max_small = 20
 var scaler = 0.0
 
 func _ready():
@@ -12,8 +12,8 @@ func _ready():
 	
 	for i in range(num):
 		var ast = ast_res.instance()
-		ast.position.x = rand_range(-500, 500)
-		ast.position.y = rand_range(-500, 500)
+		ast.position.x = rand_range(-1000, 1000)
+		ast.position.y = rand_range(-1000, 1000)
 		ast.rotation = rand_range(0,360)
 		add_child(ast)
 

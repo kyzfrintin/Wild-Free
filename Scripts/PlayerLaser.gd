@@ -6,7 +6,7 @@ var targety
 var damage
 
 func _ready():
-	rotation = get_angle_to(Vector2(targetx, targety))
+	look_at(Vector2(targetx, targety))
 	get_node("Timer").start()
 	pass
 	

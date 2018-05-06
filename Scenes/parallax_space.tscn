@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/star_gen.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ast_gen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/asteroids.gd" type="Script" id=3]
 
-[node name="bg_parallax" type="ParallaxBackground"]
+[node name="bg_parallax" type="ParallaxBackground" index="0"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -29,7 +27,7 @@ _sections_unfolded = [ "Motion" ]
 [node name="star_gen" type="Node2D" parent="star_far" index="0"]
 
 script = ExtResource( 1 )
-number = 1000
+number = 1200
 
 [node name="star_med" type="ParallaxLayer" parent="." index="1"]
 
@@ -42,7 +40,7 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="star_gen" type="Node2D" parent="star_med" index="0"]
 
 script = ExtResource( 1 )
-number = 1200
+number = 2000
 
 [node name="star_close" type="ParallaxLayer" parent="." index="2"]
 
@@ -55,32 +53,31 @@ _sections_unfolded = [ "Motion", "Transform" ]
 [node name="star_gen" type="Node2D" parent="star_close" index="0"]
 
 script = ExtResource( 1 )
-number = 1500
+number = 3400
 
 [node name="ast_far" type="ParallaxLayer" parent="." index="3"]
 
+scale = Vector2( 6, 6 )
 motion_scale = Vector2( 0.12, 0.12 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion" ]
 
-[node name="ast_generator" type="Node2D" parent="ast_far" index="0" instance=ExtResource( 2 )]
+[node name="ast_generator" parent="ast_far" index="0" instance=ExtResource( 2 )]
 
-script = ExtResource( 3 )
-number = 260
+number = 140
 
 [node name="ast_close" type="ParallaxLayer" parent="." index="4"]
 
-scale = Vector2( 3, 3 )
+scale = Vector2( 4, 4 )
 motion_scale = Vector2( 0.17, 0.17 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
 _sections_unfolded = [ "Motion", "Transform" ]
 
-[node name="ast_generator" type="Node2D" parent="ast_close" index="0" instance=ExtResource( 2 )]
+[node name="ast_generator" parent="ast_close" index="0" instance=ExtResource( 2 )]
 
-script = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
-number = 100
+number = 50
 
 

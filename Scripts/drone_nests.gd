@@ -8,8 +8,8 @@ onready var level = get_parent()
 var Max_Nests = floor(CustCarrier.nests)
 var Max_Drones = floor(CustCarrier.drones)
 onready var player = get_parent().get_node("player")
-var drones = []
-var nests
+var drones = 0
+var nests = 0
 var clear = false
 
 signal clear
@@ -27,9 +27,12 @@ func _ready():
 	connect("clear", level, "on_clear")
 
 func _process(delta):
-	if (nests == 0) and (drones.size() == 0) and !clear:
+	drones = clamp(drones,0,500)
+	
+	if (nests == 0) and (drones == 0) and !clear:
 		clear = true
 		emit_signal("clear")
+	
 
 func nest_hit(body, nest):
 	var hitname = body.get_name()
@@ -54,11 +57,7 @@ func drone_hit(body, drone):
 		drone.damage(body.damage)
 		body.queue_free()
 		if drone.HP < 0:
-			if drones.size() > 1:
-				var droneid = drones.find(drone,0)
-				drones.remove(droneid)
-			else: 
-				drones.clear()
+			drones -= 1
 			level.score += floor(500 + drone.distance/20)
 			var boom = drone_boom_res.instance()
 			boom.position = drone.position

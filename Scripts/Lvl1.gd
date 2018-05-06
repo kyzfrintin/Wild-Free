@@ -42,8 +42,8 @@ func _process(delta):
 		HPbar.value = player.HP
 		HPtext.text = str(str(floor(HPbar.value)) + " / " + str(HPbar.max_value))
 	nest_num.text = str("NESTS: " + str(drone_nests.nests))
-	drone_num.text = str("DRONES: " + str(drone_nests.drones.size()))
-	intensity = (float(drone_nests.drones.size())/drone_nests.Max_Drones)*12
+	drone_num.text = str("DRONES: " + str(drone_nests.drones))
+	intensity = (drone_nests.drones/drone_nests.Max_Drones)*12
 	intensity = floor(intensity)
 	score_bar.text = str("SCORE: " + str(floor(score)))
 #	get_node("UI/Panel/Label3").text = str(intensity)
@@ -55,8 +55,6 @@ func _process(delta):
 
 func player_died():
 	player_dead = true
-	for i in drone_nests.drones:
-		i.idle = true
 	player.visible = false
 	if player.thrust_loop.playing  == true:
 		player.thrust_loop.stop()
