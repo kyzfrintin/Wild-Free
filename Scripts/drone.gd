@@ -89,5 +89,5 @@ func boop_timeout():
 		get_node("drone_boop1").play()
 	else:
 		get_node("drone_boop2").play()
-	get_node("Timer2").wait_time = chooser*5
+	get_node("Timer2").wait_time = chooser*2
 	get_node("Timer2").start()
