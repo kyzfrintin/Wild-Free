@@ -74,7 +74,7 @@ random_pitch = 1.1
 audio_stream = ExtResource( 7 )
 random_pitch = 1.1
 
-[node name="drone_factory" type="Area2D"]
+[node name="drone_factory" type="Area2D" index="0"]
 
 scale = Vector2( 1.5, 1.5 )
 input_pickable = true
