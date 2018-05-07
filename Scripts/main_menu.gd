@@ -8,6 +8,9 @@ onready var exit_but = get_node("TITLE/hover2/exit_but")
 onready var rot_but = get_node("TITLE/hover3/rot_but")
 onready var dir_but = get_node("TITLE/hover4/dir_but")
 onready var rd_sel = get_node("TITLE/rot_dir_select")
+onready var boop = get_node("sounds/click")
+onready var switch_snd = get_node("sounds/switch")
+onready var select = get_node("sounds/select")
 var index = 0
 
 func _ready():
@@ -17,7 +20,10 @@ func _ready():
 	CustCarrier.HP = 100
 	margin_right = get_viewport_rect().size.x
 	margin_bottom = get_viewport_rect().size.y
-	MusicPlayer._startAlone(0)
+	if !MusicPlayer.playing:
+		MusicPlayer._startAlone(0)
+	else:
+		MusicPlayer._muteAboveLayer(4)
 	
 func _process(delta):
 	get_node("TITLE").rect_position += Vector2(12,4)
@@ -27,29 +33,30 @@ func _process(delta):
 		get_node("TITLE/nest_highlight").visible = false
 		get_node("TITLE/drone_highlight").visible = false
 		if Input.is_action_just_pressed("ui_down"):
+			boop.play()
 			index += 1
 			
 		if Input.is_action_just_pressed("ui_up"):
+			boop.play()
 			index -= 1
 			
-		if Input.is_action_pressed("ui_accept"):
-			if index == 1:
-				CustCarrier.nests = scaler.nest_count
-				CustCarrier.drones = scaler.drone_count
-				get_tree().change_scene_to(level_one)
+		if Input.is_action_just_pressed("ui_accept"):
+			if index != 0:
+				select.play()
 			if index == 2:
 				MusicPlayer._stop()
-				get_tree().quit()
 			if index == 3:
 				CustCarrier.cont = "rot"
 			if index == 4:
 				CustCarrier.cont = "dir"
 				
 	if Input.is_action_just_pressed("ui_focus_next"):
+		switch_snd.play()
 		index = 0
 		scaler.active = true
 		
 	if Input.is_action_just_pressed("ui_focus_prev"):
+		switch_snd.play()
 		index = 1
 		scaler.active = false
 		
@@ -88,9 +95,11 @@ func _process(delta):
 		dir_but.modulate.b = 255
 
 func play_entered():
+	boop.play()
 	index = 1
 
 func exit_entered():
+	boop.play()
 	index = 2
 
 func play_leave():
@@ -100,9 +109,11 @@ func exit_leave():
 	index = 0
 
 func rot_entered():
+	boop.play()
 	index = 3
 
 func dir_entered():
+	boop.play()
 	index = 4
 
 func rot_leave():
@@ -110,3 +121,11 @@ func rot_leave():
 
 func dir_leave():
 	index = 0
+
+func _on_select_finished():
+	if index == 1:
+		CustCarrier.nests = scaler.nest_count
+		CustCarrier.drones = scaler.drone_count
+		get_tree().change_scene_to(level_one)
+	if index == 2:
+		get_tree().quit()

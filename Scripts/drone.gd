@@ -30,6 +30,9 @@ func _ready():
 		connect("body_entered", home, "drone_hit", [self])
 		get_node("Timer2").start()
 		approach()
+func _process(delta):
+	if Input.is_action_just_pressed("cheat_kill_all"):
+		HP = 0
 
 func approach():
 	if !level.player_dead:

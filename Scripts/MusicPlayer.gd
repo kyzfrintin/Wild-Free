@@ -19,7 +19,6 @@ export var beats_in_bar = 4.0
 export var transition_beats = 4.0
 
 onready var tweens = [get_node("Tween")] 
-onready var met = get_node("beat_tone")
 onready var layers = [layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8, layer9, layer10, layer11, layer12]
 onready var audioplayer = preload("res://Scenes/Layer.tscn")
 

@@ -23,6 +23,9 @@ func _process(delta):
 	get_node("bot_base").rotation += 0.001*rot1
 	get_node("top_base").rotation += 0.01*rot2
 	
+	if Input.is_action_just_pressed("cheat_kill_all"):
+		HP = 0
+	
 	if get_parent().nests > 0:
 		scaled_num = (CustCarrier.drones*0.7)/(get_parent().nests)
 		if scaled_num < 1:

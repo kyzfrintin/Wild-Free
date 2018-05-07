@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ui_hover.wav-59c8f5510dcf0e6a9aec2418f77895c3.sample"
+
+[deps]
+
+source_file="res://Sound/FX/ui_hover.wav"
+source_md5="8114a7661e095f66903cfacadf38a578"
+
+dest_files=[ "res://.import/ui_hover.wav-59c8f5510dcf0e6a9aec2418f77895c3.sample" ]
+dest_md5="9eeb994c320b0caedb6626df8c81da94"
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/MusicPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Piano_Chords.wav" type="AudioStream" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Synth_Melody_Chords.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Drums_Heavy.wav" type="AudioStream" id=12]
 [ext_resource path="res://Sound/Music/Loop A/Mus_Loop_A_Urgent_Disto_Pad.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sound/Music/pulse.wav" type="AudioStream" id=14]
 
 [node name="MusicPlayer" type="Node2D"]
 
@@ -45,30 +44,14 @@ playback/repeat = false
 playback/speed = 1.0
 _sections_unfolded = [ "Pause", "playback" ]
 
-[node name="bar_tone" type="AudioStreamPlayer" parent="." index="1"]
-
-stream = null
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="beat_tone" type="AudioStreamPlayer" parent="." index="2"]
-
-stream = ExtResource( 14 )
-volume_db = -10.0
-autoplay = false
-mix_target = 2
-bus = "Master"
-
-[node name="kill_beat" type="Timer" parent="." index="3"]
+[node name="kill_beat" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 0.1
 one_shot = true
 autostart = false
 
-[node name="kill_bar" type="Timer" parent="." index="4"]
+[node name="kill_bar" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 0.2
